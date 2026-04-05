@@ -1,0 +1,157 @@
+[
+  {
+    "gap_id": "G1",
+    "section": "introduction",
+    "gap_text": "A key challenge in this domain is the Seating Allocation (SA) problem, which involves assigning teams to office space on a floor plan."
+  },
+  {
+    "gap_id": "G2",
+    "section": "introduction",
+    "gap_text": "The usefulness between HSA and SA is significant to large organizations as the humanevaluated solution quality to SA would be low due to failure to accommodate linked departments."
+  },
+  {
+    "gap_id": "G3",
+    "section": "introduction",
+    "gap_text": "The contributions of this paper are as follows:"
+  },
+  {
+    "gap_id": "G4",
+    "section": "introduction",
+    "gap_text": "The CPMP involves selecting p-medians (locations) from a finite set of medians to optimally serve a set of demand sites, such that each median does not exceed its associated capacity (Serafini 2012; Ceselli and Righini 2005; Boccia et al. 2007)."
+  },
+  {
+    "gap_id": "G5",
+    "section": "introduction",
+    "gap_text": "A direct optimization approach could be employed to minimize the total seat distance between each seat, but this results in a mixed-integer quadratic problem (MIQP), which is not scalable for large instances due to the number of decision variables in the objective."
+  },
+  {
+    "gap_id": "G6",
+    "section": "introduction",
+    "gap_text": "Conversely, if the allocation framework in step 2 does not adequately model human preferences, the solution quality, as reviewed by a human, would similarly be poor."
+  },
+  {
+    "gap_id": "G7",
+    "section": "introduction",
+    "gap_text": "However, the aforementioned approaches require an efficient and sparse representation of the floor plan in order to calculate the pairwise seat distances fast (Wu et al. 2021)."
+  },
+  {
+    "gap_id": "G8",
+    "section": "introduction",
+    "gap_text": "For high resolution floor plans when projected into x, y-plane, obtaining such efficient representations may require substantial manual editing."
+  },
+  {
+    "gap_id": "G9",
+    "section": "introduction",
+    "gap_text": "Similarly, finding an adequate representation is also made difficult if the quality of the provided floor plans is low."
+  },
+  {
+    "gap_id": "G10",
+    "section": "introduction",
+    "gap_text": "Moreover, for large organizations with extensive office footprints, manually adjusting each representation to compute optimal pairwise seat distances may be infeasible."
+  },
+  {
+    "gap_id": "G11",
+    "section": "introduction",
+    "gap_text": "To overcome the representation challenges of exact methods and the underestimation issues of distance norm approaches, we propose constructing a probabilistic roadmap (PRM) using rapidly-exploring random trees (RRT), augmented with an additional connectivity check that automatically connects seats within a threshold distance from any reachable node of the PRM."
+  },
+  {
+    "gap_id": "G12",
+    "section": "introduction",
+    "gap_text": "If the algorithm fails to connect all the seats, K can be increased, and the process repeated."
+  },
+  {
+    "gap_id": "G13",
+    "section": "introduction",
+    "gap_text": "The IPSA approach is computational expensive in practice due to the rapidly increasing number of variables in xik (|S|2), which makes large-scale problems intractable."
+  },
+  {
+    "gap_id": "G14",
+    "section": "introduction",
+    "gap_text": "The hyper-parameters for \u03b4c and \u03b4s were manually tuned until the algorithm converged with a node limit of K = 2000."
+  },
+  {
+    "gap_id": "G15",
+    "section": "introduction",
+    "gap_text": "However, for the HSAP we take the sum of this metric at every level in the hierarchy."
+  },
+  {
+    "gap_id": "G16",
+    "section": "introduction",
+    "gap_text": "Solving the HSAP problem as a single monolithic instance is intractable for small, medium and large scale instances (i.e. over 50 seats)."
+  },
+  {
+    "gap_id": "G17",
+    "section": "introduction",
+    "gap_text": "Depth First Hierarchical Seat Allocation (DF-HSA) To address the challenge of allocating an organizational hierarchy of teams we introduce the DF-HSA algorithm."
+  },
+  {
+    "gap_id": "G18",
+    "section": "introduction",
+    "gap_text": "We observe that this leads to allocations in which offices are allocated far from their team, but there were obvious better selections to make if there had been more information about office alignment while allocating higher levels of the organizational hierarchy."
+  },
+  {
+    "gap_id": "G19",
+    "section": "evaluation",
+    "gap_text": "Note that the unit of the distance reported is pixels (of the floor plan image) and as a result we do not compare distances between floor plans."
+  },
+  {
+    "gap_id": "G20",
+    "section": "evaluation",
+    "gap_text": "Similarly, for the IPSA approach we do not report the standard deviation for the run time, as only one run was performed, due to it being solved to optimality."
+  },
+  {
+    "gap_id": "G21",
+    "section": "evaluation",
+    "gap_text": "Our results indicate that ICA + LS outperforms other heuristics, but at a slightly increased execution time cost due to the local search procedure in small and medium instance."
+  },
+  {
+    "gap_id": "G22",
+    "section": "evaluation",
+    "gap_text": "However, ICA + LS converges slowly in large instances as the local search IP procedure is based on the IPSA problem formulation which in our instances did not scale with increased sizing of |S| Lastly, we observe that using the kmeans++ approach slightly improves the objective function compared to the ICA approach with little to no cost to the execution time."
+  },
+  {
+    "gap_id": "G23",
+    "section": "evaluation",
+    "gap_text": "Empirically, varying |S| or |T| across different instances is insufficient to gauge the time-to-solution, as the difficulty and structure of the organizational hierarchy can vary unpredictably."
+  },
+  {
+    "gap_id": "G24",
+    "section": "evaluation",
+    "gap_text": "Therefore, we cannot quantitatively conclude which method performs better across different cardinalities of S or T. 4.2 Qualitative Evaluation As stated earlier the human-evaluated solution quality is both affected by the estimation of pairwise seat distances and the team-to-seat allocation optimization."
+  },
+  {
+    "gap_id": "G25",
+    "section": "evaluation",
+    "gap_text": "Therefore, we will conduct a qualitative evaluation of both contributions."
+  },
+  {
+    "gap_id": "G26",
+    "section": "evaluation",
+    "gap_text": "Although the optimization procedure was solved to optimality, a human decision-maker might choose to manually relocate the two teal seats in the top right quadrant to be adjacent, even if this adjustment slightly reduces the overall optimization objective."
+  },
+  {
+    "gap_id": "G27",
+    "section": "evaluation",
+    "gap_text": "The ball-shaped output from using PRM may not be ideal for open and densely packed office floor plans."
+  },
+  {
+    "gap_id": "G28",
+    "section": "evaluation",
+    "gap_text": "However, in floor plans with greater distances between seats, the ball-shaped allocation was less pronounced."
+  },
+  {
+    "gap_id": "G29",
+    "section": "evaluation",
+    "gap_text": "Future work should try to improve the disconnect between the constrained programming and human-evaluated solution quality by studying in which scenarios different solution methods and distance estimation techniques performs best."
+  },
+  {
+    "gap_id": "G30",
+    "section": "conclusion",
+    "gap_text": "5 Conclusion Our contributions are twofold: (1) we introduce a novel approach for calculating pairwise seat distances to overcome representation problems for high resolution floor plans, and (2) introduce the hierarchical seating allocation problem (HSAP)."
+  },
+  {
+    "gap_id": "G31",
+    "section": "conclusion",
+    "gap_text": "Future work could focus on developing a dynamic pipeline to determine the most suitable algorithm(s) based on the size and complexity of each subproblem could be beneficial."
+  }
+]

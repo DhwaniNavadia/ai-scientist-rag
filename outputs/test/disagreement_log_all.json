@@ -1,0 +1,287 @@
+[
+  {
+    "gap_id": "G1",
+    "gap_type": "scalability",
+    "evidence_text": "However, integrating fine-grained user and item relationships across various product domains remains a significant challenge in cross-domain recommendation FMs [10, 12].",
+    "agent_a": {
+      "hypothesis_id": "H1",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, integrating fine-grained user and item relationships across various product domains remains a sig",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H2",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, integrating fine-grained user and item relationships across various product domains remains a sig",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true,
+    "round_1": {
+      "preferred": "AgentA",
+      "reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+      "synthesis": "",
+      "confidence": 0.1
+    },
+    "round_2": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    },
+    "round_3": {
+      "final_preferred": "AgentA",
+      "verdict": "",
+      "decisive_factor": "Score-based preference after inconclusive debate",
+      "confidence": 0.1,
+      "recommendation": "REVISE"
+    },
+    "llm_reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+    "synthesis": "",
+    "confidence": 0.1,
+    "challenge": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    }
+  },
+  {
+    "gap_id": "G2",
+    "gap_type": "scalability",
+    "evidence_text": "To address this challenge, we introduce RankGraph, a unified graph learning framework designed to harness the power of graph learning within the context of recommendation FMs.",
+    "agent_a": {
+      "hypothesis_id": "H3",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: To address this challenge, we introduce RankGraph, a unified graph learning framework designed to harness ",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H4",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: To address this challenge, we introduce RankGraph, a unified graph learning framework designed to harness ",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true,
+    "round_1": {
+      "preferred": "AgentA",
+      "reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+      "synthesis": "",
+      "confidence": 0.1
+    },
+    "round_2": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    },
+    "round_3": {
+      "final_preferred": "AgentA",
+      "verdict": "",
+      "decisive_factor": "Score-based preference after inconclusive debate",
+      "confidence": 0.1,
+      "recommendation": "REVISE"
+    },
+    "llm_reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+    "synthesis": "",
+    "confidence": 0.1,
+    "challenge": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    }
+  },
+  {
+    "gap_id": "G3",
+    "gap_type": "scalability",
+    "evidence_text": "This heterogeneous structure enables RankGraph to effectively model cross-surface foundation model (FM) scenarios, which are difficult to represent using homogeneous graphs.",
+    "agent_a": {
+      "hypothesis_id": "H5",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: This heterogeneous structure enables RankGraph to effectively model cross-surface foundation model (FM) sc",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H6",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: This heterogeneous structure enables RankGraph to effectively model cross-surface foundation model (FM) sc",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true,
+    "round_1": {
+      "preferred": "AgentA",
+      "reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+      "synthesis": "",
+      "confidence": 0.1
+    },
+    "round_2": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    },
+    "round_3": {
+      "final_preferred": "AgentA",
+      "verdict": "",
+      "decisive_factor": "Score-based preference after inconclusive debate",
+      "confidence": 0.1,
+      "recommendation": "REVISE"
+    },
+    "llm_reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+    "synthesis": "",
+    "confidence": 0.1,
+    "challenge": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    }
+  },
+  {
+    "gap_id": "G4",
+    "gap_type": "scalability",
+    "evidence_text": "However, the added heterogeneity also brings challenges in semantic representation and learning, addressed through a specialized GPU-based Graph Neural Network described in the next section.",
+    "agent_a": {
+      "hypothesis_id": "H7",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, the added heterogeneity also brings challenges in semantic representation and learning, addressed",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H8",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, the added heterogeneity also brings challenges in semantic representation and learning, addressed",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true,
+    "round_1": {
+      "preferred": "AgentA",
+      "reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+      "synthesis": "",
+      "confidence": 0.1
+    },
+    "round_2": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    },
+    "round_3": {
+      "final_preferred": "AgentA",
+      "verdict": "",
+      "decisive_factor": "Score-based preference after inconclusive debate",
+      "confidence": 0.1,
+      "recommendation": "REVISE"
+    },
+    "llm_reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+    "synthesis": "",
+    "confidence": 0.1,
+    "challenge": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    }
+  },
+  {
+    "gap_id": "G5",
+    "gap_type": "scalability",
+    "evidence_text": "However, these recall metrics not necessarily present the power of the embeddings in predicting user\u2019s future engagement, and in fact we have observed discrepancy between these offline recall metrics and online a/b test results.",
+    "agent_a": {
+      "hypothesis_id": "H9",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, these recall metrics not necessarily present the power of the embeddings in predicting user\u2019s fut",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H10",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, these recall metrics not necessarily present the power of the embeddings in predicting user\u2019s fut",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true,
+    "round_1": {
+      "preferred": "AgentA",
+      "reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+      "synthesis": "",
+      "confidence": 0.1
+    },
+    "round_2": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    },
+    "round_3": {
+      "final_preferred": "AgentA",
+      "verdict": "",
+      "decisive_factor": "Score-based preference after inconclusive debate",
+      "confidence": 0.1,
+      "recommendation": "REVISE"
+    },
+    "llm_reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+    "synthesis": "",
+    "confidence": 0.1,
+    "challenge": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    }
+  }
+]

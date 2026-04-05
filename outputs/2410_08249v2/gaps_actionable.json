@@ -1,0 +1,114 @@
+[
+  {
+    "gap_id": "G1",
+    "gap_type": "scalability",
+    "gap_text": "However, many recent CDR models overlook crucial issues such as privacy as well as the risk of negative transfer (which negatively impact model performance), especially in multi-domain settings.",
+    "source_section": "abstract",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G2",
+    "gap_type": "scalability",
+    "gap_text": "To address these challenges, we propose FedGCDR, a novel federated graph learning framework that securely and effectively leverages positive knowledge from multiple source domains.",
+    "source_section": "abstract",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G3",
+    "gap_type": "data_quality",
+    "gap_text": "However, with the influence of lossy privacy-preserving techniques, the results of the transfer could be negative (e.g., the Music domain with low-quality data).",
+    "source_section": "introduction",
+    "actionable_direction": "Improve robustness to variations in input data quality"
+  },
+  {
+    "gap_id": "G4",
+    "gap_type": "scalability",
+    "gap_text": "However, incorporating more domains while preserving privacy poses challenges to counteract negative transfer (NT), which is a phenomenon of transferring knowledge from a source domain that negatively impacts the recommender model performance in the target domain [12].",
+    "source_section": "introduction",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G5",
+    "gap_type": "scalability",
+    "gap_text": "However, existing methods cannot be directly applied to BS-CDR due to two major challenges.",
+    "source_section": "introduction",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G6",
+    "gap_type": "scalability",
+    "gap_text": "Adjusting attention-related hyper-parameters for a large number of source domains in BS-CDR scenarios is extremely difficult, as well as predefined or domain-shared features cannot accommodate complex domain diversities.",
+    "source_section": "introduction",
+    "actionable_direction": "Extend the approach to handle large-scale instances efficiently"
+  },
+  {
+    "gap_id": "G7",
+    "gap_type": "scalability",
+    "gap_text": "To address the challenges of privacy (CH1) and NT (CH2) in BS-CDR, we propose Federated Graph learning for Cross-Domain Recommendation (FedGCDR).",
+    "source_section": "introduction",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G8",
+    "gap_type": "scalability",
+    "gap_text": "Cross-domain knowledge transfer does not require additional communication overhead.",
+    "source_section": "introduction",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G9",
+    "gap_type": "scalability",
+    "gap_text": "However, this direct embeddings transfer does not meet the privacy and NT constrains in BS-CDR scenarios.",
+    "source_section": "introduction",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G10",
+    "gap_type": "scalability",
+    "gap_text": "The discrepancy of domains leads to the heterogeneity of feature space between domains which means that source domain embeddings cannot be utilized directly by the target domain.",
+    "source_section": "introduction",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G11",
+    "gap_type": "scalability",
+    "gap_text": "How to utilize the transferred knowledge remains a great challenge.",
+    "source_section": "introduction",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G12",
+    "gap_type": "scalability",
+    "gap_text": "However, NT may still be unavoidable, potentially leading to the accumulation of negative knowledge in the target domain.",
+    "source_section": "introduction",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G13",
+    "gap_type": "scalability",
+    "gap_text": "FedGCDR-DP is a complete implementation of our method while FedGCDR does not incorporate Gaussian noise.",
+    "source_section": "evaluation",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G14",
+    "gap_type": "scalability",
+    "gap_text": "5 Limitations Our experiments were conducted on 16 domains of the Amazon dataset.",
+    "source_section": "evaluation",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G15",
+    "gap_type": "scalability",
+    "gap_text": "Despite this limitation, we firmly believe that the significant improvements in privacy preservation and model performance demonstrated by FedGCDR underscore its superiority.",
+    "source_section": "evaluation",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G16",
+    "gap_type": "scalability",
+    "gap_text": "Guidelines: \u2022 The answer NA means that the paper does not include experiments.",
+    "source_section": "evaluation",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  }
+]

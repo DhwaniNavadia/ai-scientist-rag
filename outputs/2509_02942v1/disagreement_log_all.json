@@ -1,0 +1,176 @@
+[
+  {
+    "gap_id": "G1",
+    "gap_type": "scalability",
+    "evidence_text": "RankGraph: Unified Heterogeneous Graph Learning for Cross-Domain Recommendation Renzhi Wu Meta MRS Menlo Park, US renzhiwu@meta.com Junjie Yang Meta MRS Menlo Park, US junjieyang@meta.com Li Chen Meta MRS Menlo Park, US lichenntu@meta.com Hong Li Meta MRS Menlo Park, US hongli@meta.com Li Yu Facebook Monetization Menlo Park, US yongnali@meta.com Hong Yan Meta MRS Menlo Park, US hyan@meta.com ABSTRACT Cross-domain recommendation systems face the challenge of integrating fine-grained user and item relationships across various product domains.",
+    "agent_a": {
+      "hypothesis_id": "H1",
+      "hypothesis": "[Generation failed] Investigate the gap: RankGraph: Unified Heterogeneous Graph Learning for Cross-Domain Recommendation Renzhi Wu Meta MRS Menlo Park, US renzhi",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H2",
+      "hypothesis": "[Generation failed] Investigate the gap: RankGraph: Unified Heterogeneous Graph Learning for Cross-Domain Recommendation Renzhi Wu Meta MRS Menlo Park, US renzhi",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true
+  },
+  {
+    "gap_id": "G2",
+    "gap_type": "scalability",
+    "evidence_text": "However, integrating fine-grained user and item relationships across various product domains remains a significant challenge in cross-domain recommendation FMs [10, 12].",
+    "agent_a": {
+      "hypothesis_id": "H3",
+      "hypothesis": "[Generation failed] Investigate the gap: However, integrating fine-grained user and item relationships across various product domains remains a significant chall",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H4",
+      "hypothesis": "[Generation failed] Investigate the gap: However, integrating fine-grained user and item relationships across various product domains remains a significant chall",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true
+  },
+  {
+    "gap_id": "G3",
+    "gap_type": "scalability",
+    "evidence_text": "To address this challenge, we introduce RankGraph, a unified graph learning framework designed to harness the power of graph learning within the context of recommendation FMs.",
+    "agent_a": {
+      "hypothesis_id": "H5",
+      "hypothesis": "[Generation failed] Investigate the gap: To address this challenge, we introduce RankGraph, a unified graph learning framework designed to harness the power of g",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H6",
+      "hypothesis": "[Generation failed] Investigate the gap: To address this challenge, we introduce RankGraph, a unified graph learning framework designed to harness the power of g",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true
+  },
+  {
+    "gap_id": "G4",
+    "gap_type": "scalability",
+    "evidence_text": "This heterogeneous structure enables RankGraph to effectively model cross-surface foundation model (FM) scenarios, which are difficult to represent using homogeneous graphs.",
+    "agent_a": {
+      "hypothesis_id": "H7",
+      "hypothesis": "[Generation failed] Investigate the gap: This heterogeneous structure enables RankGraph to effectively model cross-surface foundation model (FM) scenarios, which",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H8",
+      "hypothesis": "[Generation failed] Investigate the gap: This heterogeneous structure enables RankGraph to effectively model cross-surface foundation model (FM) scenarios, which",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true
+  },
+  {
+    "gap_id": "G5",
+    "gap_type": "scalability",
+    "evidence_text": "However, the added heterogeneity also brings challenges in semantic representation and learning, addressed through a specialized GPU-based Graph Neural Network described in the next section.",
+    "agent_a": {
+      "hypothesis_id": "H9",
+      "hypothesis": "[Generation failed] Investigate the gap: However, the added heterogeneity also brings challenges in semantic representation and learning, addressed through a spe",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H10",
+      "hypothesis": "[Generation failed] Investigate the gap: However, the added heterogeneity also brings challenges in semantic representation and learning, addressed through a spe",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true
+  },
+  {
+    "gap_id": "G6",
+    "gap_type": "scalability",
+    "evidence_text": "However, these recall metrics not necessarily present the power of the embeddings in predicting user\u2019s future engagement, and in fact we have observed discrepancy between these offline recall metrics and online a/b test results.",
+    "agent_a": {
+      "hypothesis_id": "H11",
+      "hypothesis": "[Generation failed] Investigate the gap: However, these recall metrics not necessarily present the power of the embeddings in predicting user\u2019s future engagement",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H12",
+      "hypothesis": "[Generation failed] Investigate the gap: However, these recall metrics not necessarily present the power of the embeddings in predicting user\u2019s future engagement",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true
+  }
+]

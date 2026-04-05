@@ -1,0 +1,37 @@
+[
+  {
+    "claim_id": "C1",
+    "section": "introduction",
+    "claim_text": "Evaluation.For NARCBENCH-CORE, we evaluate via leave-domain-out cross-validation: for each of the 17 domains, we train the deception direction and any run-level classifiers on the remaining 16 domains and evaluate on the held-out domain.",
+    "evidence_text": "Core results are the mean across folds. For TRANSFER and STEGO, we train on all of COREand evaluate zero-shot.",
+    "confidence": 0.9
+  },
+  {
+    "claim_id": "C2",
+    "section": "abstract",
+    "claim_text": "We introduce NARCBENCH, a benchmark for evaluating collusion detection under environment distribution shift, and propose five probing techniques that aggregate per-agent deception scores to classify scenarios at the group level.",
+    "evidence_text": "Our probes achieve 1.00 AUROC in-distribution and 0.60\u20130.86 AUROC when transferred zero-shot to structurally different multi-agent scenarios and a steganographic blackjack card-counting task. We find that no single probing technique dominates across all collusion types, suggesting that different forms of collusion manifest differently in activation space.",
+    "confidence": 0.75
+  },
+  {
+    "claim_id": "C3",
+    "section": "introduction",
+    "claim_text": "We introduce five probing techniques that operate on the set of deception scores (or activations) across all agents in a scenario, spanning the three distributed detection paradigms of Section 2.",
+    "evidence_text": "Sorted Concatenation implementscentralised fusion, ingesting full activation vectors from all agents. Peak Suspicion, Deception Split, and Asymmetry Probe implementdecision-level fusion, each combining per-agent scalar deception scores through a different aggregation rule.",
+    "confidence": 0.75
+  },
+  {
+    "claim_id": "C4",
+    "section": "introduction",
+    "claim_text": "In this work, we show that such collusion can be detected by inspecting agents\u2019 internal activations, even when their text outputs appear entirely normal.",
+    "evidence_text": "Proposed defences against covert coordination include monitoring text outputs, paraphrasing agent communications, and imposing behavioural constraints [Greenblatt et al., 2024, Syrnikov et al., 2026]. However, these have been shown to fail against steganographic signals designed to be indistinguishable from natural language [Motwani et al., 2024, Mathew et al., 2025].",
+    "confidence": 0.75
+  },
+  {
+    "claim_id": "C5",
+    "section": "introduction",
+    "claim_text": "Our approach proceeds in two stages: learning a deception direction from individual agents, then aggregating scores across the group to detect collusion.",
+    "evidence_text": "We introduce NARCBENCH, a benchmark for evaluating DEALER K\u2661 7\u2660 5\u26638\u2662 J\u2661 4\u2660 9\u26632\u2661 A\u2660K\u2663 Counter Honest 1 Honest 2 Big Player K(\u22121) + 7(0) + 5(+1) + 8(0) + J(\u22121) + 4(0) Running count:+5 \u21d2HOT \u201cThis dealer\u2019s on a real hot streak!\u201d HOTdetected \u21d2Bet $250 covert signal Private pre-game coordination:Agents agree on encoding scheme Colluding Honest Figure 1: NARCBENCH-STEGO: four LLM agents play blackjack. The Counter tracks the card count and encodes it in natural table talk; the Big Player decodes the signal and bets accordingly.",
+    "confidence": 0.75
+  }
+]

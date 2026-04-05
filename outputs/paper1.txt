@@ -1,0 +1,1173 @@
+Beyond Manual Planning: Seating Allocation for Large Organizations
+Anton Ipsen1, Michael Cashmore1, Kirsty Fielding1,
+Nicolas Marchesotti1, Parisa Zehtabi 1, Daniele Magazzeni1, Manuela Veloso1
+1AI Research, J.P. Morgan Chase
+1
+Abstract
+We introduce the Hierarchical Seating Allocation Problem
+(HSAP) which addresses the optimal assignment of hier-
+archically structured organizational teams to physical seat-
+ing arrangements on a floor plan. This problem is driven
+by the necessity for large organizations with large hierar-
+chies to ensure that teams with close hierarchical relation-
+ships are seated in proximity to one another, such as ensur-
+ing a research group occupies a contiguous area. Currently,
+this problem is managed manually leading to infrequent and
+suboptimal replanning efforts.
+To alleviate this manual process, we propose an end-to-
+end framework to solve the HSAP. A scalable approach to
+calculate the distance between any pair of seats using a
+probabilistic road map (PRM) and rapidly-exploring random
+trees (RRT) which is combined with heuristic search and dy-
+namic programming approach to solve the HSAP using inte-
+ger programming. We demonstrate our approach under dif-
+ferent sized instances by evaluating the PRM framework and
+subsequent allocations both quantitatively and qualitatively.
+2
+Introduction
+In today’s dynamic work environment, commercial office
+real estate has become one of the most significant fixed costs
+for companies and organizations. The recent push by many
+government departments and organizations for a full return
+to the office has intensified the need to optimize this valu-
+able resource. Unlike other assets, office real estate is not
+easily expandable due to the prohibitive costs of renovations
+and lengthy lease agreements. Therefore, the continuous re-
+optimization of office space usage is essential to maximize
+efficiency and adapt to changing needs. This ongoing evo-
+lution in office space requirements has paved the way for
+the application of automated planning methods in managing
+office real estate.
+A key challenge in this domain is the Seating Alloca-
+tion (SA) problem, which involves assigning teams to of-
+fice space on a floor plan. The SA problem has been previ-
+ously explored in various contexts, such as allocating phys-
+ical seats to different parties in government legislative bod-
+ies (Hales and Garc´ıa 2019; Serafini 2012), and in response
+to social-distancing measures following the COVID-19 pan-
+demic (Barry et al. 2021; Stoll 2022). The objective of
+the SA problem is to determine an allocation that ensures
+team members are seated in proximity to one another, where
+‘proximity’ is defined in terms of walkable space.
+The Hierarchical Seating Allocation Problem (HSAP) ex-
+tends the SA problem by aiming to allocate teams within an
+organizational hierarchy to a floor plan. This extension is
+motivated by the need to accommodate teams that belong
+to multiple departments, thereby linking related teams to-
+gether. Unlike the SA problem, the objective of the HSAP
+is to assign teams to office space in such a way that teams
+closer in the organizational hierarchy are seated closer to-
+gether within the floor plan. The usefulness between HSA
+and SA is significant to large organizations as the human-
+evaluated solution quality to SA would be low due to failure
+to accommodate linked departments.
+The contributions of this paper are as follows: First, we
+address the critical need for accurate distance estimation be-
+tween seats by applying a scalable approach that utilizes
+probabilistic roadmaps and rapidly-exploring random trees
+to achieve more precise estimations. Secondly, we intro-
+duce the Hierarchical Seating Allocation (HSA) problem
+and demonstrate that it can be effectively addressed by de-
+composing it into a series of Seating Allocation (SA) sub-
+problems, which are solved using dynamic programming
+techniques. Lastly, we extend the existing literature on the
+SA problem by proposing a local search heuristic aimed at
+improving the quality of existing solutions.
+The paper is organized as follows. In Section 3 we de-
+scribe how to solve HSA by solving sub-problems of SA,
+calculating distances (Section 3.1) and allocating seats (Sec-
+tion 3.2). In Sections 4 and 4.2 we present our quantitative
+and qualitative evaluations, and conclude in Section 5.
+2.1
+Related Problems
+A related issue to the SA problem is the Office Space Allo-
+cation (OSA) problem. The OSA is the problem of spatially
+allocating people, entities or teams to a building or floor such
+that the available space is optimized (Ulker 2013; Awadallah
+et al. 2012). The key distinction between the SA and OSA
+problems lies in their focus: the OSA problem is concerned
+with allocating teams to a set of floors based on a set of
+constraints, while the SA problem, given a valid allocation,
+focuses on assigning teams to individual seats.
+Another closely related problem to SA is the capacitated
+p-median problem (CPMP). The CPMP involves selecting
+arXiv:2602.05875v1  [cs.AI]  5 Feb 2026
+
+p-medians (locations) from a finite set of medians to op-
+timally serve a set of demand sites, such that each me-
+dian does not exceed its associated capacity (Serafini 2012;
+Ceselli and Righini 2005; Boccia et al. 2007). There have
+been many proposed exact and heuristic approaches to solve
+the CPMP, including Lagrangian Relaxations (Lorena and
+Senne 2003), column generation (Lorena and Senne 2004),
+local search heuristics (Lorena and Senne 2003), and math-
+heuristics for solving large scale problems (Reese 2006; Ste-
+fanello, de Ara´ujo, and M¨uller 2014; Gn¨agi and Baumann
+2021). The SA problem can be viewed as a special case of
+the CPMP where each median has an demand instead of a
+capacity.
+Using this framework the SA problem can be solved by
+selecting a ‘central seat’ (median) of each team, and assign-
+ing the required number of seats as close as possible to the
+assigned ‘central seat’ such that each team’s desks demands
+are satisfied. Given that the CPMP is proven to be NP-Hard,
+utilizing its solution frameworks to solve the SA problem
+is also NP-hard (Mu and Tong 2019). A direct optimization
+approach could be employed to minimize the total seat dis-
+tance between each seat, but this results in a mixed-integer
+quadratic problem (MIQP), which is not scalable for large
+instances due to the number of decision variables in the ob-
+jective. A detailed formulation is provided in Appendix 1.
+3
+Framework
+We will discuss in detail our proposed end-to-end frame-
+work, which is divided into two key tasks: 1) calculating the
+pairwise seat distances, and 2) allocating teams to specific
+seats within the floor plan. The importance of these two tasks
+is evident in the objective of the CPMP, where the goal is
+to minimize the distance between seats and their designated
+‘central seat’. Therefore, a pairwise seat distance matrix has
+to be calculated as it serves as the input for the subsequent al-
+location process. If the estimated distances between seats are
+either overestimated or underestimated, it can lead to illogi-
+cal allocations when evaluated by a human decision-maker.
+Conversely, if the allocation framework in step 2 does not
+adequately model human preferences, the solution quality,
+as reviewed by a human, would similarly be poor.
+The optimization of allocating teams to seats is formu-
+lated as a combination of mathematical heuristics and Mixed
+Integer Programming problems (Section 3.2). We will model
+this as a multi-resource demand problem with two dis-
+tinct desk types: desks and single-occupant offices. Single-
+occupant offices are important in many organizations, as
+high-ranking employees are usually allocated these spaces.
+Going forward, we will refer to single-occupant offices sim-
+ply as offices.
+3.1
+Estimating Pairwise Seat Distances
+In this section, we present a method for obtaining high-
+quality estimates of pairwise seat distances as identified on
+floor plans. Following the approach of Barry et al. (2021),
+we employ computer vision techniques and object detection
+to parse floor plans, determining and mapping the locations
+of desks and offices in the x, y-plane.
+A naive approach to estimating walking distances be-
+tween each pair of seats (including both desks and offices)
+would be to use Manhattan or Euclidean distance. While
+these methods are computationally efficient, they fail to ac-
+count for non-traversable areas within a floor plan. This
+oversight can lead to severe distance underestimation, po-
+tentially resulting in team allocations on opposite sides of
+walls, thereby significantly diminishing the quality of solu-
+tions as evaluated by human experts.
+Grid-based pathfinding algorithms such as A∗(Hart, Nils-
+son, and Raphael 1968) and FastMap (Cohen et al. 2017)
+exist, as do other efficient optimal mesh-based algorithms
+(Hechenberger et al. 2022; Cui, Harabor, and Grastien
+2017). However, the aforementioned approaches require an
+efficient and sparse representation of the floor plan in or-
+der to calculate the pairwise seat distances fast (Wu et al.
+2021). For high resolution floor plans when projected into
+x, y-plane, obtaining such efficient representations may re-
+quire substantial manual editing. Similarly, finding an ade-
+quate representation is also made difficult if the quality of
+the provided floor plans is low. Moreover, for large organi-
+zations with extensive office footprints, manually adjusting
+each representation to compute optimal pairwise seat dis-
+tances may be infeasible.
+To overcome the representation challenges of exact meth-
+ods and the underestimation issues of distance norm ap-
+proaches, we propose constructing a probabilistic roadmap
+(PRM) using rapidly-exploring random trees (RRT), aug-
+mented with an additional connectivity check that auto-
+matically connects seats within a threshold distance from
+any reachable node of the PRM. In this context, a node
+within the PRM can represent either a point used for
+space exploration, a desk, or a single-occupant office. This
+yields a fully-connected, undirected graph that effectively
+approximates the walking distance between every pair of
+seats (Kavraki et al. 1996; LaValle 1998). The process for
+generating the PRM that connects a set of seat locations S
+with at most K additional nodes is described in Algorithm 1.
+Algorithm 1: Generate PRM
+1: Input: K, S, δc, δs
+2: Output: PRM ⟨N, E⟩
+3: xinit ←random collision-free position
+4: N, E ←{xinit}, ∅
+5: for all s ∈S do
+6:
+connected ←connect seat(s, N, E, δs)
+7:
+while ¬connected and |N| < K + |S| do
+8:
+xrand ←random collision-free position
+9:
+nnearest ←nearest neighbour(N, xrand)
+10:
+xnew ←cast(nnearest, xrand, δc)
+11:
+if xnew ̸= ⊥then
+12:
+E ←E∪new edges(xnew, N)
+13:
+N ←N ∪{xnew}
+14:
+connected ←connect seat(s, {xnew}, E, δs)
+15:
+end if
+16:
+end while
+17: end for
+18: return ⟨N, E⟩
+
+The procedure is initialized with a set of seat positions
+S
+∈
+R2 representing both desks and offices; a maxi-
+mum number of additional nodes K and distance thresh-
+olds δc, δs ∈R. The algorithm outputs a connected graph
+of nodes N, corresponding to seats and intermediate posi-
+tions, and edges E, representing collision-free connections
+between nodes. The PRM is initialized as a single node ran-
+domly sampled from any collision-free position on the floor
+plan (line 3).
+If all seats are connected, or the maximum number of
+nodes is reached, the algorithm returns the resulting PRM,
+as illustrated in Figure 1. If the algorithm fails to connect
+all the seats, K can be increased, and the process repeated.
+Once all seats are successfully connected, the PRM forms
+a connected graph. This allows for the efficient calculation
+of the shortest pairwise distances between seats using the
+Floyd-Warshall algorithm, which operates with a time com-
+plexity of O(n3).
+The theoretical lower bound for the proposed PRM
+method is the Euclidean distance. Since seats are connected
+within a δs radius, and assuming δs = ∞the method is
+lower bounded by the Euclidean distance, as every node
+would be connected by the shortest possible path.
+In the next section we will present several approaches to
+solve the SA problem and the solution to the HSA problem.
+3.2
+Constrained Seat Allocation
+The basic SA problem is defined as follows.
+Definition 3.1 (Seat Allocation (SA)). A SA problem is a
+tuple ⟨S, T, D⟩, in which S := Sd ∪So is the set of available
+seats (desks and offices). T is the set of teams. Each team
+t ∈T has an associated desk requirement dt ∈N and office
+requirement ot ∈N. Lastly, D : s × s →R≥0 is the set of
+pairwise distances between seats.
+A solution to a SA problem is an assignment X : S →T,
+such that for each team t the number of desks and offices
+assigned meets its requirements. We measure the quality of
+a solution by measuring the total distance between each seat
+assigned to the team and the central seat of that team. That
+is:
+X
+t∈T
+X
+s:X(s)=t
+D(s, s′
+t)
+where s′
+t is the central seat for team t, i.e. the seat that mini-
+mizes:
+arg min
+s′∈S:X(s′)=t
+X
+s:X(s)=t
+D(s, s′
+t)
+There are several other ways of measuring the quality of so-
+lution such as minimizing the the maximum distance to any
+given central seat.
+Integer Program Seat Allocation (IPSA)
+To solve the
+SA we present an Integer Program (IP) that is adapted from
+Hales and Garcia (2019) to include both desks and offices.
+The idea of the IP is to find a central seat (centroid) for each
+team and allocating required number of desks and offices
+to the corresponding central seat to satisfy the associated
+team’s demand. We define the binary variable xik as 1 if
+seat i is allocated to central seat k, and the binary variable
+ykt as 1 if seat k is the central seat for team t. Moreover, we
+denote D(i, k) as the distance between seats i and k as cal-
+culated by the PRM approach described in the section 3.1.
+We denote the following method as Integer Program Seat
+Allocation (IPSA).
+min
+X
+i∈S,k∈S
+D(i, k)xik
+(1)
+s.t.
+X
+k∈S
+xik ≤1
+∀i ∈S
+(2)
+X
+t∈T
+ykt ≤1
+∀k ∈S
+(3)
+X
+k∈S
+ykt = 1
+∀t ∈T
+(4)
+X
+i∈Sd
+xik =
+X
+t∈T
+dtykt
+∀k ∈S
+(5)
+X
+i∈So
+xik =
+X
+t∈T
+otykt
+∀k ∈S
+(6)
+The objective function in Eq. (1) minimizes the distances
+between the seats allocated to their central seats. The con-
+straints can be explained as follows:
+• Eq. (2) stipulates that all seats are assigned to at most
+one central seat. The equality sign is less-or-equal due to
+scenarios where the total seat supply is higher total seat
+demand.
+• Eq. (3) describes that seat k can only be the central seat
+of at most one team and Eq. (4) describes that each team
+should have exactly one central seat.
+• Eq. (5) and Eq. (6) stipulate that if seat k is central for
+team t, then the required number of desks and offices for
+team t must be assigned to central seat k.
+The IPSA approach is computational expensive in prac-
+tice due to the rapidly increasing number of variables in xik
+(|S|2), which makes large-scale problems intractable. This
+motivates the need for heuristics to reduce the computation-
+ally complexity.
+Iterative Clustering Algorithm (ICA)
+To bridge the gap
+between optimality and scalability, we present a heuristic ap-
+proach to SA that decomposes the problem into two phases:
+(1) selecting central seats, (2) allocating seats to teams.
+We refer to these phases as location and allocation, re-
+spectively (Hales and Garc´ıa 2019). The heuristic approach
+closely resembles an iterative k-means clustering algorithm.
+In each iteration, the centroid of each cluster is updated (lo-
+cation), followed by the allocation of seats to their nearest
+centroid (allocation). The overall approach is described in
+Algorithm 2.
+Before any iteration begins, an initial central seat is as-
+signed to each team (line 3). This is done by one of two
+methods: randomization or k-means++ (Arthur and Vassil-
+vitskii 2007). We refer to the first approach as ICA, and
+the second as ICA++. To solve the allocation problem, we
+use an integer programming approach (line 7). We begin by
+defining st as the central seat allocated to team t. Addition-
+ally, we introduce a binary variable xit, which is 1 if seat i is
+
+Figure 1: Output of the PRM algorithm when applied to a synthetic floor plan. The hyper-parameters for δc and δs were
+manually tuned until the algorithm converged with a node limit of K = 2000.
+allocated to team t. This leads us to the following optimiza-
+tion problem:
+min
+X
+i∈S,t∈T
+D(i, st)xit
+(7)
+s.t.
+X
+t∈T
+xit ≤1
+∀i ∈S
+(8)
+X
+i∈Sd
+xit = dt
+∀t ∈T
+(9)
+X
+i∈So
+xit = ot
+∀t ∈T
+(10)
+The constraints and objective function are similar to those
+defined for the IPSA.
+• The objective function (7) minimizes the sum of dis-
+tances between each seat and its central seat.
+• Eq. (8) stipulates that all seats are allocated to at most
+one team.
+• Eq. (9) and Eq. (10) stipulate that each team must be al-
+located the required desks and offices.
+The location phase updates the location of the central
+seats to minimize (7). This is done by assigning a new cen-
+tral seat to each team that minimizes:
+¯St = arg min
+s∈S
+X
+i∈S
+D(i, s)xit
+That is, the new central seat is the seat already allocated to
+that team which has the smallest total distance to all other
+seats allocated to that team (line 8).
+This process repeats until the central seats remain un-
+changed (lines 9-10) or the maximum number of repetitions
+is reached, at which point the iteration stops and the current
+allocation is returned. The ICA is easier to solve than the
+IPSA due to fewer decision variables and number of vari-
+ables in xit is (|T| × |S|) as |T| ≤|S| for all feasible prob-
+lems.
+Algorithm 2: Location-Allocation Heuristic
+1: Input:
+Seats
+S,
+teams
+T,distance
+matrix
+D,init,max iterations
+2: Output: allocation X
+3: ct ←1
+4: X ←∅
+5: St ←init(S, T)
+6: while ct ≤max iterations do
+7:
+X ←allocation(S, T, D, St)
+8:
+¯St ←location(S, T, D, X)
+9:
+if ¯St = St ∀t ∈T then
+10:
+return X
+11:
+end if
+12:
+St ←¯St
+13:
+ct ←ct + 1
+14: end while
+15: return X
+Greedy Seat Allocation (GSA)
+In this subsection we
+present a greedy algorithm as a tractable baseline to the
+IPSA method. GSA algorithm allocates desks and offices
+to teams based on the capacity of selected central seats in
+a greedy manner. The initial set of central seats is allocated
+using a k-means++ clustering approach (Arthur and Vassil-
+vitskii 2007). Then the subsequent allocation phase of the
+greedy approach is an adapted version of a capacity-based
+greedy method proposed by Gn¨agi and Baumann (2021).
+The detailed steps of this allocation process are outlined in
+Algorithm 3.
+The assignment order of each seat is determined using the
+regret function proposed by Mulvey and Beck (1984). For
+
+each seat s, we compute the regret value rs = D(s, c′) −
+D(s, c′′), where c′ and c′′ are the first and second nearest
+central seat, respectively (lines 5-6). A higher regret value
+suggests a greater potential increase in the objective function
+if the seat were reassigned to a different central seat. Next,
+the assignment order function calculates the order in which
+teams are considered for seat s. Teams are prioritized based
+on their proximity to the seat’s central seat (line 9), ensuring
+that the seat is allocated to the nearest possible team. Finally,
+each seat s is iteratively evaluated for allocation to team t
+contingent on whether the team’s office and desk require-
+ments have been fulfilled.The allocation sequence is guided
+by the regret values, and for each seat, team consideration
+follows the assignment order (lines 10-21).
+Once the allocation phase is complete the central seats
+are relocated (Algorithm 2 line 8). The process repeats until
+we hit the maximum number of iterations, or the location
+of central seats has stabilized at which point the algorithm
+outputs a solution, X (Algorithm 2 lines 6-14).
+Algorithm 3: Greedy Allocation
+1: Input: Seats S,teams T,distance matrix D
+2: Output: Seating Allocation X
+3: St ←initial central seats st ∈S for each team, t
+4: X ←∅
+5: for seat s ∈S do
+6:
+rs ←D(s, c′) −D(s, c′′)
+7: end for
+8: for s ∈S ordered by decreasing rs do
+9:
+At ←assignment order(s, St, T, D)
+10:
+for t ∈At do
+11:
+if s ∈So ∧ot > 0 then
+12:
+X(s) = t
+13:
+ot ←ot −1
+14:
+break
+15:
+else if s ∈Sd ∧dt > 0 then
+16:
+X(s) = t
+17:
+dt ←dt −1
+18:
+break
+19:
+end if
+20:
+end for
+21: end for
+22: return X
+Local Search Heuristic (LS)
+In this subsection, we pro-
+pose a simple local neighborhood search heuristic (LS) to
+improve the solutions generated in the previous sections.
+The local search heuristic starts from an initial incumbent
+solution X∗. LS attempts to solve the IPSA problem by
+only considering, for any current central seat in X∗, the sn-
+nearest neighbors seats as new candidates for central seats.
+Additionally, since X∗is a valid feasible solution, it is used
+as a warm start for the reduced-dimensionality IPSA prob-
+lem. In this way, LS will only improve the current solution,
+or will terminate with the current solution as the best incum-
+bent. Additionally, the LS method has sn × |T| number of
+candidates central seat which in many instances is less than
+|S|×|T|. The notation of each decision variable follows that
+Company A
+Sales
+EU Sales
+US Sales
+Sales Engineering
+Engineering
+R&D Engineering
+Marketing
+Ads
+Digital
+Figure 2: An example organizational hierarchy. Each node
+corresponds to a team and each child node is a member of
+its own team and its parent team.
+of the IPSA method. We denote S∗
+c as the set of seats that
+are sn-nearest neighbors to the central seats selected in X∗.
+Then we can define the local search optimization procedure
+as:
+min
+X
+i∈I,k∈S∗
+c
+D(i, k)xik
+(11)
+s.t.
+X
+k∈S∗
+c
+xik ≤1
+∀i ∈S
+(12)
+X
+i∈Sd
+xik =
+X
+t∈T
+dtykt
+∀k ∈S∗
+c
+(13)
+X
+i∈So
+xik =
+X
+t∈T
+otykt
+∀k ∈S∗
+c
+(14)
+X
+t∈T
+ykt ≤1
+∀k ∈S∗
+c
+(15)
+X
+k∈S∗
+c
+ykt = 1
+∀t ∈T
+(16)
+The constraints and objective function in the above formula-
+tion follows exactly the definition of IPSA.
+3.3
+Hierarchical Seat Allocation
+Consider the organizational hierarchy as depicted in Fig-
+ure 2. Company A is considered the root team, whereas
+Sales is a parent team along with Engineering and Market-
+ing. Sales has several child teams that we aim to have the
+members seated together. A solution must allocate seats to
+the child teams such that their office and desk requirements
+are satisfied. Additionally, the solution must minimize the
+distance between the assigned seats of child teams of each
+parent team. For instance in Figure 2, it is desired that the
+distance between EU Sales, US Sales and Sales Engineering
+must be minimized, and thus their seats must come from the
+seats allocated to its parent team, Sales.
+
+The HSAP is mathematically defined as follows.
+Definition 3.2 (Hierarchical Seat Allocation Problem
+(HSAP)). An HSAP is a tuple ⟨S, H, D⟩, in which S :=
+Sd ∪So is the set of available seats (desks and offices). H
+is the organizational hierarchy with H levels in which Tl
+denotes the set of teams at level l. Each team t ∈Tl has
+an associated desk requirement dt ∈N, office requirement
+ot ∈N, and when l > 0 a parent team t′ ∈Tl−1. Lastly,
+D : s × s →R≥0 is the set of pairwise distances between
+seats.
+A team with no child teams is referred to as a leaf team.
+Note that the office and desk requirements of non-leaf teams
+(branch teams) are equal to the sum of the requirements of
+their child teams.
+A team without a parent is denoted as a root team. Note
+that it is possible that the hierarchy has several root teams,
+and could be represented as a set of trees.
+A solution to an HSAP is a set of allocations X :=
+{X0, . . . XL}. Each allocation Xl ∈X is a mapping Xl :
+S →Tl from seats to teams at that level, such that for each
+team t ∈Xl the number of desks and offices assigned to
+that team meets its requirements. Also, the assignment to a
+non-root team in level l+1 must not violate that of its parent
+at level t. That is, teams at level l + 1 must be assigned to
+seats that were previously allocated to their parent at level l.
+The solution quality for HSAP is measured in the same
+way as SA (total distance of each seat to its team’s central
+seat). However, for the HSAP we take the sum of this met-
+ric at every level in the hierarchy. Importantly, the branch
+teams serve as a mechanism of creating structure and syn-
+ergy in the hierarchical allocations, whereas the leaf teams
+are the teams that functionally have to be located as close as
+possible.
+Solving the HSAP problem as a single monolithic in-
+stance is intractable for small, medium and large scale in-
+stances (i.e. over 50 seats). Therefore, we propose a decom-
+position of the hierarchical seating problem into a series of
+SA subproblems that can be solved independently using the
+proposed heuristics in Section 3.2.
+Depth First Hierarchical Seat Allocation (DF-HSA)
+To
+address the challenge of allocating an organizational hierar-
+chy of teams we introduce the DF-HSA algorithm. As the
+allocation of each team in level l is constrained by the allo-
+cation of seats to teams in level l −1, the problem naturally
+decomposes into a set of SA problems that can be solved se-
+quentially. Thus, we use a dynamic programming approach
+to allocate the hierarchy in a top-down, depth-first approach,
+in which each sub-problem involves solving a single SA in-
+stance.
+The algorithm is initially called with a set of empty al-
+locations (Xl = ∅, ∀Xl ∈X), root teams T, and level
+l = 0. Seats are allocated by a recursive (depth-first) traver-
+sal through the organizational hierarchy (line 3-9). At each
+step of this traversal, teams are first allocated seats (line 2).
+This allocation is performed using any solution to SA, such
+as those described in the previous section. Then, each team’s
+children are allocated seats through a recursive call (line 7).
+Algorithm 4: Depth First Hierarchical Seat Allocation (DF-
+HSA)
+1: Input: Seating allocation algorithm SA, seats S, teams
+T,distance matrix D,previous allocation X,iteration l
+2: Xl ←Xl ∪SA(S, T, D)
+3: for team t ∈T do
+4:
+S′ ←{s : Xl(s) = t}
+5:
+T ′ ←children(t)
+6:
+if T ′ ̸= ∅then
+7:
+Call DF −HSA(SA, S′, T ′, D, X, l + 1)
+8:
+end if
+9: end for
+10: return Xl
+The children of a team (line 5) can only be assigned seats
+that were allocated to their parent (line 4).
+The DF-HSA algorithm is not globally optimizing every
+level at once as each level builds on the previous level’s al-
+location.
+Delayed Office Selection
+When allocating offices in the
+first iteration of the DF-HSA poor allocation choices can
+be made in the first levels of the hierarchy due to the lack of
+knowledge as to which leaf teams those offices are aligned.
+We observe that this leads to allocations in which offices are
+allocated far from their team, but there were obvious better
+selections to make if there had been more information about
+office alignment while allocating higher levels of the orga-
+nizational hierarchy.
+We tackle this issue by the delaying office allocation de-
+cision. We propose a combined top-down-bottom-up ap-
+proach, in which first desks are allocated using the HSA
+scheme described above, and then offices are allocated at
+the lowest level of leaf teams.
+From the DF-HSA procedure, we can also extrapolate
+the central seats for each team, which we can use to allocate
+office as close to the central seat of the teams as possible.
+The office allocation step is a simple form of the ICA ap-
+proach. We define xit as 1 if office i is allocated to team
+t ∈T. We denote SO, as the set of available offices. Simi-
+larly to Section 3.2 we already know for each team the cen-
+tral seat st. Lastly, we denote ot as the office requirements
+of team t.
+min
+X
+i∈So,t∈T
+D(i, st)xit
+(17)
+s.t.
+X
+t∈T
+xit ≤1
+∀i ∈So
+(18)
+X
+i∈So
+xit = ot
+∀t ∈T
+(19)
+The constraints closely follow the ICA approach, and
+thus (17) defines the total distance from offices to their cen-
+tral seats, (18) defines that every office can only be allocated
+to one team and (19) defines that each team must be allo-
+cated offices equal to its requirements.
+
+(a) Hierarchy Level 1
+(b) Hierarchy Level 2
+(c) Color legend
+Figure 3: Depicts the output of the HSA-DF algorithm with local search heuristics as applied to the organizational hierarchy
+as described in Figure 2 with the floor plan from Figure 1. In total the population required 103 desks and 6 offices, leaving 3
+vacant desks.
+4
+Evaluation
+We assess the performance of the proposed methods from
+both a quantitative and qualitative perspective. Quantita-
+tively, we report the mean distance from a seat to the cor-
+responding central seat, averaged over all levels. We mea-
+sure solution quality in three different floor plan instances to
+gauge the efficacy for different teams sizes and floor com-
+plexity. The organizational hierarchy for each instance en-
+compasses up to 5 different levels:
+• Small Instance: Capacity of floor: 172 desks and 26 of-
+fices. Team Requirements: 167 desks and 12 offices
+• Medium Instance: Capacity of floor: 275 desks and 27
+offices. Team requirements: 245 desks and 23 offices.
+• Large Instance: Capacity of floor: 966 desks and 31 of-
+fices. Team requirements: 843 desks and 22 offices.
+Note that the unit of the distance reported is pixels (of
+the floor plan image) and as a result we do not com-
+pare distances between floor plans. We ran the solver using
+Python 3.8 and CPLEX 12.9 (CPLEX 2017). Each instance
+is solved by considering a total of 5 levels from the organi-
+zational hierarchy, with results averaged over 30 runs.
+4.1
+Quantitative Evaluation
+We compare results of solving the SA sub-problems with
+the different SA methods defined in Section 3.2. The setting
+of the evaluation is that of the human-decision maker. The
+task to generate seating allocation plans itself is an iterative
+process. The human decision maker will generate different
+solutions for a given allocation and then adjust those solu-
+tions continuously in response to feedback, changing busi-
+ness constraints, and in the case where the building is being
+constructed – changing floor plans. Generating seating sce-
+narios to compare differing constraints necessitates the need
+for fast floor plan iteration.
+With this in mind, we limit the execution time of each SA
+sub-problem to a total of 10 minutes to mimic an online allo-
+cation scenario. Additionally, the SA sub-problem is solved
+with ICA plus Local Search (ICS+LS) and the number of
+neighbors is limited to sn = 5.
+Similarly, for the IPSA approach we do not report the
+standard deviation for the run time, as only one run was per-
+formed, due to it being solved to optimality. The complete
+results are reported in Table 1.
+The results shows the IPSA approach across all heuristic
+methods has the lowest total average distance to central seat
+across all levels and methods except for the largest instance.
+The IPSA method performs worse in larger scale instances
+as the time limit is often reached before the optimality gap
+is closed by the solver due to its quadratic variable scaling
+in |S|.
+Our results indicate that ICA + LS outperforms other
+heuristics, but at a slightly increased execution time cost due
+to the local search procedure in small and medium instance.
+However, ICA + LS converges slowly in large instances as
+the local search IP procedure is based on the IPSA prob-
+lem formulation which in our instances did not scale with
+increased sizing of |S| Lastly, we observe that using the k-
+means++ approach slightly improves the objective function
+compared to the ICA approach with little to no cost to the
+execution time. Empirically, varying |S| or |T| across dif-
+ferent instances is insufficient to gauge the time-to-solution,
+as the difficulty and structure of the organizational hierarchy
+can vary unpredictably. Therefore, we cannot quantitatively
+conclude which method performs better across different car-
+dinalities of S or T.
+4.2
+Qualitative Evaluation
+As stated earlier the human-evaluated solution quality is
+both affected by the estimation of pairwise seat distances
+and the team-to-seat allocation optimization. Therefore, we
+will conduct a qualitative evaluation of both contributions.
+To evaluate the impact of an improved distance estima-
+tion framework for estimating pair-wise seat distances, we
+conducted a toy example as seen in Figure 5. The setup of
+the toy example is that we have 4 teams and 4 separate ar-
+eas divided by impassable walls. Two of the teams are too
+
+Small
+Medium
+Large
+Method
+Metrics
+Delayed Office Decision
+True
+False
+True
+False
+True
+False
+IPSA
+Central Seat Distance
+318.8
+308.8
+936.5
+930.9
+272.7
+289.6
+Office Distance
+545.2
+492.0
+1076.4
+1036.8
+519.7
+479.5
+Exec. Time (s)
+95.49±−
+139.0±−
+629.5±−
+647.8±−
+3748.4±−
+3708.5±−
+Greedy
+Algorithm
+Central Seat Distance
+-
+438.8
+-
+1506.9
+-
+571.2
+Office Distance
+-
+882.2
+-
+1664.1
+-
+963.8
+Exec. Time (s)
+-
+1.2±0.3
+-
+1.5±0.4
+-
+14.6±1.9
+ICA
+Central Seat Distance
+337.9
+336.9
+976.3
+968.7
+284.1
+286.2
+Office Distance
+548.1
+518.4
+1075.3
+1081.8
+513.7
+604.5
+Exec. Time (s)
+6.2±0.5
+2.8±0.6
+6.7±0.3
+2.6±0.5
+62.1±5.8
+34.0±5.9
+ICA++
+Central Seat Distance
+331.9
+329.6
+969.25
+965.2
+281.6
+283.0
+Office Distance
+546.2
+510.5
+1091.4
+1035.4
+513.9
+618.6
+Exec. Time (s)
+6.1±0.5
+2.6±0.6
+6.5±0.3
+2.5±0.4
+60.7±5.5
+33.2±6.9
+ICA + LS
+Central Seat Distance
+329.05
+331.54
+961.95
+950.22
+273.4
+274.2
+Office Distance
+551.3
+506.9
+1112.9
+1037.35
+515.0
+540.8
+Exec. Time (s)
+9.9±2.0
+6.5±1.7
+8.3±0.4
+4.2±0.3
+956.2±207.9
+987.9±227.6
+Table 1: Quantitative evaluation of different approaches by using the DF-HSA algorithm. We highlight the lowest heuristic
+result in each column with bold. We report both the average execution time along with the standard error.
+(a) Small
+(b) Medium
+(c) Large
+Figure 4: Depicts the effect on total office distance per level of DF-HSA across all methods. Note how delaying the office
+decision enables higher level hierarchy teams to on average sit closer to their aligned offices. This is beneficial as the purpose
+of the HSA framework is to allocate leaf teams while considering their branch parent’s team.
+large for any given area and have to be split to one or more
+other areas by the allocation algorithm. Although the allo-
+cation solutions appear similar at first, the differences are
+significant. When using the Euclidean distance, more teams
+are split between areas due to the underestimation of seat
+distances caused by physically impassable walls. This effect
+is particularly evident in the green team, which is divided
+into a trapezoid shape in Figure 5(a). Consequently, while
+the two optimization metrics yield similar numerical results
+the quality of the solution, as assessed by human evaluators,
+differs.
+Additionally, Figure 5(b) illustrates the gap between con-
+straint optimization and human preferences. Although the
+optimization procedure was solved to optimality, a human
+decision-maker might choose to manually relocate the two
+teal seats in the top right quadrant to be adjacent, even if this
+adjustment slightly reduces the overall optimization objec-
+tive.
+Next, we will highlight a few of our observations re-
+lated to the solution quality generated by the framework
+which serves as guidance to understanding the strengths and
+weaknesses of the methods proposed. An example output
+of the HSA problem can be seen in Figure 3, where we
+have solved the SA sub-problems with ICA+LS. The fig-
+ure shows the allocation of an organizational hierarchy with
+multiple teams to a floor plan.
+When qualitatively comparing the three ICA heuris-
+tics, we did not observe a significant difference in human-
+evaluated solution quality for small and medium-scale in-
+stances.
+Interestingly, when pairwise seat distances are estimated
+using the PRM method, the resulting allocation forms a ball
+shape. This is because nodes are connected if they are within
+a δs radius of each other. Importantly, the framework used
+
+(a) Euclidean Distance
+(b) Allocation with PRM+RRT Distance
+Figure 5: Toy example allocation of 4 teams being allocated to a total of 42 seats which are physically separated by four gray-
+colored walls using IPSA framework with different seat distance estimation methods.
+for distance estimation directly impacts the resulting alloca-
+tion. The ball-shaped output from using PRM may not be
+ideal for open and densely packed office floor plans. How-
+ever, in floor plans with greater distances between seats,
+the ball-shaped allocation was less pronounced. In scenar-
+ios where seats are densely arranged in long rows, it may
+be more effective to explore approaches that aim to find the
+smallest bounding box for each team or another framework.
+Future work should try to improve the disconnect between
+the constrained programming and human-evaluated solution
+quality by studying in which scenarios different solution
+methods and distance estimation techniques performs best.
+5
+Conclusion
+Our contributions are twofold: (1) we introduce a novel ap-
+proach for calculating pairwise seat distances to overcome
+representation problems for high resolution floor plans, and
+(2) introduce the hierarchical seating allocation problem
+(HSAP). We compute pairwise seat distances by accounting
+for impassable physical walls using PRM and RRT meth-
+ods. Additionally, we propose new techniques for consider-
+ing organizational hierarchies to allocate seats to teams at
+any hierarchical level within a floor plan. The solution to
+the HSAP is formulated as a mixed-integer programming
+problem, which is decomposed into several sub-problems
+that can be efficiently solved as individual seating allocation
+(SA) problems.
+We also introduce several innovative methods for solv-
+ing a multi-resource SA problem, along with a local search
+heuristic that can significantly enhance incumbent solutions
+for small and medium-scale instances without substantially
+increasing execution time.
+Future work could focus on developing a dynamic
+pipeline to determine the most suitable algorithm(s) based
+on the size and complexity of each subproblem could be
+beneficial. For the former, inspiration could be drawn from
+Gn¨agi and Baumann (2021) to create a more robust local
+search procedure. For the latter, the pipeline devised by Ste-
+fanello, de Araujo, and M¨uller (2014) could be adapted for
+this purpose.
+6
+Disclaimer.
+This paper was prepared for informational purposes by the
+Artificial Intelligence Research group of JPMorgan Chase &
+Co. and its affiliates (“JP Morgan”), and is not a product of
+the Research Department of JP Morgan. JP Morgan makes
+no representation and warranty whatsoever and disclaims
+all liability, for the completeness, accuracy or reliability
+of the information contained herein. This document is not
+intended as investment research or investment advice, or a
+recommendation, offer or solicitation for the purchase or
+sale of any security, financial instrument, financial product
+or service, or to be used in any way for evaluating the merits
+of participating in any transaction, and shall not constitute a
+solicitation under any jurisdiction or to any person, if such
+solicitation under such jurisdiction or to such person would
+be unlawful.
+©2026 JPMorgan Chase & Co. All rights reserved.
+
+References
+Arthur, D.; and Vassilvitskii, S. 2007. K-Means++: The Ad-
+vantages of Careful Seeding. In Proceedings of the Eigh-
+teenth Annual ACM-SIAM Symposium on Discrete Algo-
+rithms, SODA ’07, 1027–1035. USA: Society for Industrial
+and Applied Mathematics. ISBN 9780898716245.
+Awadallah, M. A.; Khader, A. T.; Al-Betar, M. A.; and
+Woon, P. C. 2012. Office-space-allocation problem using
+harmony search algorithm. In International Conference on
+Neural Information Processing, 365–374.
+Barry, M.; Gambella, C.; Lorenzi, F.; Sheehan, J.; and Ploen-
+nigs, J. 2021. Optimal Seat Allocation Under Social Dis-
+tancing Constraints. arXiv preprint arXiv:2105.05017.
+Boccia, M.; Sforza, A.; Sterle, C.; and Vasilyev, I. 2007.
+A Cut and Branch Approach for the Capacitated p-Median
+Problem Based on Fenchel Cutting Planes. Journal of Math-
+ematical Modelling and Algorithms, 7(1): 43–58.
+Ceselli, A.; and Righini, G. 2005. A branch-and-price al-
+gorithm for the capacitated p-median problem. Networks,
+45(3): 125–142.
+Cohen, L.; Uras, T.; Jahangiri, S.; Arunasalam, A.; Koenig,
+S.; and Kumar, T. K. S. 2017. The FastMap Algorithm for
+Shortest Path Computations. arXiv:1706.02792.
+CPLEX, I. I. 2017. V12. 7: User’s Manual for CPLEX. In-
+ternational Business Machines Corporation.
+Cui, M. L.; Harabor, D. D.; and Grastien, A. 2017.
+Compromise-free pathfinding on a navigation mesh. In Pro-
+ceedings of the 26th International Joint Conference on Arti-
+ficial Intelligence, IJCAI’17, 496–502. AAAI Press. ISBN
+9780999241103.
+Gn¨agi, M.; and Baumann, P. 2021. A matheuristic for large-
+scale capacitated clustering. Computers and Operations Re-
+search, 132: 105304.
+Hales, R. O.; and Garc´ıa, S. 2019. Congress seat allocation
+using mathematical optimization. TOP, 27(3): 426–455.
+Hart, P. E.; Nilsson, N. J.; and Raphael, B. 1968. A For-
+mal Basis for the Heuristic Determination of Minimum Cost
+Paths. IEEE Transactions on Systems Science and Cyber-
+netics, 4(2): 100–107.
+Hechenberger, R.; Harabor, D.; Cheema, M. A.; Stuckey,
+P. J.; and Bodic, P. L. 2022.
+Multi-target search in eu-
+clidean space with ray shooting (full version). arXiv preprint
+arXiv:2207.02436.
+Kavraki, L.; Svestka, P.; Latombe, J.-C.; and Overmars, M.
+1996.
+Probabilistic roadmaps for path planning in high-
+dimensional configuration spaces.
+IEEE Transactions on
+Robotics and Automation, 12(4): 566–580.
+LaValle, S. M. 1998. Rapidly-exploring random trees: A
+new tool for path planning.
+Technical report, Iowa State
+University.
+Lorena, L. A.; and Senne, E. L. 2004. A column generation
+approach to capacitated p-median problems. Computers and
+Operations Research, 31(6): 863–876.
+Lorena, L. A. N.; and Senne, E. L. F. 2003. Local Search
+Heuristics for Capacitated p-Median Problems. Networks
+and Spatial Economics, 3(4): 407–419.
+Mu, W.; and Tong, D. 2019.
+On solving large p-median
+problems. Environment and Planning B: Urban Analytics
+and City Science, 47(6): 981–996.
+Mulvey, J. M.; and Beck, M. P. 1984. Solving capacitated
+clustering problems. European Journal of Operational Re-
+search, 18(3): 339–348.
+Reese, J. 2006. Solution methods for thep-median problem:
+An annotated bibliography. Networks, 48(3): 125–142.
+Serafini, P. 2012. Allocation of the EU Parliament seats via
+integer linear programming and revised quotas. Mathemati-
+cal Social Sciences, 63(2): 107–113.
+Stefanello, F.; de Ara´ujo, O. C. B.; and M¨uller, F. M. 2014.
+Matheuristics for the capacitated p-median problem. Inter-
+national Transactions in Operational Research, 22(1): 149–
+167.
+Stoll, M. 2022. Solutions to the Distance Constrained Cin-
+ema Seating Problem. Master Thesis, Utrecht University.
+Ulker, O. 2013. Office space allocation by using mathemati-
+cal programming and meta-heuristics. Ph.D. thesis, Univer-
+sity of Nottingham.
+Wu, Z.; Meng, Z.; Zhao, W.; and Wu, Z. 2021. Fast-RRT:
+A RRT-Based Optimal Path Finding Method. Applied Sci-
+ences, 11(24): 11777.
+
+7
+Appendix
+7.1
+Appendix 1
+We define the binary variable xt,j as 1 if team t is allocated seat j and 0 otherwise. Similarly to Section 3.2, we define ot and
+dt as the office and desk requirement of team t respectively, and S as the set of all seats and Sd and So as the set of desk and
+office respectively. This yields the following mixed integer quadratic (MIQP) formulation as it is quadratic in the objective:
+min
+X
+t∈T,k∈S,j∈S
+D(k, j)xtkxtj
+(20)
+s.t.
+X
+t∈T
+xtk ≤1
+∀k ∈S
+(21)
+X
+ks∈Sd
+xtks = dt
+∀t ∈T
+(22)
+X
+ko∈So
+xtko = ot
+∀t ∈T
+(23)
+The constraints can be explained as follows:
+• The objective in Eq. 20 minimizes the total pairwise distance to each allocated seat for each team.
+• Eq. 21 describes that a seat can only be allocated to at most one team.
+• Eq. 22 and equation 23 describes that each team must get allocated the number of desks and office to satisfy its demand for
+each of the respective resources.

@@ -1,0 +1,92 @@
+[
+  {
+    "source_section": "introduction",
+    "gap_text": "However, these have been shown to fail against steganographic signals designed to be indistinguishable from natural language [Motwani et al., 2024, Mathew et al., 2025].",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "introduction",
+    "gap_text": "However, little prior work has applied activation-based detection to multi-agent settings.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "introduction",
+    "gap_text": "The deception probe trained on the deception scenarios transfers to detect collusion in both the cross-structure scenarios and the blackjack task, despite these settings having entirely different interaction structures and collusion mechanisms.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "introduction",
+    "gap_text": "Mitigating prompt confounds.A known challenge for activation-based deception detection is that probes may classify based on prompt surface features rather than internal representations of deceptive intent [Goldowsky-Dill et al., 2025, Levinstein and Herrmann, 2024].",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "introduction",
+    "gap_text": "As a direct test, a proportion of honest agents in COREare given aggressive or opinionated personas, ensuring the probe cannot simply learn that forceful or persuasive language indicates collusion.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "introduction",
+    "gap_text": "We cannot fully rule out that residual prompt differences contribute to the signal.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "introduction",
+    "gap_text": "However, the out-of-distribution transfer results (Section 4) provide evidence that the probe captures something beyond prompt artefacts: the probing techniques generalise to NARCBENCH-TRANSFER and NARCBENCH-STEGO, where prompts are structurally different from CORE.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "introduction",
+    "gap_text": "Activation Alignment (correlation-based detection).This is the only method that does not use the deception direction, operating instead on the raw activation vectors directly.",
+    "gap_type": "human_alignment"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "However, no single method dominates, and the distributed detection taxonomy explains why: different collusion types produce different anomaly signatures.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "However, it is the weakest method on TRANSFER(0.54 AUROC): for structural collusion the direction of the effect is inconsistent across tasks, with colluders sometimes becoming more aligned and sometimes less aligned.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "Steganographic collusion disrupts activation geometry (Activation Alignment: 1.00), while structural collusion is subtler and does not shift pairwise similarity in a consistent direction.",
+    "gap_type": "human_alignment"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "Transfer is hard but possible.The deception direction trained on committee deliberations transfers meaningfully to structurally different tasks (0.80\u20130.84 AUROC), despite never seeing code reviews, stock analyses, or RAG pipelines during training.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "The steganographic signals are designed to be indistinguishable from normal conversation, and the judge cannot tell the difference.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "4.4 Limitations Single model.Our results are based on a single model (Qwen3-32B) with 4-bit quantisation.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "We mitigate prompt confounds through scenario diversification and identical evaluation-time prompts, but cannot fully rule out that residual prompt differences contribute to the signal.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "Future work could explore whether improved training sets, non-linear probes, or different score aggregation strategies yield more robust directions.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "We label runs based on whether agents were instructed to collude, but instruction does not guarantee execution, hence the 4 excluded scenarios.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "A privileged-observer control (an agent who knows the collusion scheme but is instructed not to participate) would help distinguish knowledge of collusion from active participation; we leave this for future work.",
+    "gap_type": "scalability"
+  }
+]

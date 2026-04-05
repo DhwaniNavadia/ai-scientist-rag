@@ -1,0 +1,844 @@
+{
+  "project": {
+    "name": "Autonomous AI Scientist (MVP)",
+    "scope": "Single-paper pipeline + multi-agent hypothesis generation + critic + traceability"
+  },
+  "paper_context": {
+    "available_sections": [
+      "abstract",
+      "introduction",
+      "evaluation",
+      "conclusion"
+    ],
+    "num_claims": 3,
+    "num_gaps": 16,
+    "num_hypotheses": 3,
+    "num_disagreement_entries": 16
+  },
+  "claims": [
+    {
+      "claim_id": "C1",
+      "section": "abstract",
+      "claim_text": "We introduce the Hierarchical Seating Allocation Problem (HSAP) which addresses the optimal assignment of hier-archically structured organizational teams to physical seat-ing arrangements on a floor plan.",
+      "evidence_text": "We introduce the Hierarchical Seating Allocation Problem (HSAP) which addresses the optimal assignment of hier-archically structured organizational teams to physical seat-ing arrangements on a floor plan.",
+      "confidence": "high"
+    },
+    {
+      "claim_id": "C2",
+      "section": "abstract",
+      "claim_text": "To alleviate this manual process, we propose an end-to-end framework to solve the HSAP.",
+      "evidence_text": "To alleviate this manual process, we propose an end-to-end framework to solve the HSAP.",
+      "confidence": "high"
+    },
+    {
+      "claim_id": "C3",
+      "section": "abstract",
+      "claim_text": "We demonstrate our approach under dif-ferent sized instances by evaluating the PRM framework and subsequent allocations both quantitatively and qualitatively.",
+      "evidence_text": "We demonstrate our approach under dif-ferent sized instances by evaluating the PRM framework and subsequent allocations both quantitatively and qualitatively.",
+      "confidence": "high"
+    }
+  ],
+  "gaps_actionable": [
+    {
+      "gap_id": "G1",
+      "section": "introduction",
+      "type": "data_quality",
+      "gap_statement": "Increase robustness to floor-plan quality: handle noisy/low-quality plans without extensive preprocessing.",
+      "evidence_text": "A key challenge in this domain is the Seating Allocation (SA) problem, which involves assigning teams to office space on a floor plan."
+    },
+    {
+      "gap_id": "G2",
+      "section": "introduction",
+      "type": "human_alignment",
+      "gap_statement": "Improve alignment with human preferences: incorporate preference-aware objectives or constraints.",
+      "evidence_text": "The usefulness between HSA and SA is significant to large organizations as the humanevaluated solution quality to SA would be low due to failure to accommodate linked departments."
+    },
+    {
+      "gap_id": "G5",
+      "section": "introduction",
+      "type": "scalability",
+      "gap_statement": "Improve scalability: reduce computational complexity / variables so the approach works for large instances.",
+      "evidence_text": "A direct optimization approach could be employed to minimize the total seat distance between each seat, but this results in a mixed-integer quadratic problem (MIQP), which is not scalable for large instances due to the number of decision variables in the objective."
+    },
+    {
+      "gap_id": "G6",
+      "section": "introduction",
+      "type": "human_alignment",
+      "gap_statement": "Improve alignment with human preferences: incorporate preference-aware objectives or constraints.",
+      "evidence_text": "Conversely, if the allocation framework in step 2 does not adequately model human preferences, the solution quality, as reviewed by a human, would similarly be poor."
+    },
+    {
+      "gap_id": "G8",
+      "section": "introduction",
+      "type": "manual_effort",
+      "gap_statement": "Reduce manual effort: automate tuning or reduce reliance on manual editing/parameter selection.",
+      "evidence_text": "For high resolution floor plans when projected into x, y-plane, obtaining such efficient representations may require substantial manual editing."
+    },
+    {
+      "gap_id": "G9",
+      "section": "introduction",
+      "type": "data_quality",
+      "gap_statement": "Increase robustness to floor-plan quality: handle noisy/low-quality plans without extensive preprocessing.",
+      "evidence_text": "Similarly, finding an adequate representation is also made difficult if the quality of the provided floor plans is low."
+    },
+    {
+      "gap_id": "G10",
+      "section": "introduction",
+      "type": "manual_effort",
+      "gap_statement": "Reduce manual effort: automate tuning or reduce reliance on manual editing/parameter selection.",
+      "evidence_text": "Moreover, for large organizations with extensive office footprints, manually adjusting each representation to compute optimal pairwise seat distances may be infeasible."
+    },
+    {
+      "gap_id": "G12",
+      "section": "introduction",
+      "type": "robustness",
+      "gap_statement": "Improve robustness: identify failure modes and prevent repeated trial-and-error runs.",
+      "evidence_text": "If the algorithm fails to connect all the seats, K can be increased, and the process repeated."
+    },
+    {
+      "gap_id": "G13",
+      "section": "introduction",
+      "type": "scalability",
+      "gap_statement": "Improve scalability: reduce computational complexity / variables so the approach works for large instances.",
+      "evidence_text": "The IPSA approach is computational expensive in practice due to the rapidly increasing number of variables in xik (|S|2), which makes large-scale problems intractable."
+    },
+    {
+      "gap_id": "G14",
+      "section": "introduction",
+      "type": "manual_effort",
+      "gap_statement": "Reduce manual effort: automate tuning or reduce reliance on manual editing/parameter selection.",
+      "evidence_text": "The hyper-parameters for \u03b4c and \u03b4s were manually tuned until the algorithm converged with a node limit of K = 2000."
+    },
+    {
+      "gap_id": "G16",
+      "section": "introduction",
+      "type": "scalability",
+      "gap_statement": "Improve scalability: reduce computational complexity / variables so the approach works for large instances.",
+      "evidence_text": "Solving the HSAP problem as a single monolithic instance is intractable for small, medium and large scale instances (i.e. over 50 seats)."
+    },
+    {
+      "gap_id": "G23",
+      "section": "evaluation",
+      "type": "problem_formulation",
+      "gap_statement": "Refine and specify this gap into a testable research question.",
+      "evidence_text": "Empirically, varying |S| or |T| across different instances is insufficient to gauge the time-to-solution, as the difficulty and structure of the organizational hierarchy can vary unpredictably."
+    },
+    {
+      "gap_id": "G26",
+      "section": "evaluation",
+      "type": "human_alignment",
+      "gap_statement": "Improve alignment with human preferences: incorporate preference-aware objectives or constraints.",
+      "evidence_text": "Although the optimization procedure was solved to optimality, a human decision-maker might choose to manually relocate the two teal seats in the top right quadrant to be adjacent, even if this adjustment slightly reduces the overall optimization objective."
+    },
+    {
+      "gap_id": "G27",
+      "section": "evaluation",
+      "type": "data_quality",
+      "gap_statement": "Increase robustness to floor-plan quality: handle noisy/low-quality plans without extensive preprocessing.",
+      "evidence_text": "The ball-shaped output from using PRM may not be ideal for open and densely packed office floor plans."
+    },
+    {
+      "gap_id": "G29",
+      "section": "evaluation",
+      "type": "human_alignment",
+      "gap_statement": "Improve alignment with human preferences: incorporate preference-aware objectives or constraints.",
+      "evidence_text": "Future work should try to improve the disconnect between the constrained programming and human-evaluated solution quality by studying in which scenarios different solution methods and distance estimation techniques performs best."
+    },
+    {
+      "gap_id": "G31",
+      "section": "conclusion",
+      "type": "future_work",
+      "gap_statement": "Investigate recommended future direction described by the authors and propose a concrete experiment to test it.",
+      "evidence_text": "Future work could focus on developing a dynamic pipeline to determine the most suitable algorithm(s) based on the size and complexity of each subproblem could be beneficial."
+    }
+  ],
+  "hypothesis_lineage": [
+    {
+      "hypothesis_id": "H1",
+      "hypothesis_text": "Using a robust floor-plan preprocessing pipeline (noise removal + wall detection confidence thresholds) will reduce distance-estimation errors on low-quality floor plans.",
+      "failure_mode": "If distance estimation error remains high on low-quality plans, the hypothesis is false.",
+      "critic": {
+        "clarity": 5,
+        "novelty": 5,
+        "feasibility": 4,
+        "total": 14,
+        "decision": "KEEP",
+        "reasons": [
+          "Meets minimum rubric thresholds."
+        ],
+        "suggestion": "Feasibility: start with 3\u20135 toy floor plans; compare PRM/RRT distance error vs Euclidean/Manhattan as a proxy."
+      },
+      "reflection": {
+        "hypothesis_id": "H1",
+        "decision": "KEEP",
+        "why": "Kept because it meets rubric thresholds with a strong total score.",
+        "weakest_dimensions": [
+          "feasibility"
+        ],
+        "weakest_score": 4,
+        "critic_reasons": [
+          "Meets minimum rubric thresholds."
+        ],
+        "improvement_plan": "Feasibility: start with 3\u20135 toy floor plans; compare PRM/RRT distance error vs Euclidean/Manhattan as a proxy.",
+        "trace": {
+          "gap_id": "G1",
+          "gap_type": "data_quality",
+          "evidence_text": "A key challenge in this domain is the Seating Allocation (SA) problem, which involves assigning teams to office space on a floor plan."
+        }
+      },
+      "gap": {
+        "gap_id": "G1",
+        "gap_type": "data_quality",
+        "gap_statement": "Increase robustness to floor-plan quality: handle noisy/low-quality plans without extensive preprocessing.",
+        "evidence_text": "A key challenge in this domain is the Seating Allocation (SA) problem, which involves assigning teams to office space on a floor plan.",
+        "section": "introduction"
+      }
+    },
+    {
+      "hypothesis_id": "H2",
+      "hypothesis_text": "Adding a preference-aware term (e.g., contiguity/adjacency penalties) to the objective will improve human-rated seating quality without large optimization cost.",
+      "failure_mode": "If human ratings do not improve or optimization cost increases too much, the hypothesis is false.",
+      "critic": {
+        "clarity": 5,
+        "novelty": 5,
+        "feasibility": 5,
+        "total": 15,
+        "decision": "KEEP",
+        "reasons": [
+          "Meets minimum rubric thresholds."
+        ],
+        "suggestion": "Make it more testable: specify metric(s), baseline(s), and what counts as improvement."
+      },
+      "reflection": {
+        "hypothesis_id": "H2",
+        "decision": "KEEP",
+        "why": "Kept because it meets rubric thresholds with a strong total score.",
+        "weakest_dimensions": [
+          "clarity",
+          "novelty",
+          "feasibility"
+        ],
+        "weakest_score": 5,
+        "critic_reasons": [
+          "Meets minimum rubric thresholds."
+        ],
+        "improvement_plan": "Make it more testable: specify metric(s), baseline(s), and what counts as improvement.",
+        "trace": {
+          "gap_id": "G2",
+          "gap_type": "human_alignment",
+          "evidence_text": "The usefulness between HSA and SA is significant to large organizations as the humanevaluated solution quality to SA would be low due to failure to accommodate linked departments."
+        }
+      },
+      "gap": {
+        "gap_id": "G2",
+        "gap_type": "human_alignment",
+        "gap_statement": "Improve alignment with human preferences: incorporate preference-aware objectives or constraints.",
+        "evidence_text": "The usefulness between HSA and SA is significant to large organizations as the humanevaluated solution quality to SA would be low due to failure to accommodate linked departments.",
+        "section": "introduction"
+      }
+    },
+    {
+      "hypothesis_id": "H3",
+      "hypothesis_text": "Replacing the quadratic-variable formulation with a decomposition + heuristic warm-start will reduce runtime while preserving allocation quality on large instances.",
+      "failure_mode": "If runtime does not decrease on large instances or allocation quality drops significantly versus baseline, the hypothesis is false.",
+      "critic": {
+        "clarity": 5,
+        "novelty": 5,
+        "feasibility": 4,
+        "total": 14,
+        "decision": "KEEP",
+        "reasons": [
+          "Meets minimum rubric thresholds."
+        ],
+        "suggestion": "Feasibility: test on synthetic instances varying |S| and |T|; report runtime + quality vs IPSA baseline under a fixed time budget."
+      },
+      "reflection": {
+        "hypothesis_id": "H3",
+        "decision": "KEEP",
+        "why": "Kept because it meets rubric thresholds with a strong total score.",
+        "weakest_dimensions": [
+          "feasibility"
+        ],
+        "weakest_score": 4,
+        "critic_reasons": [
+          "Meets minimum rubric thresholds."
+        ],
+        "improvement_plan": "Feasibility: test on synthetic instances varying |S| and |T|; report runtime + quality vs IPSA baseline under a fixed time budget.",
+        "trace": {
+          "gap_id": "G5",
+          "gap_type": "scalability",
+          "evidence_text": "A direct optimization approach could be employed to minimize the total seat distance between each seat, but this results in a mixed-integer quadratic problem (MIQP), which is not scalable for large instances due to the number of decision variables in the objective."
+        }
+      },
+      "gap": {
+        "gap_id": "G5",
+        "gap_type": "scalability",
+        "gap_statement": "Improve scalability: reduce computational complexity / variables so the approach works for large instances.",
+        "evidence_text": "A direct optimization approach could be employed to minimize the total seat distance between each seat, but this results in a mixed-integer quadratic problem (MIQP), which is not scalable for large instances due to the number of decision variables in the objective.",
+        "section": "introduction"
+      }
+    }
+  ],
+  "disagreement_log": [
+    {
+      "gap_id": "G1",
+      "gap_type": "data_quality",
+      "evidence_text": "A key challenge in this domain is the Seating Allocation (SA) problem, which involves assigning teams to office space on a floor plan.",
+      "agent_outputs": [
+        {
+          "agent": "AgentA",
+          "hypothesis_text": "A noise-robust preprocessing pipeline (denoising + wall-confidence filtering) will reduce PRM/RRT distance-estimation errors on low-quality floor plans.",
+          "critic": {
+            "clarity": 5,
+            "novelty": 5,
+            "feasibility": 4,
+            "total": 14,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        },
+        {
+          "agent": "AgentB",
+          "hypothesis_text": "If we ablate preprocessing steps (denoise, wall-detection thresholding), we will observe that distance-estimation error is dominated by wall-detection failures on noisy plans.",
+          "critic": {
+            "clarity": 4,
+            "novelty": 5,
+            "feasibility": 4,
+            "total": 13,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        }
+      ],
+      "disagreement_summary": {
+        "preferred": "AgentA",
+        "reason": "Decision-aware preference (KEEP > REVISE > REJECT), then total score."
+      }
+    },
+    {
+      "gap_id": "G2",
+      "gap_type": "human_alignment",
+      "evidence_text": "The usefulness between HSA and SA is significant to large organizations as the humanevaluated solution quality to SA would be low due to failure to accommodate linked departments.",
+      "agent_outputs": [
+        {
+          "agent": "AgentA",
+          "hypothesis_text": "Adding an adjacency/contiguity penalty to the optimization objective will improve human-rated seating quality without significantly increasing runtime.",
+          "critic": {
+            "clarity": 5,
+            "novelty": 5,
+            "feasibility": 3,
+            "total": 13,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        },
+        {
+          "agent": "AgentB",
+          "hypothesis_text": "A two-stage approach (optimize constraints first, then apply a local human-preference refinement) will yield higher human satisfaction than a single-objective solver.",
+          "critic": {
+            "clarity": 4,
+            "novelty": 5,
+            "feasibility": 3,
+            "total": 12,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        }
+      ],
+      "disagreement_summary": {
+        "preferred": "AgentA",
+        "reason": "Decision-aware preference (KEEP > REVISE > REJECT), then total score."
+      }
+    },
+    {
+      "gap_id": "G5",
+      "gap_type": "scalability",
+      "evidence_text": "A direct optimization approach could be employed to minimize the total seat distance between each seat, but this results in a mixed-integer quadratic problem (MIQP), which is not scalable for large instances due to the number of decision variables in the objective.",
+      "agent_outputs": [
+        {
+          "agent": "AgentA",
+          "hypothesis_text": "Decomposing the MIQP into smaller subproblems with a heuristic warm-start will reduce runtime while maintaining allocation quality on large instances.",
+          "critic": {
+            "clarity": 5,
+            "novelty": 5,
+            "feasibility": 4,
+            "total": 14,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        },
+        {
+          "agent": "AgentB",
+          "hypothesis_text": "A hybrid approach that switches from exact optimization to heuristic search beyond a size threshold will provide better runtime\u2013quality tradeoffs than pure exact optimization.",
+          "critic": {
+            "clarity": 4,
+            "novelty": 5,
+            "feasibility": 4,
+            "total": 13,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        }
+      ],
+      "disagreement_summary": {
+        "preferred": "AgentA",
+        "reason": "Decision-aware preference (KEEP > REVISE > REJECT), then total score."
+      }
+    },
+    {
+      "gap_id": "G6",
+      "gap_type": "human_alignment",
+      "evidence_text": "Conversely, if the allocation framework in step 2 does not adequately model human preferences, the solution quality, as reviewed by a human, would similarly be poor.",
+      "agent_outputs": [
+        {
+          "agent": "AgentA",
+          "hypothesis_text": "Adding an adjacency/contiguity penalty to the optimization objective will improve human-rated seating quality without significantly increasing runtime.",
+          "critic": {
+            "clarity": 5,
+            "novelty": 5,
+            "feasibility": 3,
+            "total": 13,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        },
+        {
+          "agent": "AgentB",
+          "hypothesis_text": "A two-stage approach (optimize constraints first, then apply a local human-preference refinement) will yield higher human satisfaction than a single-objective solver.",
+          "critic": {
+            "clarity": 4,
+            "novelty": 5,
+            "feasibility": 3,
+            "total": 12,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        }
+      ],
+      "disagreement_summary": {
+        "preferred": "AgentA",
+        "reason": "Decision-aware preference (KEEP > REVISE > REJECT), then total score."
+      }
+    },
+    {
+      "gap_id": "G8",
+      "gap_type": "manual_effort",
+      "evidence_text": "For high resolution floor plans when projected into x, y-plane, obtaining such efficient representations may require substantial manual editing.",
+      "agent_outputs": [
+        {
+          "agent": "AgentA",
+          "hypothesis_text": "Learning PRM/RRT hyper-parameters from a small set of annotated floor plans will match manual tuning quality while reducing human effort.",
+          "critic": {
+            "clarity": 3,
+            "novelty": 5,
+            "feasibility": 3,
+            "total": 11,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        },
+        {
+          "agent": "AgentB",
+          "hypothesis_text": "A sensitivity analysis will show that solution quality is unstable to small parameter changes, motivating automated tuning rather than manual tuning.",
+          "critic": {
+            "clarity": 3,
+            "novelty": 5,
+            "feasibility": 3,
+            "total": 11,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        }
+      ],
+      "disagreement_summary": {
+        "preferred": "AgentA",
+        "reason": "Decision-aware preference (KEEP > REVISE > REJECT), then total score."
+      }
+    },
+    {
+      "gap_id": "G9",
+      "gap_type": "data_quality",
+      "evidence_text": "Similarly, finding an adequate representation is also made difficult if the quality of the provided floor plans is low.",
+      "agent_outputs": [
+        {
+          "agent": "AgentA",
+          "hypothesis_text": "A noise-robust preprocessing pipeline (denoising + wall-confidence filtering) will reduce PRM/RRT distance-estimation errors on low-quality floor plans.",
+          "critic": {
+            "clarity": 5,
+            "novelty": 5,
+            "feasibility": 4,
+            "total": 14,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        },
+        {
+          "agent": "AgentB",
+          "hypothesis_text": "If we ablate preprocessing steps (denoise, wall-detection thresholding), we will observe that distance-estimation error is dominated by wall-detection failures on noisy plans.",
+          "critic": {
+            "clarity": 4,
+            "novelty": 5,
+            "feasibility": 4,
+            "total": 13,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        }
+      ],
+      "disagreement_summary": {
+        "preferred": "AgentA",
+        "reason": "Decision-aware preference (KEEP > REVISE > REJECT), then total score."
+      }
+    },
+    {
+      "gap_id": "G10",
+      "gap_type": "manual_effort",
+      "evidence_text": "Moreover, for large organizations with extensive office footprints, manually adjusting each representation to compute optimal pairwise seat distances may be infeasible.",
+      "agent_outputs": [
+        {
+          "agent": "AgentA",
+          "hypothesis_text": "Learning PRM/RRT hyper-parameters from a small set of annotated floor plans will match manual tuning quality while reducing human effort.",
+          "critic": {
+            "clarity": 3,
+            "novelty": 5,
+            "feasibility": 3,
+            "total": 11,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        },
+        {
+          "agent": "AgentB",
+          "hypothesis_text": "A sensitivity analysis will show that solution quality is unstable to small parameter changes, motivating automated tuning rather than manual tuning.",
+          "critic": {
+            "clarity": 3,
+            "novelty": 5,
+            "feasibility": 3,
+            "total": 11,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        }
+      ],
+      "disagreement_summary": {
+        "preferred": "AgentA",
+        "reason": "Decision-aware preference (KEEP > REVISE > REJECT), then total score."
+      }
+    },
+    {
+      "gap_id": "G12",
+      "gap_type": "robustness",
+      "evidence_text": "If the algorithm fails to connect all the seats, K can be increased, and the process repeated.",
+      "agent_outputs": [
+        {
+          "agent": "AgentA",
+          "hypothesis_text": "Adding an automatic connectivity-repair step (adaptive K, adaptive thresholds) will reduce PRM failure cases without repeated reruns.",
+          "critic": {
+            "clarity": 4,
+            "novelty": 5,
+            "feasibility": 3,
+            "total": 12,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        },
+        {
+          "agent": "AgentB",
+          "hypothesis_text": "Ablation experiments will reveal that PRM failures are concentrated in specific floor-plan topologies, suggesting targeted repair heuristics.",
+          "critic": {
+            "clarity": 4,
+            "novelty": 5,
+            "feasibility": 4,
+            "total": 13,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        }
+      ],
+      "disagreement_summary": {
+        "preferred": "AgentB",
+        "reason": "Decision-aware preference (KEEP > REVISE > REJECT), then total score."
+      }
+    },
+    {
+      "gap_id": "G13",
+      "gap_type": "scalability",
+      "evidence_text": "The IPSA approach is computational expensive in practice due to the rapidly increasing number of variables in xik (|S|2), which makes large-scale problems intractable.",
+      "agent_outputs": [
+        {
+          "agent": "AgentA",
+          "hypothesis_text": "Decomposing the MIQP into smaller subproblems with a heuristic warm-start will reduce runtime while maintaining allocation quality on large instances.",
+          "critic": {
+            "clarity": 5,
+            "novelty": 5,
+            "feasibility": 4,
+            "total": 14,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        },
+        {
+          "agent": "AgentB",
+          "hypothesis_text": "A hybrid approach that switches from exact optimization to heuristic search beyond a size threshold will provide better runtime\u2013quality tradeoffs than pure exact optimization.",
+          "critic": {
+            "clarity": 4,
+            "novelty": 5,
+            "feasibility": 4,
+            "total": 13,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        }
+      ],
+      "disagreement_summary": {
+        "preferred": "AgentA",
+        "reason": "Decision-aware preference (KEEP > REVISE > REJECT), then total score."
+      }
+    },
+    {
+      "gap_id": "G14",
+      "gap_type": "manual_effort",
+      "evidence_text": "The hyper-parameters for \u03b4c and \u03b4s were manually tuned until the algorithm converged with a node limit of K = 2000.",
+      "agent_outputs": [
+        {
+          "agent": "AgentA",
+          "hypothesis_text": "Learning PRM/RRT hyper-parameters from a small set of annotated floor plans will match manual tuning quality while reducing human effort.",
+          "critic": {
+            "clarity": 3,
+            "novelty": 5,
+            "feasibility": 3,
+            "total": 11,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        },
+        {
+          "agent": "AgentB",
+          "hypothesis_text": "A sensitivity analysis will show that solution quality is unstable to small parameter changes, motivating automated tuning rather than manual tuning.",
+          "critic": {
+            "clarity": 3,
+            "novelty": 5,
+            "feasibility": 3,
+            "total": 11,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        }
+      ],
+      "disagreement_summary": {
+        "preferred": "AgentA",
+        "reason": "Decision-aware preference (KEEP > REVISE > REJECT), then total score."
+      }
+    },
+    {
+      "gap_id": "G16",
+      "gap_type": "scalability",
+      "evidence_text": "Solving the HSAP problem as a single monolithic instance is intractable for small, medium and large scale instances (i.e. over 50 seats).",
+      "agent_outputs": [
+        {
+          "agent": "AgentA",
+          "hypothesis_text": "Decomposing the MIQP into smaller subproblems with a heuristic warm-start will reduce runtime while maintaining allocation quality on large instances.",
+          "critic": {
+            "clarity": 5,
+            "novelty": 5,
+            "feasibility": 4,
+            "total": 14,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        },
+        {
+          "agent": "AgentB",
+          "hypothesis_text": "A hybrid approach that switches from exact optimization to heuristic search beyond a size threshold will provide better runtime\u2013quality tradeoffs than pure exact optimization.",
+          "critic": {
+            "clarity": 4,
+            "novelty": 5,
+            "feasibility": 4,
+            "total": 13,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        }
+      ],
+      "disagreement_summary": {
+        "preferred": "AgentA",
+        "reason": "Decision-aware preference (KEEP > REVISE > REJECT), then total score."
+      }
+    },
+    {
+      "gap_id": "G23",
+      "gap_type": "problem_formulation",
+      "evidence_text": "Empirically, varying |S| or |T| across different instances is insufficient to gauge the time-to-solution, as the difficulty and structure of the organizational hierarchy can vary unpredictably.",
+      "agent_outputs": [
+        {
+          "agent": "AgentA",
+          "hypothesis_text": "A standardized benchmark suite with instance-feature stratification will predict time-to-solution more reliably than using |S| or |T| alone.",
+          "critic": {
+            "clarity": 3,
+            "novelty": 4,
+            "feasibility": 3,
+            "total": 10,
+            "decision": "REVISE",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        },
+        {
+          "agent": "AgentB",
+          "hypothesis_text": "By correlating instance features with runtime and quality, we can identify which structural properties (not just |S|,|T|) predict solver difficulty.",
+          "critic": {
+            "clarity": 2,
+            "novelty": 5,
+            "feasibility": 3,
+            "total": 10,
+            "decision": "REJECT",
+            "suggestion": "Specify metric(s), baseline(s), and success criteria."
+          }
+        }
+      ],
+      "disagreement_summary": {
+        "preferred": "AgentA",
+        "reason": "Decision-aware preference (KEEP > REVISE > REJECT), then total score."
+      }
+    },
+    {
+      "gap_id": "G26",
+      "gap_type": "human_alignment",
+      "evidence_text": "Although the optimization procedure was solved to optimality, a human decision-maker might choose to manually relocate the two teal seats in the top right quadrant to be adjacent, even if this adjustment slightly reduces the overall optimization objective.",
+      "agent_outputs": [
+        {
+          "agent": "AgentA",
+          "hypothesis_text": "Adding an adjacency/contiguity penalty to the optimization objective will improve human-rated seating quality without significantly increasing runtime.",
+          "critic": {
+            "clarity": 5,
+            "novelty": 4,
+            "feasibility": 3,
+            "total": 12,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        },
+        {
+          "agent": "AgentB",
+          "hypothesis_text": "A two-stage approach (optimize constraints first, then apply a local human-preference refinement) will yield higher human satisfaction than a single-objective solver.",
+          "critic": {
+            "clarity": 4,
+            "novelty": 5,
+            "feasibility": 3,
+            "total": 12,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        }
+      ],
+      "disagreement_summary": {
+        "preferred": "AgentA",
+        "reason": "Decision-aware preference (KEEP > REVISE > REJECT), then total score."
+      }
+    },
+    {
+      "gap_id": "G27",
+      "gap_type": "data_quality",
+      "evidence_text": "The ball-shaped output from using PRM may not be ideal for open and densely packed office floor plans.",
+      "agent_outputs": [
+        {
+          "agent": "AgentA",
+          "hypothesis_text": "A noise-robust preprocessing pipeline (denoising + wall-confidence filtering) will reduce PRM/RRT distance-estimation errors on low-quality floor plans.",
+          "critic": {
+            "clarity": 5,
+            "novelty": 5,
+            "feasibility": 4,
+            "total": 14,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        },
+        {
+          "agent": "AgentB",
+          "hypothesis_text": "If we ablate preprocessing steps (denoise, wall-detection thresholding), we will observe that distance-estimation error is dominated by wall-detection failures on noisy plans.",
+          "critic": {
+            "clarity": 4,
+            "novelty": 5,
+            "feasibility": 4,
+            "total": 13,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        }
+      ],
+      "disagreement_summary": {
+        "preferred": "AgentA",
+        "reason": "Decision-aware preference (KEEP > REVISE > REJECT), then total score."
+      }
+    },
+    {
+      "gap_id": "G29",
+      "gap_type": "human_alignment",
+      "evidence_text": "Future work should try to improve the disconnect between the constrained programming and human-evaluated solution quality by studying in which scenarios different solution methods and distance estimation techniques performs best.",
+      "agent_outputs": [
+        {
+          "agent": "AgentA",
+          "hypothesis_text": "Adding an adjacency/contiguity penalty to the optimization objective will improve human-rated seating quality without significantly increasing runtime.",
+          "critic": {
+            "clarity": 5,
+            "novelty": 4,
+            "feasibility": 3,
+            "total": 12,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        },
+        {
+          "agent": "AgentB",
+          "hypothesis_text": "A two-stage approach (optimize constraints first, then apply a local human-preference refinement) will yield higher human satisfaction than a single-objective solver.",
+          "critic": {
+            "clarity": 4,
+            "novelty": 5,
+            "feasibility": 3,
+            "total": 12,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        }
+      ],
+      "disagreement_summary": {
+        "preferred": "AgentA",
+        "reason": "Decision-aware preference (KEEP > REVISE > REJECT), then total score."
+      }
+    },
+    {
+      "gap_id": "G31",
+      "gap_type": "future_work",
+      "evidence_text": "Future work could focus on developing a dynamic pipeline to determine the most suitable algorithm(s) based on the size and complexity of each subproblem could be beneficial.",
+      "agent_outputs": [
+        {
+          "agent": "AgentA",
+          "hypothesis_text": "A meta-controller that selects the allocation algorithm using instance features (|S|, |T|, density) will outperform any fixed algorithm across diverse instances.",
+          "critic": {
+            "clarity": 5,
+            "novelty": 5,
+            "feasibility": 2,
+            "total": 12,
+            "decision": "REJECT",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        },
+        {
+          "agent": "AgentB",
+          "hypothesis_text": "Cross-instance evaluation will show that no single method dominates; an algorithm-selection model is required to generalize across instance regimes.",
+          "critic": {
+            "clarity": 3,
+            "novelty": 5,
+            "feasibility": 3,
+            "total": 11,
+            "decision": "KEEP",
+            "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+          }
+        }
+      ],
+      "disagreement_summary": {
+        "preferred": "AgentB",
+        "reason": "Decision-aware preference (KEEP > REVISE > REJECT), then total score."
+      }
+    }
+  ]
+}

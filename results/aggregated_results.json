@@ -1,0 +1,65 @@
+{
+  "generated_at": "2025-07-21T00:00:00Z",
+  "data_source": "mock — evaluation_report.json not yet generated; run `python run_pipeline.py --mode eval` to produce real data. See results/reproducibility_checklist.md for instructions.",
+  "pipeline_version": "1.0.0",
+  "note": "Mock values provided by user for 3 papers. Weighted aggregates computed proportionally to gaps_evaluated per paper.",
+  "papers": [
+    {
+      "paper_id": "paper_1",
+      "paper_title": "Hierarchical Seating Allocation Problem (HSAP)",
+      "source_pdf": "data/papers/paper1.pdf",
+      "metrics": {
+        "win_rate": 0.68,
+        "avg_hypothesis_score": 7.2,
+        "keep_rate": 0.72,
+        "agent_agreement_rate": 0.81
+      },
+      "gaps_evaluated": 12,
+      "n_runs_per_gap": 3,
+      "total_comparisons": 36
+    },
+    {
+      "paper_id": "paper_2",
+      "paper_title": "Placeholder Paper 2",
+      "source_pdf": "data/papers/paper2.pdf",
+      "metrics": {
+        "win_rate": 0.54,
+        "avg_hypothesis_score": 6.4,
+        "keep_rate": 0.58,
+        "agent_agreement_rate": 0.67
+      },
+      "gaps_evaluated": 9,
+      "n_runs_per_gap": 3,
+      "total_comparisons": 27
+    },
+    {
+      "paper_id": "paper_3",
+      "paper_title": "Placeholder Paper 3",
+      "source_pdf": "data/papers/paper3.pdf",
+      "metrics": {
+        "win_rate": 0.71,
+        "avg_hypothesis_score": 7.6,
+        "keep_rate": 0.75,
+        "agent_agreement_rate": 0.88
+      },
+      "gaps_evaluated": 11,
+      "n_runs_per_gap": 3,
+      "total_comparisons": 33
+    }
+  ],
+  "aggregate": {
+    "total_papers": 3,
+    "total_gaps_evaluated": 32,
+    "total_comparisons": 96,
+    "weighted_win_rate": 0.651,
+    "weighted_avg_hypothesis_score": 7.113,
+    "weighted_keep_rate": 0.691,
+    "weighted_agent_agreement_rate": 0.795,
+    "computation_notes": {
+      "weighted_win_rate": "(0.68*12 + 0.54*9 + 0.71*11) / 32 = 20.83 / 32",
+      "weighted_avg_hypothesis_score": "(7.2*12 + 6.4*9 + 7.6*11) / 32 = 227.6 / 32",
+      "weighted_keep_rate": "(0.72*12 + 0.58*9 + 0.75*11) / 32 = 22.11 / 32",
+      "weighted_agent_agreement_rate": "(0.81*12 + 0.67*9 + 0.88*11) / 32 = 25.43 / 32"
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "paper_id": "demo_nlp",
+  "paper_title": "Cross-Lingual Transfer in Low-Resource NLP",
+  "generated_at": "2025-07-21T00:00:00Z",
+  "sections": {
+    "Abstract": "We study the effectiveness of multilingual pre-trained language models (mPLMs) for cross-lingual transfer to low-resource languages. We evaluate mBERT, XLM-R, and mT5 on NER and classification tasks across 12 low-resource languages, finding that lexical overlap between source and target languages is the strongest single predictor of transfer success (r=0.81).",
+    "Introduction": "Cross-lingual transfer allows models trained on high-resource languages to be applied to low-resource settings. Despite the success of models like mBERT and XLM-R, failure modes remain poorly understood, particularly for morphologically rich languages with limited lexical overlap with English.",
+    "Methods": "We conduct a systematic evaluation across 12 low-resource languages from 6 language families. Transfer performance is measured using zero-shot and few-shot settings. Language pairs are characterised by lexical overlap (LO), morphological complexity index (MCI), and script similarity (SS).",
+    "Results": "XLM-R achieves best average F1 (52.3) across tasks. Lexical overlap (r=0.81) and script similarity (r=0.74) are the strongest predictors of transfer success. Few-shot (k=10) examples close 40% of the zero-shot to full-supervision gap. Morphological complexity negatively correlates with transfer (r=-0.63).",
+    "Conclusion": "Cross-lingual transfer is effective but highly sensitive to source-target language proximity. Morphologically rich languages remain a significant challenge. Future work should investigate language-adaptive fine-tuning and multilingual data augmentation for agglutinative languages."
+  },
+  "claims": [
+    {
+      "claim_id": "C1",
+      "claim_text": "Lexical overlap is the strongest predictor of cross-lingual transfer success (r=0.81).",
+      "evidence_text": "Pearson correlation between lexical overlap and zero-shot F1 across 12 languages is r=0.81.",
+      "confidence": 0.93,
+      "section": "Results"
+    },
+    {
+      "claim_id": "C2",
+      "claim_text": "XLM-R outperforms mBERT and mT5 on average across all 12 low-resource languages.",
+      "evidence_text": "XLM-R achieves best average F1 (52.3) compared to mBERT (44.1) and mT5 (48.7).",
+      "confidence": 0.89,
+      "section": "Results"
+    },
+    {
+      "claim_id": "C3",
+      "claim_text": "10 few-shot examples close 40% of the zero-shot to full-supervision performance gap.",
+      "evidence_text": "Few-shot (k=10) examples reduce the gap between zero-shot and full supervision by approximately 40% on average.",
+      "confidence": 0.84,
+      "section": "Results"
+    }
+  ],
+  "gaps": [
+    {
+      "gap_id": "G1",
+      "gap_description": "Transfer to morphologically rich agglutinative languages remains poor despite strong average results.",
+      "gap_type": "coverage",
+      "actionable_direction": "Language-adaptive tokenization (e.g., morpheme-aware BPE) combined with language-specific fine-tuning heads may significantly improve transfer to agglutinative languages.",
+      "priority": 1
+    },
+    {
+      "gap_id": "G2",
+      "gap_description": "The mechanisms by which few-shot examples improve transfer are not analysed or explained.",
+      "gap_type": "interpretability",
+      "actionable_direction": "Probing studies and attention visualisation on few-shot vs zero-shot models would clarify whether improvements come from calibration, vocabulary coverage, or structural adaptation.",
+      "priority": 2
+    }
+  ],
+  "hypothesis_pairs": [
+    {
+      "gap_id": "G1",
+      "agentA": {
+        "agent": "AgentA",
+        "hypothesis": "Morpheme-segmentation-aware BPE tokenisation pre-trained jointly with XLM-R will improve NER F1 on agglutinative languages by ≥10 points.",
+        "rationale": "Current subword tokenisation fragments morpheme boundaries in agglutinative languages, losing structural information. Morpheme-aware tokenisation preserves these boundaries.",
+        "score": 8.4,
+        "decision": "KEEP"
+      },
+      "agentB": {
+        "agent": "AgentB",
+        "hypothesis": "Adding 5,000 synthetically generated silver-standard sentences per target agglutinative language via back-translation will improve transfer F1 by ≥8 points.",
+        "rationale": "Data augmentation via back-translation is well-validated in NMT and can be applied cheaply without architecture changes.",
+        "score": 7.9,
+        "decision": "REVISE"
+      },
+      "preferred": "AgentA",
+      "agreement": false
+    },
+    {
+      "gap_id": "G2",
+      "agentA": {
+        "agent": "AgentA",
+        "hypothesis": "Attention head probing on layer 8-12 of XLM-R will reveal morphological structure heads specifically activated by few-shot examples in agglutinative languages.",
+        "rationale": "Probing studies on BERT-family models have successfully identified syntactic structure heads, motivating similar analysis for morphology.",
+        "score": 7.5,
+        "decision": "KEEP"
+      },
+      "agentB": {
+        "agent": "AgentB",
+        "hypothesis": "Measuring KL divergence between zero-shot and few-shot contextual embedding distributions will quantify the representation shift induced by few-shot adaptation.",
+        "rationale": "Embedding distribution analysis provides a model-agnostic explanation of improvement, with clear quantitative output.",
+        "score": 7.8,
+        "decision": "KEEP"
+      },
+      "preferred": "AgentB",
+      "agreement": true
+    }
+  ],
+  "reflections": [
+    {
+      "gap_id": "G1",
+      "original_hypothesis": "Morpheme-segmentation-aware BPE tokenisation will improve NER F1 on agglutinative languages by ≥10 points.",
+      "improvement_plan": "Add specificity to the training data requirement, clarify the morpheme segmentation tool used (e.g., Morfessor), and add a comparison against standard XLM-R fine-tuning baseline.",
+      "revised_hypothesis": "XLM-R fine-tuned with Morfessor-segmented BPE vocabulary (trained on ≥1M tokens per language) will improve NER F1 on Turkish, Finnish, and Hungarian by ≥10 points over standard subword tokenisation, measured on test splits matching the paper's experimental setup.",
+      "improvement_score": 0.84
+    }
+  ]
+}

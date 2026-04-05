@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autonomous AI Scientist</title>
+<style>
+  :root {
+    --bg: #0f172a; --surface: #1e293b; --border: #334155;
+    --text: #e2e8f0; --muted: #94a3b8; --accent: #3b82f6;
+    --green: #22c55e; --red: #ef4444; --orange: #f97316; --purple: #a855f7;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+         background: var(--bg); color: var(--text); min-height: 100vh; }
+  header { background: var(--surface); border-bottom: 1px solid var(--border);
+           padding: 1rem 2rem; display: flex; align-items: center; gap: 1rem; }
+  header h1 { font-size: 1.25rem; font-weight: 600; }
+  header .status { margin-left: auto; font-size: 0.85rem; color: var(--muted); }
+  header .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+  header .dot.ok { background: var(--green); } header .dot.err { background: var(--red); }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding: 1rem 2rem 2rem; }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+  .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+           display: flex; flex-direction: column; min-height: 320px; }
+  .panel-head { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);
+                font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; }
+  .panel-body { padding: 1rem; flex: 1; overflow-y: auto; max-height: 440px; }
+  .panel-body::-webkit-scrollbar { width: 6px; }
+  .panel-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  input, select, textarea { background: var(--bg); border: 1px solid var(--border); color: var(--text);
+                            border-radius: 6px; padding: 0.5rem 0.75rem; font-size: 0.9rem; width: 100%; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); }
+  textarea { resize: vertical; min-height: 60px; font-family: inherit; }
+  button { background: var(--accent); color: #fff; border: none; border-radius: 6px;
+           padding: 0.5rem 1.25rem; font-size: 0.9rem; cursor: pointer; font-weight: 500; }
+  button:hover { opacity: 0.9; } button:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn-sm { padding: 0.35rem 0.75rem; font-size: 0.8rem; }
+  .btn-danger { background: var(--red); }
+  .row { display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+  .tag-keep { background: rgba(34,197,94,0.15); color: var(--green); }
+  .tag-revise { background: rgba(249,115,22,0.15); color: var(--orange); }
+  .tag-reject { background: rgba(239,68,68,0.15); color: var(--red); }
+  .card { background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+          padding: 0.75rem; margin-bottom: 0.5rem; font-size: 0.85rem; line-height: 1.5; }
+  .card .label { color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .score-bar { display: flex; gap: 0.5rem; margin-top: 0.25rem; }
+  .score-pill { padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; background: rgba(59,130,246,0.15); color: var(--accent); }
+  pre.json { background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+             padding: 0.75rem; font-size: 0.8rem; overflow-x: auto; white-space: pre-wrap;
+             word-break: break-word; max-height: 380px; overflow-y: auto; color: var(--muted); }
+  .empty { color: var(--muted); text-align: center; padding: 2rem; font-size: 0.9rem; }
+  .progress { margin-top: 0.5rem; font-size: 0.85rem; }
+  .progress .running { color: var(--orange); } .progress .completed { color: var(--green); }
+  .progress .error { color: var(--red); } .progress .idle { color: var(--muted); }
+  .chunk { border-left: 3px solid var(--accent); padding-left: 0.75rem; margin-bottom: 0.75rem; }
+  .chunk .meta { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.25rem; }
+  .tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); }
+  .tab { padding: 0.5rem 1rem; font-size: 0.85rem; cursor: pointer; color: var(--muted);
+         border-bottom: 2px solid transparent; }
+  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>&#x1F9EA; Autonomous AI Scientist</h1>
+  <span class="status" id="healthStatus"><span class="dot err"></span>Checking...</span>
+</header>
+
+<div class="grid">
+
+  <!-- Panel 1: Paper Management -->
+  <div class="panel">
+    <div class="panel-head">&#x1F4C4; Paper Management</div>
+    <div class="panel-body">
+      <div class="row">
+        <input type="file" id="fileInput" accept=".pdf" />
+        <button onclick="uploadPaper()">Upload</button>
+      </div>
+      <div id="uploadMsg" style="font-size:0.85rem; margin: 0.5rem 0;"></div>
+      <div style="margin-top: 0.5rem; font-weight: 600; font-size: 0.85rem;">Uploaded Papers</div>
+      <div id="paperList" class="empty">No papers yet</div>
+    </div>
+  </div>
+
+  <!-- Panel 2: Pipeline Control -->
+  <div class="panel">
+    <div class="panel-head">&#x2699;&#xFE0F; Pipeline Control</div>
+    <div class="panel-body">
+      <div class="row">
+        <select id="pipelinePaper"><option value="">Select paper...</option></select>
+        <select id="pipelineMode" onchange="toggleCrossPaperSelect()">
+          <option value="full">Full Pipeline</option>
+          <option value="tier1">Tier 1 (Single Paper)</option>
+          <option value="tier2">Tier 2 (Cross Paper)</option>
+          <option value="rag">RAG Indexing</option>
+          <option value="eval">Evaluation</option>
+        </select>
+        <button onclick="runPipeline()">Run</button>
+      </div>
+      <div id="crossPaperSelect" style="display:none; margin-top:0.5rem;">
+        <div style="font-size:0.8rem; color:var(--muted); margin-bottom:4px;">Select 2–3 papers to compare:</div>
+        <select id="crossPaperList" multiple size="4" style="min-height:80px;"></select>
+        <div style="font-size:0.75rem; color:var(--muted); margin-top:2px;">Hold Ctrl/Cmd to select multiple</div>
+      </div>
+      <div class="progress" id="pipelineStatus">
+        <span class="idle">No pipeline running</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel 3: RAG Query -->
+  <div class="panel">
+    <div class="panel-head">&#x1F50D; RAG Semantic Search</div>
+    <div class="panel-body">
+      <div class="row">
+        <textarea id="queryInput" placeholder="Ask a question about indexed papers..." rows="2"></textarea>
+      </div>
+      <div class="row">
+        <input id="queryTopK" type="number" value="5" min="1" max="50" style="width: 60px;" />
+        <span style="font-size:0.8rem;color:var(--muted);">results</span>
+        <button onclick="runQuery()">Search</button>
+      </div>
+      <div id="queryResults" class="empty">Enter a query above</div>
+    </div>
+  </div>
+
+  <!-- Panel 4: Claims & Gaps -->
+  <div class="panel">
+    <div class="panel-head">&#x1F4CB; Claims &amp; Gaps</div>
+    <div class="panel-body">
+      <div class="row">
+        <select id="claimsPaper"><option value="">Select paper...</option></select>
+        <button class="btn-sm" onclick="loadClaimsAndGaps()">Load</button>
+      </div>
+      <div class="tabs">
+        <div class="tab active" onclick="switchTab(this,'claims')">Claims</div>
+        <div class="tab" onclick="switchTab(this,'gaps')">Gaps</div>
+        <div class="tab" onclick="switchTab(this,'contradictions')">Contradictions</div>
+      </div>
+      <div id="tab-claims" style="margin-top:0.5rem;"></div>
+      <div id="tab-gaps" style="margin-top:0.5rem; display:none;"></div>
+      <div id="tab-contradictions" style="margin-top:0.5rem; display:none;"></div>
+    </div>
+  </div>
+
+  <!-- Panel 5: Hypotheses -->
+  <div class="panel">
+    <div class="panel-head">&#x1F4A1; Hypotheses &amp; Debate</div>
+    <div class="panel-body">
+      <div class="row">
+        <select id="hypPaper"><option value="">Select paper...</option></select>
+        <button class="btn-sm" onclick="loadHypotheses()">Load</button>
+      </div>
+      <div id="hypList" class="empty">Select a paper to view hypotheses</div>
+    </div>
+  </div>
+
+  <!-- Panel 6: Raw JSON Debug -->
+  <div class="panel">
+    <div class="panel-head">&#x1F6E0;&#xFE0F; Raw JSON Debug</div>
+    <div class="panel-body">
+      <div class="row">
+        <select id="debugPaper"><option value="">Select paper...</option></select>
+        <select id="debugFile">
+          <option value="final_report">final_report</option>
+          <option value="claims">claims</option>
+          <option value="sections">sections</option>
+          <option value="gaps">gaps</option>
+          <option value="hypotheses">hypotheses</option>
+          <option value="reflection">reflection</option>
+          <option value="debate">debate</option>
+          <option value="cross_paper">cross_paper</option>
+          <option value="evaluation_report">evaluation_report</option>
+        </select>
+        <button class="btn-sm" onclick="loadDebug()">Fetch</button>
+      </div>
+      <pre class="json" id="debugOutput">Select a paper and file type, then click Fetch</pre>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const BASE = 'http://localhost:8000';
+
+// ── Helpers ──────────────────────────────────────────────────────────────────
+
+async function api(path, opts = {}) {
+  const url = BASE + path;
+  const res = await fetch(url, {
+    headers: { 'Content-Type': 'application/json', ...opts.headers },
+    ...opts,
+  });
+  if (!res.ok) {
+    const detail = await res.text().catch(() => res.statusText);
+    throw new Error(`${res.status}: ${detail}`);
+  }
+  return res.json();
+}
+
+function esc(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function decisionTag(d) {
+  const cls = d === 'KEEP' ? 'tag-keep' : d === 'REVISE' ? 'tag-revise' : 'tag-reject';
+  return `<span class="tag ${cls}">${esc(d)}</span>`;
+}
+
+function switchTab(el, name) {
+  el.parentElement.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  ['claims','gaps','contradictions'].forEach(n => {
+    document.getElementById('tab-' + n).style.display = n === name ? '' : 'none';
+  });
+}
+
+// ── Health ────────────────────────────────────────────────────────────────────
+
+async function checkHealth() {
+  const el = document.getElementById('healthStatus');
+  try {
+    await api('/health');
+    el.innerHTML = '<span class="dot ok"></span>API Connected';
+  } catch {
+    el.innerHTML = '<span class="dot err"></span>API Offline';
+  }
+}
+
+// ── Paper Management ─────────────────────────────────────────────────────────
+
+async function loadPapers() {
+  const listEl = document.getElementById('paperList');
+  try {
+    // Fetch uploaded papers (string IDs)
+    const uploadedData = await api('/api/uploaded');
+    const uploaded = uploadedData.uploaded || [];
+    if (!uploaded.length) { listEl.innerHTML = '<div class="empty">No papers uploaded</div>'; }
+    else {
+      listEl.innerHTML = uploaded.map(id =>
+        `<div class="card"><strong>${esc(id)}</strong>
+         <button class="btn-sm btn-danger" style="float:right;" onclick="deletePaper('${esc(id)}')">Delete</button>
+        </div>`
+      ).join('');
+    }
+    // Populate dropdowns from /api/papers (includes outputs + inputs)
+    const papersData = await api('/api/papers');
+    const ids = papersData.papers || [];
+    ['pipelinePaper','claimsPaper','hypPaper','debugPaper'].forEach(sel => {
+      const dd = document.getElementById(sel);
+      const current = dd.value;
+      dd.innerHTML = '<option value="">Select paper...</option>' +
+        ids.map(id => `<option value="${esc(id)}"${id===current?' selected':''}>${esc(id)}</option>`).join('');
+    });
+    // Also populate the cross-paper multi-select
+    const cpList = document.getElementById('crossPaperList');
+    const cpSelected = Array.from(cpList.selectedOptions).map(o => o.value);
+    cpList.innerHTML = ids.map(id =>
+      `<option value="${esc(id)}"${cpSelected.includes(id)?' selected':''}>${esc(id)}</option>`
+    ).join('');
+  } catch (e) {
+    listEl.innerHTML = `<div class="empty">Error: ${esc(e.message)}</div>`;
+  }
+}
+
+async function uploadPaper() {
+  const input = document.getElementById('fileInput');
+  const msg = document.getElementById('uploadMsg');
+  if (!input.files.length) { msg.textContent = 'Select a PDF first'; return; }
+  const fd = new FormData();
+  fd.append('file', input.files[0]);
+  msg.textContent = 'Uploading...';
+  try {
+    const res = await fetch(BASE + '/api/upload', { method: 'POST', body: fd });
+    if (!res.ok) throw new Error(await res.text());
+    const data = await res.json();
+    msg.innerHTML = `<span style="color:var(--green)">Uploaded: ${esc(data.paper_id)}</span>`;
+    input.value = '';
+    loadPapers();
+  } catch (e) {
+    msg.innerHTML = `<span style="color:var(--red)">Error: ${esc(e.message)}</span>`;
+  }
+}
+
+async function deletePaper(id) {
+  if (!confirm('Delete ' + id + '?')) return;
+  try {
+    await fetch(BASE + '/api/uploaded/' + encodeURIComponent(id), { method: 'DELETE' });
+    loadPapers();
+  } catch (e) { alert(e.message); }
+}
+
+// ── Pipeline Control ─────────────────────────────────────────────────────────
+
+let pollInterval = null;
+
+function toggleCrossPaperSelect() {
+  const mode = document.getElementById('pipelineMode').value;
+  document.getElementById('crossPaperSelect').style.display = (mode === 'tier2') ? '' : 'none';
+}
+
+async function runPipeline() {
+  const paperId = document.getElementById('pipelinePaper').value;
+  const mode = document.getElementById('pipelineMode').value;
+  const statusEl = document.getElementById('pipelineStatus');
+
+  // Cross-paper mode: require 2-3 papers from the multi-select
+  if (mode === 'tier2') {
+    const cpList = document.getElementById('crossPaperList');
+    const selected = Array.from(cpList.selectedOptions).map(o => o.value);
+    if (selected.length < 2 || selected.length > 3) {
+      statusEl.innerHTML = '<span class="error">Select 2 or 3 papers for cross-paper comparison</span>';
+      return;
+    }
+    statusEl.innerHTML = '<span class="running">Starting cross-paper comparison...</span>';
+    try {
+      const jobPaperId = selected.join('+');
+      await api('/api/pipeline/run', {
+        method: 'POST',
+        body: JSON.stringify({ paper_id: selected[0], mode: 'tier2', paper_ids: selected }),
+      });
+      pollPipelineStatus(selected[0]);
+    } catch (e) {
+      statusEl.innerHTML = `<span class="error">Error: ${esc(e.message)}</span>`;
+    }
+    return;
+  }
+
+  if (!paperId) { statusEl.innerHTML = '<span class="error">Select a paper first</span>'; return; }
+
+  statusEl.innerHTML = '<span class="running">Starting...</span>';
+  try {
+    await api('/api/pipeline/run', {
+      method: 'POST',
+      body: JSON.stringify({ paper_id: paperId, mode }),
+    });
+    pollPipelineStatus(paperId);
+  } catch (e) {
+    statusEl.innerHTML = `<span class="error">Error: ${esc(e.message)}</span>`;
+  }
+}
+
+function pollPipelineStatus(paperId) {
+  if (pollInterval) clearInterval(pollInterval);
+  const statusEl = document.getElementById('pipelineStatus');
+  const poll = async () => {
+    try {
+      const data = await api('/api/pipeline/status/' + encodeURIComponent(paperId));
+      const cls = data.status;
+      statusEl.innerHTML = `<span class="${cls}">${esc(data.status.toUpperCase())}</span>${data.message ? ' — ' + esc(data.message) : ''}`;
+      if (data.status === 'completed' || data.status === 'error') {
+        clearInterval(pollInterval);
+        pollInterval = null;
+        if (data.status === 'completed') {
+          await loadPapers();
+          loadClaimsAndGaps(paperId);
+          // Auto-select the completed paper in Claims dropdown
+          const cpdd = document.getElementById('claimsPaper');
+          if (cpdd) cpdd.value = paperId;
+        }
+      }
+    } catch (e) {
+      statusEl.innerHTML = `<span class="error">Poll error: ${esc(e.message)}</span>`;
+    }
+  };
+  poll();
+  pollInterval = setInterval(poll, 3000);
+}
+
+// ── RAG Query ────────────────────────────────────────────────────────────────
+
+async function runQuery() {
+  const query = document.getElementById('queryInput').value.trim();
+  const topK = parseInt(document.getElementById('queryTopK').value) || 5;
+  const resultsEl = document.getElementById('queryResults');
+  if (!query) { resultsEl.innerHTML = '<div class="empty">Enter a query</div>'; return; }
+
+  resultsEl.innerHTML = '<div class="empty">Searching...</div>';
+  try {
+    const data = await api('/api/query', {
+      method: 'POST',
+      body: JSON.stringify({ query, top_k: topK }),
+    });
+    const results = data.results || [];
+    if (!results.length) {
+      resultsEl.innerHTML = '<div class="empty">No results found</div>';
+      return;
+    }
+    resultsEl.innerHTML = results.map((r, i) =>
+      `<div class="chunk">
+         <div class="meta">#${i+1} | ${esc(r.paper_id)} / ${esc(r.section)} | score: ${r.score.toFixed(3)}</div>
+         <div>${esc(r.text.substring(0, 400))}${r.text.length > 400 ? '...' : ''}</div>
+       </div>`
+    ).join('');
+  } catch (e) {
+    resultsEl.innerHTML = `<div class="empty" style="color:var(--red)">Error: ${esc(e.message)}</div>`;
+  }
+}
+
+// ── Claims & Gaps ────────────────────────────────────────────────────────────
+
+async function loadClaimsAndGaps(forcePaperId) {
+  const claimsEl = document.getElementById('tab-claims');
+  const gapsEl = document.getElementById('tab-gaps');
+  const contradEl = document.getElementById('tab-contradictions');
+
+  try {
+    // Use explicitly provided paper, or the dropdown selection, or first available
+    let pid = forcePaperId || document.getElementById('claimsPaper').value;
+    if (!pid) {
+      const papersData = await api('/api/outputs/papers');
+      const papers = papersData.papers || [];
+      if (!papers.length) {
+        claimsEl.innerHTML = gapsEl.innerHTML = contradEl.innerHTML = '<div class="empty">No pipeline outputs yet</div>';
+        return;
+      }
+      pid = papers[0];
+      // Auto-select in dropdown
+      const dd = document.getElementById('claimsPaper');
+      if (dd) dd.value = pid;
+    }
+
+    // Claims
+    try {
+      const report = await api(`/api/outputs/${encodeURIComponent(pid)}/final_report`);
+      const claims = report.claims || [];
+      if (claims.length) {
+        claimsEl.innerHTML = claims.map(c =>
+          `<div class="card">
+            <div class="label">${esc(c.claim_id || '')} · ${esc(c.section || '')}</div>
+            <div>${esc(c.claim_text || '')}</div>
+            ${c.confidence ? `<div style="margin-top:4px"><span class="score-pill">conf: ${c.confidence}</span></div>` : ''}
+          </div>`
+        ).join('');
+      } else {
+        claimsEl.innerHTML = '<div class="empty">No claims in report</div>';
+      }
+
+      // Gaps
+      const gaps = report.gaps || report.gaps_actionable || [];
+      if (gaps.length) {
+        gapsEl.innerHTML = gaps.map(g =>
+          `<div class="card">
+            <div class="label">${esc(g.gap_id || '')} · ${esc(g.gap_type || '')}</div>
+            <div>${esc(g.gap_description || g.gap_text || '')}</div>
+            ${g.priority ? `<div style="margin-top:4px"><span class="score-pill">priority: ${g.priority}</span></div>` : ''}
+          </div>`
+        ).join('');
+      } else {
+        gapsEl.innerHTML = '<div class="empty">No gaps detected</div>';
+      }
+    } catch {
+      claimsEl.innerHTML = gapsEl.innerHTML = '<div class="empty">Could not load report</div>';
+    }
+
+    // Contradictions
+    try {
+      const crossData = await api(`/api/outputs/${encodeURIComponent(pid)}/cross_paper`);
+      const contras = crossData.contradictions || [];
+      if (contras.length) {
+        contradEl.innerHTML = contras.slice(0, 20).map(c =>
+          `<div class="card">
+            <div class="label">${esc(c.type || c.contradiction_type || 'unknown')}</div>
+            <div>${esc(c.explanation || c.reason || '')}</div>
+            ${c.dataset ? `<div style="margin-top:4px"><span class="score-pill">${esc(c.dataset)}</span></div>` : ''}
+          </div>`
+        ).join('');
+      } else {
+        contradEl.innerHTML = '<div class="empty">No contradictions found</div>';
+      }
+    } catch {
+      contradEl.innerHTML = '<div class="empty">Cross-paper data unavailable</div>';
+    }
+  } catch (e) {
+    claimsEl.innerHTML = `<div class="empty">Error: ${esc(e.message)}</div>`;
+  }
+}
+
+// ── Hypotheses ───────────────────────────────────────────────────────────────
+
+async function loadHypotheses() {
+  const paperId = document.getElementById('hypPaper').value;
+  const el = document.getElementById('hypList');
+  if (!paperId) { el.innerHTML = '<div class="empty">Select a paper</div>'; return; }
+
+  el.innerHTML = '<div class="empty">Loading...</div>';
+  try {
+    const report = await api(`/api/outputs/${encodeURIComponent(paperId)}/final_report`);
+    const lineage = report.hypothesis_lineage || report.hypothesis_pairs || [];
+    if (!lineage.length) {
+      el.innerHTML = '<div class="empty">No hypotheses in report</div>';
+      return;
+    }
+    el.innerHTML = lineage.map(h => {
+      // Support both flat (hypothesis_lineage) and nested (hypothesis_pairs) formats
+      const isNested = h.agentA || h.agentB;
+      if (isNested) {
+        const a = h.agentA || {};
+        const b = h.agentB || {};
+        const pref = h.preferred || '';
+        const prefAgent = pref === 'AgentA' ? a : pref === 'AgentB' ? b : a;
+        return `<div class="card">
+          <div class="label">${esc(h.gap_id || '')} · Preferred: ${esc(pref)}</div>
+          <div style="margin-top:4px"><strong>Agent A</strong> ${a.decision ? decisionTag(a.decision) : ''}
+            <span class="score-pill">score: ${a.score ?? '?'}</span></div>
+          <div style="margin:2px 0 6px">${esc(a.hypothesis || '')}</div>
+          <div><strong>Agent B</strong> ${b.decision ? decisionTag(b.decision) : ''}
+            <span class="score-pill">score: ${b.score ?? '?'}</span></div>
+          <div style="margin:2px 0 0">${esc(b.hypothesis || '')}</div>
+          ${h.agreement !== undefined ? `<div style="margin-top:6px;font-size:0.8rem;color:var(--muted)">Agreement: ${h.agreement ? 'Yes' : 'No'}</div>` : ''}
+        </div>`;
+      }
+      // Flat format fallback
+      const scores = h.scores || {};
+      return `<div class="card">
+        <div class="label">${esc(h.gap_id || '')} · ${esc(h.preferred_agent || h.preferred || '')}</div>
+        <div>${esc(h.hypothesis_text || h.hypothesis || '')}</div>
+        ${h.decision ? `<div style="margin-top:6px">${decisionTag(h.decision)}</div>` : ''}
+        ${Object.keys(scores).length ? `<div class="score-bar">
+          ${Object.entries(scores).map(([k,v]) => `<span class="score-pill">${esc(k)}: ${v}</span>`).join('')}
+        </div>` : ''}
+        ${h.revised_hypothesis ? `<div style="margin-top:6px;font-style:italic;color:var(--muted)">Revised: ${esc(h.revised_hypothesis.substring(0,200))}</div>` : ''}
+      </div>`;
+    }).join('');
+  } catch (e) {
+    el.innerHTML = `<div class="empty" style="color:var(--red)">Error: ${esc(e.message)}</div>`;
+  }
+}
+
+// ── Raw Debug ────────────────────────────────────────────────────────────────
+
+async function loadDebug() {
+  const paperId = document.getElementById('debugPaper').value;
+  const fileType = document.getElementById('debugFile').value;
+  const el = document.getElementById('debugOutput');
+  if (!paperId) { el.textContent = 'Select a paper first'; return; }
+
+  el.textContent = 'Loading...';
+  try {
+    const data = await api(`/api/outputs/${encodeURIComponent(paperId)}/download/${fileType}`);
+    el.textContent = JSON.stringify(data, null, 2);
+  } catch (e) {
+    el.textContent = `Error: ${e.message}`;
+  }
+}
+
+// ── Init ─────────────────────────────────────────────────────────────────────
+
+(async function init() {
+  await checkHealth();
+  await loadPapers();
+  await loadClaimsAndGaps();
+})();
+</script>
+</body>
+</html>

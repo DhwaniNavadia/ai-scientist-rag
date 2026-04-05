@@ -1,0 +1,161 @@
+{
+  "paper_id": "demo_hsap",
+  "paper_title": "Hierarchical Seating Allocation Problem (HSAP)",
+  "generated_at": "2025-07-21T00:00:00Z",
+  "sections": {
+    "Abstract": "The Hierarchical Seating Allocation Problem (HSAP) addresses the challenge of assigning employees to seats in a corporate office while respecting organizational structure, spatial constraints, and human preference. We formulate HSAP as a Mixed-Integer Quadratic Program (MIQP) and prove the problem is NP-hard. Three scalable solution approaches are presented: an exact branch-and-bound solver, a decomposition heuristic with warm-start, and a hybrid meta-controller.",
+    "Introduction": "Modern organizations face complex seating allocation challenges that must balance physical constraints with hierarchical preferences and human factors. Prior work on seating allocation focuses on simpler variants without hierarchy or large-scale instances. PRM and RRT graph-based methods have been used to estimate pairwise seat distances on floor plans, but noisy or low-resolution floor plan images degrade distance estimates significantly.",
+    "Methods": "We model HSAP using a graph G = (V, E) where V represents seats and E encodes spatial proximity. PRM generates a roadmap from the floor plan image using delta_c and delta_s as hyper-parameters tuned to K = 2000 nodes. The MIQP formulation contains O(|S|^2) decision variables. We introduce a decomposition heuristic that partitions subproblems by team.",
+    "Results": "Experiments on 50 synthetic instances show the decomposition heuristic achieves 95.2% of exact-solver quality while reducing runtime by 10x on large instances. Human evaluators rated solutions as 4.1/5 vs 3.8/5 for pure optimisation.",
+    "Conclusion": "This work presents the first formal treatment of HSAP. Key limitations include manual hyper-parameter tuning, limited ability to incorporate subjective preferences, and intractability for very large instances."
+  },
+  "claims": [
+    {
+      "claim_id": "C1",
+      "claim_text": "HSAP is NP-hard and reduces to graph coloring.",
+      "evidence_text": "We show via polynomial reduction from graph coloring that HSAP is NP-hard in the general case.",
+      "confidence": 0.95,
+      "section": "Introduction"
+    },
+    {
+      "claim_id": "C2",
+      "claim_text": "PRM-based distance estimation degrades significantly on low-quality floor plans.",
+      "evidence_text": "Finding an adequate representation is difficult if the quality of the provided floor plans is low.",
+      "confidence": 0.88,
+      "section": "Methods"
+    },
+    {
+      "claim_id": "C3",
+      "claim_text": "The decomposition heuristic achieves 95% of optimal quality at 10x speed.",
+      "evidence_text": "The heuristic achieves 95.2% of exact-solver quality while reducing runtime by 10x on large instances.",
+      "confidence": 0.91,
+      "section": "Results"
+    },
+    {
+      "claim_id": "C4",
+      "claim_text": "Human evaluators prefer heuristic solutions over exact optimisation output.",
+      "evidence_text": "Human evaluators rated solutions as 4.1/5 compared to 3.8/5 for pure optimisation.",
+      "confidence": 0.82,
+      "section": "Results"
+    },
+    {
+      "claim_id": "C5",
+      "claim_text": "MIQP formulation is intractable beyond 50 seats.",
+      "evidence_text": "Solving HSAP as a monolithic instance is intractable for over 50 seats.",
+      "confidence": 0.97,
+      "section": "Methods"
+    },
+    {
+      "claim_id": "C6",
+      "claim_text": "Hyper-parameters were manually tuned until convergence at K = 2000.",
+      "evidence_text": "The hyper-parameters were manually tuned until the algorithm converged with a node limit of K = 2000.",
+      "confidence": 0.93,
+      "section": "Methods"
+    }
+  ],
+  "gaps": [
+    {
+      "gap_id": "G1",
+      "gap_description": "Floor plan quality limits PRM/RRT distance estimation accuracy with no automated robustness mechanism.",
+      "gap_type": "data_quality",
+      "actionable_direction": "A noise-robust preprocessing pipeline could reduce PRM/RRT distance-estimation errors on low-quality floor plans.",
+      "priority": 1
+    },
+    {
+      "gap_id": "G2",
+      "gap_description": "The optimisation objective does not model human adjacency preferences.",
+      "gap_type": "human_alignment",
+      "actionable_direction": "Adding an adjacency/contiguity penalty will improve human-rated seating quality without significantly increasing runtime.",
+      "priority": 2
+    },
+    {
+      "gap_id": "G3",
+      "gap_description": "MIQP is intractable for large instances (> 50 seats) due to O(|S|^2) decision variables.",
+      "gap_type": "scalability",
+      "actionable_direction": "Reinforcement learning with reward shaping from the MIQP objective could scale to 500+ seats.",
+      "priority": 3
+    }
+  ],
+  "hypothesis_pairs": [
+    {
+      "gap_id": "G1",
+      "agentA": {
+        "agent": "AgentA",
+        "hypothesis": "A learned denoising U-Net pre-processing stage trained on synthetic floor plan noise will reduce PRM connection errors by 40%.",
+        "rationale": "Deep learning approaches for image restoration are well-established and domain-specific training data can be cheaply synthesised.",
+        "score": 8.2,
+        "decision": "KEEP"
+      },
+      "agentB": {
+        "agent": "AgentB",
+        "hypothesis": "A confidence-weighted PRM roadmap that down-weights edges near noisy image regions will outperform denoising pre-processing.",
+        "rationale": "Uncertainty quantification is cheaper than re-training and more interpretable in safety-critical settings.",
+        "score": 7.6,
+        "decision": "REVISE"
+      },
+      "preferred": "AgentA",
+      "agreement": false
+    },
+    {
+      "gap_id": "G2",
+      "agentA": {
+        "agent": "AgentA",
+        "hypothesis": "An adjacency soft-constraint term in the MIQP objective using team cluster membership will improve human satisfaction scores by 15%.",
+        "rationale": "Soft constraints are standard in combinatorial optimisation and directly match the observed gap between algorithmic and human ratings.",
+        "score": 8.7,
+        "decision": "KEEP"
+      },
+      "agentB": {
+        "agent": "AgentB",
+        "hypothesis": "Collecting pairwise human preference data via surveys and using preference learning to shape the MIQP cost matrix will improve user satisfaction.",
+        "rationale": "Preference learning captures nuanced human notions beyond hard constraints and is more adaptable to organisational culture.",
+        "score": 8.5,
+        "decision": "KEEP"
+      },
+      "preferred": "AgentA",
+      "agreement": true
+    },
+    {
+      "gap_id": "G3",
+      "agentA": {
+        "agent": "AgentA",
+        "hypothesis": "A graph neural network policy trained with PPO to sequentially assign seats will scale to 500+ seats in under 30 seconds.",
+        "rationale": "GNN-based RL has shown strong results on combinatorial optimisation problems such as TSP and VRP at scale.",
+        "score": 8.0,
+        "decision": "KEEP"
+      },
+      "agentB": {
+        "agent": "AgentB",
+        "hypothesis": "A column generation approach decomposing HSAP into a master problem and team-level pricing sub-problems will scale linearly.",
+        "rationale": "Column generation is mathematically proven to scale for structured MIPs and avoids the black-box nature of RL.",
+        "score": 8.3,
+        "decision": "KEEP"
+      },
+      "preferred": "AgentB",
+      "agreement": true
+    }
+  ],
+  "reflections": [
+    {
+      "gap_id": "G1",
+      "original_hypothesis": "A learned denoising U-Net pre-processing stage trained on synthetic floor plan noise will reduce PRM connection errors by 40%.",
+      "improvement_plan": "Clarify the synthetic noise model, specify evaluation metric (connection error rate), and add ablation comparing to simpler denoising baselines.",
+      "revised_hypothesis": "A U-Net denoising model pre-trained on 10,000 synthetically degraded floor plan pairs will reduce PRM wall-crossing errors by ≥35% compared to no preprocessing, measured on a held-out real-building benchmark of 50 floor plans.",
+      "improvement_score": 0.87
+    },
+    {
+      "gap_id": "G2",
+      "original_hypothesis": "An adjacency soft-constraint term in the MIQP objective using team cluster membership will improve human satisfaction scores by 15%.",
+      "improvement_plan": "Specify how adjacency is operationalised (graph distance threshold), detail the human satisfaction study design, and clarify that the constraint does not blow up MIQP complexity.",
+      "revised_hypothesis": "Adding a Laplacian-regularised adjacency term to the MIQP objective (penalising graph-distance > 2 between team members) will improve user satisfaction scores in a 50-participant A/B study by ≥15%, with <5% increase in solve time.",
+      "improvement_score": 0.82
+    },
+    {
+      "gap_id": "G3",
+      "original_hypothesis": "A GNN policy trained with PPO to sequentially assign seats will scale to 500+ seats in under 30 seconds.",
+      "improvement_plan": "Justify the 30-second budget, specify the GNN architecture and action space formulation, and add a comparison baseline (e.g., greedy or decomposition heuristic from the paper).",
+      "revised_hypothesis": "A Graph Attention Network (GAT) trained with PPO on synthetic HSAP instances up to 600 seats will achieve ≥90% of decomposition heuristic quality within 30 seconds on instances of 500 seats, validated on 20 held-out instances.",
+      "improvement_score": 0.79
+    }
+  ]
+}

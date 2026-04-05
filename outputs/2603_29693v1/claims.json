@@ -1,0 +1,23 @@
+[
+  {
+    "claim_id": "C1",
+    "section": "abstract",
+    "claim_text": "We introduce the Hierarchical Seating Allocation Problem (HSAP) which addresses the optimal assignment of hier-archically structured organizational teams to physical seat-ing arrangements on a floor plan.",
+    "evidence_text": "We introduce the Hierarchical Seating Allocation Problem (HSAP) which addresses the optimal assignment of hier-archically structured organizational teams to physical seat-ing arrangements on a floor plan.",
+    "confidence": "high"
+  },
+  {
+    "claim_id": "C2",
+    "section": "abstract",
+    "claim_text": "To alleviate this manual process, we propose an end-to-end framework to solve the HSAP.",
+    "evidence_text": "To alleviate this manual process, we propose an end-to-end framework to solve the HSAP.",
+    "confidence": "high"
+  },
+  {
+    "claim_id": "C3",
+    "section": "abstract",
+    "claim_text": "We demonstrate our approach under dif-ferent sized instances by evaluating the PRM framework and subsequent allocations both quantitatively and qualitatively.",
+    "evidence_text": "We demonstrate our approach under dif-ferent sized instances by evaluating the PRM framework and subsequent allocations both quantitatively and qualitatively.",
+    "confidence": "high"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "hypothesis_id": "H1",
+    "gap_id": "G1",
+    "gap_type": "data_quality",
+    "hypothesis_text": "Using a robust floor-plan preprocessing pipeline (noise removal + wall detection confidence thresholds) will reduce distance-estimation errors on low-quality floor plans.",
+    "failure_mode": "If distance estimation error remains high on low-quality plans, the hypothesis is false.",
+    "evidence_text": "A key challenge in this domain is the Seating Allocation (SA) problem, which involves assigning teams to office space on a floor plan."
+  },
+  {
+    "hypothesis_id": "H2",
+    "gap_id": "G2",
+    "gap_type": "human_alignment",
+    "hypothesis_text": "Adding a preference-aware term (e.g., contiguity/adjacency penalties) to the objective will improve human-rated seating quality without large optimization cost.",
+    "failure_mode": "If human ratings do not improve or optimization cost increases too much, the hypothesis is false.",
+    "evidence_text": "The usefulness between HSA and SA is significant to large organizations as the humanevaluated solution quality to SA would be low due to failure to accommodate linked departments."
+  },
+  {
+    "hypothesis_id": "H3",
+    "gap_id": "G5",
+    "gap_type": "scalability",
+    "hypothesis_text": "Replacing the quadratic-variable formulation with a decomposition + heuristic warm-start will reduce runtime while preserving allocation quality on large instances.",
+    "failure_mode": "If runtime does not decrease on large instances or allocation quality drops significantly versus baseline, the hypothesis is false.",
+    "evidence_text": "A direct optimization approach could be employed to minimize the total seat distance between each seat, but this results in a mixed-integer quadratic problem (MIQP), which is not scalable for large instances due to the number of decision variables in the objective."
+  }
+]

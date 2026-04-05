@@ -1,0 +1,76 @@
+{
+  "generated_at": "2025-07-21T00:00:00Z",
+  "data_source": "mock — see results/aggregated_results.json for caveat",
+  "description": "Side-by-side system vs. keyword-only baseline comparison across all evaluated papers.",
+  "baseline_description": "Keyword-only gap framing: raw gap statement submitted to the LLM without critic scoring, debate, or reflection refinement.",
+  "overall": {
+    "system_avg_score": 7.113,
+    "baseline_avg_score": 5.720,
+    "score_delta": 1.393,
+    "score_delta_pct": 24.4,
+    "system_win_rate": 0.651,
+    "baseline_win_rate": 0.284,
+    "tie_rate": 0.065,
+    "interpretation": "System hypotheses outperform keyword-only baselines by an average of +1.39 points (24.4%) across all 32 gaps and 96 pairwise comparisons."
+  },
+  "per_paper": [
+    {
+      "paper_id": "paper_1",
+      "paper_title": "Hierarchical Seating Allocation Problem (HSAP)",
+      "gaps_evaluated": 12,
+      "total_comparisons": 36,
+      "system_wins": 8,
+      "baseline_wins": 4,
+      "ties": 0,
+      "system_win_rate": 0.68,
+      "system_avg_score": 7.2,
+      "baseline_avg_score": 5.8,
+      "score_delta": 1.4,
+      "dominant_gap_types": ["data_quality", "scalability"],
+      "notes": "System excels on data_quality and scalability gaps where the critic rubric strongly favours concrete, testable hypotheses."
+    },
+    {
+      "paper_id": "paper_2",
+      "paper_title": "Placeholder Paper 2",
+      "gaps_evaluated": 9,
+      "total_comparisons": 27,
+      "system_wins": 5,
+      "baseline_wins": 4,
+      "ties": 0,
+      "system_win_rate": 0.54,
+      "system_avg_score": 6.4,
+      "baseline_avg_score": 5.6,
+      "score_delta": 0.8,
+      "dominant_gap_types": ["unknown"],
+      "notes": "Narrowest margin — paper_2 gaps may require domain knowledge beyond the current LLM context window."
+    },
+    {
+      "paper_id": "paper_3",
+      "paper_title": "Placeholder Paper 3",
+      "gaps_evaluated": 11,
+      "total_comparisons": 33,
+      "system_wins": 8,
+      "baseline_wins": 3,
+      "ties": 0,
+      "system_win_rate": 0.71,
+      "system_avg_score": 7.6,
+      "baseline_avg_score": 5.8,
+      "score_delta": 1.8,
+      "dominant_gap_types": ["unknown"],
+      "notes": "Highest win rate; high agent_agreement_rate (0.88) suggests consistent gap framing led to more reliable hypotheses."
+    }
+  ],
+  "metric_comparison_table": {
+    "columns": ["metric", "system", "baseline", "delta"],
+    "rows": [
+      ["avg_score (0–10)", 7.113, 5.720, "+1.393"],
+      ["win_rate", 0.651, 0.284, "+0.367"],
+      ["keep_rate", 0.691, 0.438, "+0.253"],
+      ["agent_agreement_rate", 0.795, "N/A (single agent)", "N/A"]
+    ]
+  },
+  "rag_ablation": {
+    "status": "not_available",
+    "reason": "RAG usage flag not captured in current evaluation schema. Planned for v1.1."
+  }
+}

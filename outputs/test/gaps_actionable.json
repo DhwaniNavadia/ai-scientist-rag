@@ -1,0 +1,37 @@
+[
+  {
+    "gap_id": "G1",
+    "gap_type": "scalability",
+    "gap_text": "However, integrating fine-grained user and item relationships across various product domains remains a significant challenge in cross-domain recommendation FMs [10, 12].",
+    "source_section": "introduction",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G2",
+    "gap_type": "scalability",
+    "gap_text": "To address this challenge, we introduce RankGraph, a unified graph learning framework designed to harness the power of graph learning within the context of recommendation FMs.",
+    "source_section": "introduction",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G3",
+    "gap_type": "scalability",
+    "gap_text": "This heterogeneous structure enables RankGraph to effectively model cross-surface foundation model (FM) scenarios, which are difficult to represent using homogeneous graphs.",
+    "source_section": "introduction",
+    "actionable_direction": "Develop automated representation learning to replace manual feature engineering"
+  },
+  {
+    "gap_id": "G4",
+    "gap_type": "scalability",
+    "gap_text": "However, the added heterogeneity also brings challenges in semantic representation and learning, addressed through a specialized GPU-based Graph Neural Network described in the next section.",
+    "source_section": "introduction",
+    "actionable_direction": "Develop automated representation learning to replace manual feature engineering"
+  },
+  {
+    "gap_id": "G5",
+    "gap_type": "scalability",
+    "gap_text": "However, these recall metrics not necessarily present the power of the embeddings in predicting user\u2019s future engagement, and in fact we have observed discrepancy between these offline recall metrics and online a/b test results.",
+    "source_section": "evaluation",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  }
+]

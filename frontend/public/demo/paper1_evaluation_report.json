@@ -1,0 +1,73 @@
+{
+  "paper_id": "demo_hsap",
+  "metrics": {
+    "win_rate": 0.72,
+    "avg_hypothesis_score": 8.22,
+    "keep_rate": 0.83,
+    "agent_agreement_rate": 0.67,
+    "total_gaps_evaluated": 3,
+    "total_comparisons_run": 9
+  },
+  "per_gap_results": [
+    {
+      "gap_id": "G1",
+      "gap_description": "Floor plan quality limits PRM/RRT distance estimation accuracy.",
+      "majority_winner": "system",
+      "winner": "system",
+      "system_wins": 2,
+      "baseline_wins": 1,
+      "ties": 0,
+      "keep_votes": 2,
+      "avg_system_score": 8.2,
+      "avg_baseline_score": 6.5,
+      "system_score": 8.2,
+      "baseline_score": 6.5,
+      "decision": "KEEP",
+      "rationale": "System hypothesis is more specific, includes quantified target (40% reduction) and references an established methodology (U-Net). Baseline is too abstract."
+    },
+    {
+      "gap_id": "G2",
+      "gap_description": "Optimisation objective does not model human adjacency preferences.",
+      "majority_winner": "system",
+      "winner": "system",
+      "system_wins": 3,
+      "baseline_wins": 0,
+      "ties": 0,
+      "keep_votes": 3,
+      "avg_system_score": 8.7,
+      "avg_baseline_score": 5.9,
+      "system_score": 8.7,
+      "baseline_score": 5.9,
+      "decision": "KEEP",
+      "rationale": "Both agents agree and the system hypothesis directly targets the noted gap with a concrete MIQP extension. Strong consensus."
+    },
+    {
+      "gap_id": "G3",
+      "gap_description": "MIQP is intractable for large instances.",
+      "majority_winner": "system",
+      "winner": "system",
+      "system_wins": 2,
+      "baseline_wins": 1,
+      "ties": 0,
+      "keep_votes": 2,
+      "avg_system_score": 8.15,
+      "avg_baseline_score": 6.8,
+      "system_score": 8.15,
+      "baseline_score": 6.8,
+      "decision": "REVISE",
+      "rationale": "System hypotheses are strong but need clearer scalability benchmarks and comparison baselines before acceptance."
+    }
+  ],
+  "summary": {
+    "strengths": [
+      "High win rate (72%) demonstrates system significantly outperforms baseline",
+      "Strong hypothesis specificity with quantified improvement targets",
+      "Good agent agreement rate on gap G2 (strong consensus)"
+    ],
+    "weaknesses": [
+      "Low agent agreement on G1 and G3 indicates uncertainty in best approach",
+      "Gap G3 hypothesis needs more rigorous comparison baselines"
+    ],
+    "conclusion": "The autonomous reasoning system generates competitive hypotheses that substantially outperform the random baseline, particularly on well-defined alignment gaps. Agreement between agents is moderate, suggesting opportunities to improve the debate resolution mechanism."
+  }
+}

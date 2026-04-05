@@ -1,0 +1,914 @@
+[
+  {
+    "gap_id": "G1",
+    "gap_type": "scalability",
+    "evidence_text": "However, these have been shown to fail against steganographic signals designed to be indistinguishable from natural language [Motwani et al., 2024, Mathew et al., 2025].",
+    "agent_a": {
+      "hypothesis_id": "H1",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, these have been shown to fail against steganographic signals designed to be indistinguishable fro",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H2",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, these have been shown to fail against steganographic signals designed to be indistinguishable fro",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true,
+    "round_1": {
+      "preferred": "AgentA",
+      "reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+      "synthesis": "",
+      "confidence": 0.1
+    },
+    "round_2": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    },
+    "round_3": {
+      "final_preferred": "AgentA",
+      "verdict": "",
+      "decisive_factor": "Score-based preference after inconclusive debate",
+      "confidence": 0.1,
+      "recommendation": "REVISE"
+    },
+    "llm_reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+    "synthesis": "",
+    "confidence": 0.1,
+    "challenge": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    }
+  },
+  {
+    "gap_id": "G2",
+    "gap_type": "scalability",
+    "evidence_text": "However, little prior work has applied activation-based detection to multi-agent settings.",
+    "agent_a": {
+      "hypothesis_id": "H3",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, little prior work has applied activation-based detection to multi-agent settings.\nActionable dire",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H4",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, little prior work has applied activation-based detection to multi-agent settings.\nActionable dire",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true,
+    "round_1": {
+      "preferred": "AgentA",
+      "reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+      "synthesis": "",
+      "confidence": 0.1
+    },
+    "round_2": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    },
+    "round_3": {
+      "final_preferred": "AgentA",
+      "verdict": "",
+      "decisive_factor": "Score-based preference after inconclusive debate",
+      "confidence": 0.1,
+      "recommendation": "REVISE"
+    },
+    "llm_reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+    "synthesis": "",
+    "confidence": 0.1,
+    "challenge": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    }
+  },
+  {
+    "gap_id": "G3",
+    "gap_type": "scalability",
+    "evidence_text": "The deception probe trained on the deception scenarios transfers to detect collusion in both the cross-structure scenarios and the blackjack task, despite these settings having entirely different interaction structures and collusion mechanisms.",
+    "agent_a": {
+      "hypothesis_id": "H5",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: The deception probe trained on the deception scenarios transfers to detect collusion in both the cross-str",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H6",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: The deception probe trained on the deception scenarios transfers to detect collusion in both the cross-str",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true,
+    "round_1": {
+      "preferred": "AgentA",
+      "reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+      "synthesis": "",
+      "confidence": 0.1
+    },
+    "round_2": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    },
+    "round_3": {
+      "final_preferred": "AgentA",
+      "verdict": "",
+      "decisive_factor": "Score-based preference after inconclusive debate",
+      "confidence": 0.1,
+      "recommendation": "REVISE"
+    },
+    "llm_reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+    "synthesis": "",
+    "confidence": 0.1,
+    "challenge": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    }
+  },
+  {
+    "gap_id": "G4",
+    "gap_type": "scalability",
+    "evidence_text": "Mitigating prompt confounds.A known challenge for activation-based deception detection is that probes may classify based on prompt surface features rather than internal representations of deceptive intent [Goldowsky-Dill et al., 2025, Levinstein and Herrmann, 2024].",
+    "agent_a": {
+      "hypothesis_id": "H7",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Mitigating prompt confounds.A known challenge for activation-based deception detection is that probes may ",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H8",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Mitigating prompt confounds.A known challenge for activation-based deception detection is that probes may ",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true,
+    "round_1": {
+      "preferred": "AgentA",
+      "reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+      "synthesis": "",
+      "confidence": 0.1
+    },
+    "round_2": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    },
+    "round_3": {
+      "final_preferred": "AgentA",
+      "verdict": "",
+      "decisive_factor": "Score-based preference after inconclusive debate",
+      "confidence": 0.1,
+      "recommendation": "REVISE"
+    },
+    "llm_reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+    "synthesis": "",
+    "confidence": 0.1,
+    "challenge": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    }
+  },
+  {
+    "gap_id": "G5",
+    "gap_type": "scalability",
+    "evidence_text": "As a direct test, a proportion of honest agents in COREare given aggressive or opinionated personas, ensuring the probe cannot simply learn that forceful or persuasive language indicates collusion.",
+    "agent_a": {
+      "hypothesis_id": "H9",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: As a direct test, a proportion of honest agents in COREare given aggressive or opinionated personas, ensur",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H10",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: As a direct test, a proportion of honest agents in COREare given aggressive or opinionated personas, ensur",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true,
+    "round_1": {
+      "preferred": "AgentA",
+      "reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+      "synthesis": "",
+      "confidence": 0.1
+    },
+    "round_2": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    },
+    "round_3": {
+      "final_preferred": "AgentA",
+      "verdict": "",
+      "decisive_factor": "Score-based preference after inconclusive debate",
+      "confidence": 0.1,
+      "recommendation": "REVISE"
+    },
+    "llm_reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+    "synthesis": "",
+    "confidence": 0.1,
+    "challenge": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    }
+  },
+  {
+    "gap_id": "G6",
+    "gap_type": "scalability",
+    "evidence_text": "We cannot fully rule out that residual prompt differences contribute to the signal.",
+    "agent_a": {
+      "hypothesis_id": "H11",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: We cannot fully rule out that residual prompt differences contribute to the signal.\nActionable direction: ",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H12",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: We cannot fully rule out that residual prompt differences contribute to the signal.\nActionable direction: ",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true,
+    "round_1": {
+      "preferred": "AgentA",
+      "reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+      "synthesis": "",
+      "confidence": 0.1
+    },
+    "round_2": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    },
+    "round_3": {
+      "final_preferred": "AgentA",
+      "verdict": "",
+      "decisive_factor": "Score-based preference after inconclusive debate",
+      "confidence": 0.1,
+      "recommendation": "REVISE"
+    },
+    "llm_reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+    "synthesis": "",
+    "confidence": 0.1,
+    "challenge": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    }
+  },
+  {
+    "gap_id": "G7",
+    "gap_type": "scalability",
+    "evidence_text": "However, the out-of-distribution transfer results (Section 4) provide evidence that the probe captures something beyond prompt artefacts: the probing techniques generalise to NARCBENCH-TRANSFER and NARCBENCH-STEGO, where prompts are structurally different from CORE.",
+    "agent_a": {
+      "hypothesis_id": "H13",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, the out-of-distribution transfer results (Section 4) provide evidence that the probe captures som",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H14",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, the out-of-distribution transfer results (Section 4) provide evidence that the probe captures som",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true,
+    "round_1": {
+      "preferred": "AgentA",
+      "reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+      "synthesis": "",
+      "confidence": 0.1
+    },
+    "round_2": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    },
+    "round_3": {
+      "final_preferred": "AgentA",
+      "verdict": "",
+      "decisive_factor": "Score-based preference after inconclusive debate",
+      "confidence": 0.1,
+      "recommendation": "REVISE"
+    },
+    "llm_reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+    "synthesis": "",
+    "confidence": 0.1,
+    "challenge": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    }
+  },
+  {
+    "gap_id": "G8",
+    "gap_type": "human_alignment",
+    "evidence_text": "Activation Alignment (correlation-based detection).This is the only method that does not use the deception direction, operating instead on the raw activation vectors directly.",
+    "agent_a": {
+      "hypothesis_id": "H15",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Activation Alignment (correlation-based detection).This is the only method that does not use the deception",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H16",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Activation Alignment (correlation-based detection).This is the only method that does not use the deception",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true,
+    "round_1": {
+      "preferred": "AgentA",
+      "reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+      "synthesis": "",
+      "confidence": 0.1
+    },
+    "round_2": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    },
+    "round_3": {
+      "final_preferred": "AgentA",
+      "verdict": "",
+      "decisive_factor": "Score-based preference after inconclusive debate",
+      "confidence": 0.1,
+      "recommendation": "REVISE"
+    },
+    "llm_reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+    "synthesis": "",
+    "confidence": 0.1,
+    "challenge": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    }
+  },
+  {
+    "gap_id": "G9",
+    "gap_type": "scalability",
+    "evidence_text": "However, no single method dominates, and the distributed detection taxonomy explains why: different collusion types produce different anomaly signatures.",
+    "agent_a": {
+      "hypothesis_id": "H17",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, no single method dominates, and the distributed detection taxonomy explains why: different collus",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H18",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, no single method dominates, and the distributed detection taxonomy explains why: different collus",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true,
+    "round_1": {
+      "preferred": "AgentA",
+      "reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+      "synthesis": "",
+      "confidence": 0.1
+    },
+    "round_2": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    },
+    "round_3": {
+      "final_preferred": "AgentA",
+      "verdict": "",
+      "decisive_factor": "Score-based preference after inconclusive debate",
+      "confidence": 0.1,
+      "recommendation": "REVISE"
+    },
+    "llm_reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+    "synthesis": "",
+    "confidence": 0.1,
+    "challenge": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    }
+  },
+  {
+    "gap_id": "G10",
+    "gap_type": "scalability",
+    "evidence_text": "However, it is the weakest method on TRANSFER(0.54 AUROC): for structural collusion the direction of the effect is inconsistent across tasks, with colluders sometimes becoming more aligned and sometimes less aligned.",
+    "agent_a": {
+      "hypothesis_id": "H19",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, it is the weakest method on TRANSFER(0.54 AUROC): for structural collusion the direction of the e",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H20",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, it is the weakest method on TRANSFER(0.54 AUROC): for structural collusion the direction of the e",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true,
+    "round_1": {
+      "preferred": "AgentA",
+      "reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+      "synthesis": "",
+      "confidence": 0.1
+    },
+    "round_2": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    },
+    "round_3": {
+      "final_preferred": "AgentA",
+      "verdict": "",
+      "decisive_factor": "Score-based preference after inconclusive debate",
+      "confidence": 0.1,
+      "recommendation": "REVISE"
+    },
+    "llm_reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+    "synthesis": "",
+    "confidence": 0.1,
+    "challenge": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    }
+  },
+  {
+    "gap_id": "G11",
+    "gap_type": "human_alignment",
+    "evidence_text": "Steganographic collusion disrupts activation geometry (Activation Alignment: 1.00), while structural collusion is subtler and does not shift pairwise similarity in a consistent direction.",
+    "agent_a": {
+      "hypothesis_id": "H21",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Steganographic collusion disrupts activation geometry (Activation Alignment: 1.00), while structural collu",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H22",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Steganographic collusion disrupts activation geometry (Activation Alignment: 1.00), while structural collu",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true,
+    "round_1": {
+      "preferred": "AgentA",
+      "reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+      "synthesis": "",
+      "confidence": 0.1
+    },
+    "round_2": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    },
+    "round_3": {
+      "final_preferred": "AgentA",
+      "verdict": "",
+      "decisive_factor": "Score-based preference after inconclusive debate",
+      "confidence": 0.1,
+      "recommendation": "REVISE"
+    },
+    "llm_reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+    "synthesis": "",
+    "confidence": 0.1,
+    "challenge": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    }
+  },
+  {
+    "gap_id": "G12",
+    "gap_type": "scalability",
+    "evidence_text": "Transfer is hard but possible.The deception direction trained on committee deliberations transfers meaningfully to structurally different tasks (0.80\u20130.84 AUROC), despite never seeing code reviews, stock analyses, or RAG pipelines during training.",
+    "agent_a": {
+      "hypothesis_id": "H23",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Transfer is hard but possible.The deception direction trained on committee deliberations transfers meaning",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H24",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Transfer is hard but possible.The deception direction trained on committee deliberations transfers meaning",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true,
+    "round_1": {
+      "preferred": "AgentA",
+      "reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+      "synthesis": "",
+      "confidence": 0.1
+    },
+    "round_2": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    },
+    "round_3": {
+      "final_preferred": "AgentA",
+      "verdict": "",
+      "decisive_factor": "Score-based preference after inconclusive debate",
+      "confidence": 0.1,
+      "recommendation": "REVISE"
+    },
+    "llm_reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+    "synthesis": "",
+    "confidence": 0.1,
+    "challenge": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    }
+  },
+  {
+    "gap_id": "G13",
+    "gap_type": "scalability",
+    "evidence_text": "The steganographic signals are designed to be indistinguishable from normal conversation, and the judge cannot tell the difference.",
+    "agent_a": {
+      "hypothesis_id": "H25",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: The steganographic signals are designed to be indistinguishable from normal conversation, and the judge ca",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H26",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: The steganographic signals are designed to be indistinguishable from normal conversation, and the judge ca",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true,
+    "round_1": {
+      "preferred": "AgentA",
+      "reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+      "synthesis": "",
+      "confidence": 0.1
+    },
+    "round_2": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    },
+    "round_3": {
+      "final_preferred": "AgentA",
+      "verdict": "",
+      "decisive_factor": "Score-based preference after inconclusive debate",
+      "confidence": 0.1,
+      "recommendation": "REVISE"
+    },
+    "llm_reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+    "synthesis": "",
+    "confidence": 0.1,
+    "challenge": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    }
+  },
+  {
+    "gap_id": "G14",
+    "gap_type": "scalability",
+    "evidence_text": "4.4 Limitations Single model.Our results are based on a single model (Qwen3-32B) with 4-bit quantisation.",
+    "agent_a": {
+      "hypothesis_id": "H27",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: 4.4 Limitations Single model.Our results are based on a single model (Qwen3-32B) with 4-bit quantisation.\n",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H28",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: 4.4 Limitations Single model.Our results are based on a single model (Qwen3-32B) with 4-bit quantisation.\n",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true,
+    "round_1": {
+      "preferred": "AgentA",
+      "reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+      "synthesis": "",
+      "confidence": 0.1
+    },
+    "round_2": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    },
+    "round_3": {
+      "final_preferred": "AgentA",
+      "verdict": "",
+      "decisive_factor": "Score-based preference after inconclusive debate",
+      "confidence": 0.1,
+      "recommendation": "REVISE"
+    },
+    "llm_reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+    "synthesis": "",
+    "confidence": 0.1,
+    "challenge": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    }
+  },
+  {
+    "gap_id": "G15",
+    "gap_type": "scalability",
+    "evidence_text": "We mitigate prompt confounds through scenario diversification and identical evaluation-time prompts, but cannot fully rule out that residual prompt differences contribute to the signal.",
+    "agent_a": {
+      "hypothesis_id": "H29",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: We mitigate prompt confounds through scenario diversification and identical evaluation-time prompts, but c",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H30",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: We mitigate prompt confounds through scenario diversification and identical evaluation-time prompts, but c",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true,
+    "round_1": {
+      "preferred": "AgentA",
+      "reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+      "synthesis": "",
+      "confidence": 0.1
+    },
+    "round_2": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    },
+    "round_3": {
+      "final_preferred": "AgentA",
+      "verdict": "",
+      "decisive_factor": "Score-based preference after inconclusive debate",
+      "confidence": 0.1,
+      "recommendation": "REVISE"
+    },
+    "llm_reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+    "synthesis": "",
+    "confidence": 0.1,
+    "challenge": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    }
+  },
+  {
+    "gap_id": "G16",
+    "gap_type": "scalability",
+    "evidence_text": "Future work could explore whether improved training sets, non-linear probes, or different score aggregation strategies yield more robust directions.",
+    "agent_a": {
+      "hypothesis_id": "H31",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Future work could explore whether improved training sets, non-linear probes, or different score aggregatio",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H32",
+      "hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Future work could explore whether improved training sets, non-linear probes, or different score aggregatio",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true,
+    "round_1": {
+      "preferred": "AgentA",
+      "reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+      "synthesis": "",
+      "confidence": 0.1
+    },
+    "round_2": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    },
+    "round_3": {
+      "final_preferred": "AgentA",
+      "verdict": "",
+      "decisive_factor": "Score-based preference after inconclusive debate",
+      "confidence": 0.1,
+      "recommendation": "REVISE"
+    },
+    "llm_reasoning": "Generated via deterministic fallback \u2014 LLM providers unavailable.",
+    "synthesis": "",
+    "confidence": 0.1,
+    "challenge": {
+      "challenger": "AgentB",
+      "action": "",
+      "response": "",
+      "refined_hypothesis": ""
+    }
+  }
+]

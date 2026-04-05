@@ -1,0 +1,20 @@
+{
+  "hypothesis_quality": {
+    "avg_total": 9.0,
+    "avg_clarity": 3.0,
+    "avg_novelty": 3.0,
+    "avg_feasibility": 3.0,
+    "keep_rate": 0.0,
+    "reject_rate": 0.0,
+    "llm_assessments": []
+  },
+  "debate_quality": {
+    "agreement_rate": 1.0,
+    "avg_confidence": 0.0,
+    "challenge_rate": 0.0,
+    "avg_round_score": 0.0,
+    "rounds_with_all_3": 0
+  },
+  "claim_count": 6,
+  "gap_count": 5
+}

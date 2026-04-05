@@ -1,0 +1,206 @@
+[
+  {
+    "hypothesis_id": "H1",
+    "gap_id": "G1",
+    "gap_type": "scalability",
+    "gap_text": "RankGraph: Unified Heterogeneous Graph Learning for Cross-Domain Recommendation Renzhi Wu Meta MRS Menlo Park, US renzhiwu@meta.com Junjie Yang Meta MRS Menlo Park, US junjieyang@meta.com Li Chen Meta MRS Menlo Park, US lichenntu@meta.com Hong Li Meta MRS Menlo Park, US hongli@meta.com Li Yu Facebook Monetization Menlo Park, US yongnali@meta.com Hong Yan Meta MRS Menlo Park, US hyan@meta.com ABSTRACT Cross-domain recommendation systems face the challenge of integrating fine-grained user and item relationships across various product domains.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: RankGraph: Unified Heterogeneous Graph Learning for Cross-Domain Recommendation Renzhi Wu Meta MRS Menlo Park, US renzhi",
+    "source": "AgentA",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H2",
+    "gap_id": "G1",
+    "gap_type": "scalability",
+    "gap_text": "RankGraph: Unified Heterogeneous Graph Learning for Cross-Domain Recommendation Renzhi Wu Meta MRS Menlo Park, US renzhiwu@meta.com Junjie Yang Meta MRS Menlo Park, US junjieyang@meta.com Li Chen Meta MRS Menlo Park, US lichenntu@meta.com Hong Li Meta MRS Menlo Park, US hongli@meta.com Li Yu Facebook Monetization Menlo Park, US yongnali@meta.com Hong Yan Meta MRS Menlo Park, US hyan@meta.com ABSTRACT Cross-domain recommendation systems face the challenge of integrating fine-grained user and item relationships across various product domains.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: RankGraph: Unified Heterogeneous Graph Learning for Cross-Domain Recommendation Renzhi Wu Meta MRS Menlo Park, US renzhi",
+    "source": "AgentB",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H3",
+    "gap_id": "G2",
+    "gap_type": "scalability",
+    "gap_text": "However, integrating fine-grained user and item relationships across various product domains remains a significant challenge in cross-domain recommendation FMs [10, 12].",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: However, integrating fine-grained user and item relationships across various product domains remains a significant chall",
+    "source": "AgentA",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H4",
+    "gap_id": "G2",
+    "gap_type": "scalability",
+    "gap_text": "However, integrating fine-grained user and item relationships across various product domains remains a significant challenge in cross-domain recommendation FMs [10, 12].",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: However, integrating fine-grained user and item relationships across various product domains remains a significant chall",
+    "source": "AgentB",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H5",
+    "gap_id": "G3",
+    "gap_type": "scalability",
+    "gap_text": "To address this challenge, we introduce RankGraph, a unified graph learning framework designed to harness the power of graph learning within the context of recommendation FMs.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: To address this challenge, we introduce RankGraph, a unified graph learning framework designed to harness the power of g",
+    "source": "AgentA",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H6",
+    "gap_id": "G3",
+    "gap_type": "scalability",
+    "gap_text": "To address this challenge, we introduce RankGraph, a unified graph learning framework designed to harness the power of graph learning within the context of recommendation FMs.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: To address this challenge, we introduce RankGraph, a unified graph learning framework designed to harness the power of g",
+    "source": "AgentB",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H7",
+    "gap_id": "G4",
+    "gap_type": "scalability",
+    "gap_text": "This heterogeneous structure enables RankGraph to effectively model cross-surface foundation model (FM) scenarios, which are difficult to represent using homogeneous graphs.",
+    "actionable_direction": "Develop automated representation learning to replace manual feature engineering",
+    "hypothesis_text": "[Generation failed] Investigate the gap: This heterogeneous structure enables RankGraph to effectively model cross-surface foundation model (FM) scenarios, which",
+    "source": "AgentA",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H8",
+    "gap_id": "G4",
+    "gap_type": "scalability",
+    "gap_text": "This heterogeneous structure enables RankGraph to effectively model cross-surface foundation model (FM) scenarios, which are difficult to represent using homogeneous graphs.",
+    "actionable_direction": "Develop automated representation learning to replace manual feature engineering",
+    "hypothesis_text": "[Generation failed] Investigate the gap: This heterogeneous structure enables RankGraph to effectively model cross-surface foundation model (FM) scenarios, which",
+    "source": "AgentB",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H9",
+    "gap_id": "G5",
+    "gap_type": "scalability",
+    "gap_text": "However, the added heterogeneity also brings challenges in semantic representation and learning, addressed through a specialized GPU-based Graph Neural Network described in the next section.",
+    "actionable_direction": "Develop automated representation learning to replace manual feature engineering",
+    "hypothesis_text": "[Generation failed] Investigate the gap: However, the added heterogeneity also brings challenges in semantic representation and learning, addressed through a spe",
+    "source": "AgentA",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H10",
+    "gap_id": "G5",
+    "gap_type": "scalability",
+    "gap_text": "However, the added heterogeneity also brings challenges in semantic representation and learning, addressed through a specialized GPU-based Graph Neural Network described in the next section.",
+    "actionable_direction": "Develop automated representation learning to replace manual feature engineering",
+    "hypothesis_text": "[Generation failed] Investigate the gap: However, the added heterogeneity also brings challenges in semantic representation and learning, addressed through a spe",
+    "source": "AgentB",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H11",
+    "gap_id": "G6",
+    "gap_type": "scalability",
+    "gap_text": "However, these recall metrics not necessarily present the power of the embeddings in predicting user\u2019s future engagement, and in fact we have observed discrepancy between these offline recall metrics and online a/b test results.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: However, these recall metrics not necessarily present the power of the embeddings in predicting user\u2019s future engagement",
+    "source": "AgentA",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H12",
+    "gap_id": "G6",
+    "gap_type": "scalability",
+    "gap_text": "However, these recall metrics not necessarily present the power of the embeddings in predicting user\u2019s future engagement, and in fact we have observed discrepancy between these offline recall metrics and online a/b test results.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: However, these recall metrics not necessarily present the power of the embeddings in predicting user\u2019s future engagement",
+    "source": "AgentB",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  }
+]

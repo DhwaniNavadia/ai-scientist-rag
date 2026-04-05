@@ -1,0 +1,72 @@
+[
+  {
+    "claim_id": "C1",
+    "section": "introduction",
+    "claim_text": "Beside, we introduce a social regularization term to strengthen the virtual social links: ls = LX l=1 \u2225 xl T \u2212 PM \u22121 i=1 Sim(xl T , \u02c6xl Si) \u00d7 \u02c6xl Si PM \u22121 i=1 Sim(xl T , \u02c6xl Si) \u22252, (9) Since we do not have direct access to the rating matrix of each source domain, the function Sim(\u00b7) calculates the cosine similarity [48].",
+    "evidence_text": "Through the graph expansion, we achieve: (1) dynamic domain attentions that focus on positive source domain knowledge to alleviate NT; (2) attention generation by GAT, eliminating the need for additional interventions such as hyper-parameter tuning or feature engineering. For top-k recommendation, we adopt a widely-used inner product model to estimate the value of target domain rating RT uv , which is the interaction probability between a pair of user u and item v: \u02c6RT uv = Sigmoid(eu T \u00b7 ev T ), (10) where eu T and ev T are the final user and item embeddings output by GAT.",
+    "confidence": 0.9
+  },
+  {
+    "claim_id": "C2",
+    "section": "introduction",
+    "claim_text": "Our contributions are summarized as follows: \u2022 We introduce FedGCDR, a novel federated graph learning framework for CDR that provides high-quality BS-CDR recommendations while safeguarding both user privacy and domain confidentiality; \u2022 We propose two key model, i.e., the positive knowledge transfer module and the positive knowledge activation module.",
+    "evidence_text": "The first transfer module ensure privacy and positive knowledge flows via privacy-preserving knowledge extraction and feature mapping. The second activation module filter harmful information via graph expansion, target domain training and target model fine-tuning; \u2022 We conduct extensive experiments on 16 domains of the Amazon datasets that confirm the effectiveness of FedGCDR in terms of recommendation accuracy.",
+    "confidence": 0.75
+  },
+  {
+    "claim_id": "C3",
+    "section": "introduction",
+    "claim_text": "Through the graph expansion, we achieve: (1) dynamic domain attentions that focus on positive source domain knowledge to alleviate NT; (2) attention generation by GAT, eliminating the need for additional interventions such as hyper-parameter tuning or feature engineering.",
+    "evidence_text": "For top-k recommendation, we adopt a widely-used inner product model to estimate the value of target domain rating RT uv , which is the interaction probability between a pair of user u and item v: \u02c6RT uv = Sigmoid(eu T \u00b7 ev T ), (10) where eu T and ev T are the final user and item embeddings output by GAT. Our objective function consists of three terms as follows: LGAT = BCELoss ( \u02c6RT uv, RT uv) + \u03b1 2 lm + \u03b2 2 ls, (11) where \u03b1 and \u03b2 are hyper-parameters, and BCELoss (\u00b7) is the binary cross-entropy loss [51].",
+    "confidence": 0.75
+  },
+  {
+    "claim_id": "C4",
+    "section": "evaluation",
+    "claim_text": "To further study our model capacity in alleviating negative transfer, we first define two types of negative transfer: (1) Soft Negative Transfer (SNT), where recommender models\u2019 performance under the multi-domain setting is worse than that under the single-domain setting.",
+    "evidence_text": "This means that the knowledge from source domains poisoning the target domain\u2019s model training. (2) Hard Negative Transfer (HNT), where recommended performance of a large number of source domains is lower than that of a small number of source domains.",
+    "confidence": 0.75
+  },
+  {
+    "claim_id": "C5",
+    "section": "abstract",
+    "claim_text": "To address these challenges, we propose FedGCDR, a novel federated graph learning framework that securely and effectively leverages positive knowledge from multiple source domains.",
+    "evidence_text": "First, we design a positive knowledge transfer module that ensures privacy during inter-domain knowledge transmission. This module employs differential privacy-based knowledge extraction combined with a feature mapping mechanism, transforming source domain embeddings from federated graph attention networks into reliable domain knowledge.",
+    "confidence": 0.75
+  },
+  {
+    "claim_id": "C6",
+    "section": "evaluation",
+    "claim_text": "This shows that our approach is also suitable for dual-domain scenarios where users full-overlap and have only a single source domain and a single target domain.",
+    "evidence_text": "We provide experimental results on privacy budget in Appendix D.2. 5 Limitations Our experiments were conducted on 16 domains of the Amazon dataset.",
+    "confidence": 0.75
+  },
+  {
+    "claim_id": "C7",
+    "section": "evaluation",
+    "claim_text": "While this extensive dataset covers broader source domains, relying on a single dataset may limit the generalizability of our model to data from other sources.",
+    "evidence_text": "Our approach uses overlapping users as a cross-domain bridge. Indeed, there are no widely-recognized cross-domain recommendation datasets with more than three domains, aside from the Amazon dataset.",
+    "confidence": 0.75
+  },
+  {
+    "claim_id": "C8",
+    "section": "introduction",
+    "claim_text": "To address the challenges of privacy (CH1) and NT (CH2) in BS-CDR, we propose Federated Graph learning for Cross-Domain Recommendation (FedGCDR).",
+    "evidence_text": "It follows a horizontal-verticalhorizontal pipeline [6] and consists of two key modules. First, the positive knowledge transfer module aims to safeguard inter-domain privacy and mitigate potential NT before transfer.",
+    "confidence": 0.75
+  },
+  {
+    "claim_id": "C9",
+    "section": "evaluation",
+    "claim_text": "FedGCDR-DP is a complete implementation of our method while FedGCDR does not incorporate Gaussian noise.",
+    "evidence_text": "(The best result for the same setting is marked in bold and the second best is underlined. These notes are the same to others.) Model Amazon-4@Books Amazon-8@Books Amazon-16@Books HR@5 NDCG@5 HR@10 NDCG@10 HR@5 NDCG@5 HR@10 NDCG@10 HR@5 NDCG@5 HR@10 NDCG@10 Single Domain 0.4693 0.3188 0.6067 0.3634 0.4693 0.3188 0.6067 0.3634 0.4693 0.3188 0.6067 0.3634 EMCDR 0.4633 0.3075 0.6179 0.3191 0.4678 0.3268 0.5990 0.3518 0.3140 0.2184 0.4207 0.2348 PriCDR 0.4061 0.3159 0.5275 0.3550 0.4409 0.3196 0.5913 0.3681 0.3699 0.2650 0.4914 0.3042 FedCT 0.2911 0.2044 0.4276 0.2482 0.4665 0.3516 0.6002 0.3939 0.2779 0.2335 0.3580 0.2593 FedCDR 0.4115 0.3153 0.5415 0.3570 0.4791 0.3538 0.6182 0.3967 0.3926 0.2907 0.5626 0.3403 FedGCDR-DP 0.4903 0.3417 0.6717 0.3733 0.5224 0.3608 0.6727 0.3973 0.4928 0.3509 0.6510 0.3742 FedGCDR 0.4941 0.3592 0.6732 0.3920 0.5300 0.3686 0.6752 0.3985 0.5016 0.3600 0.6516 0.3854 Table 3: The recommendation performance on Amazon@CDs.",
+    "confidence": 0.75
+  },
+  {
+    "claim_id": "C10",
+    "section": "evaluation",
+    "claim_text": "Answer: [NA] Justification: Our method well-address the privacy issure and poses no such risks.",
+    "evidence_text": "Guidelines: \u2022 The answer NA means that the paper poses no such risks. \u2022 Released models that have a high risk for misuse or dual-use should be released with necessary safeguards to allow for controlled use of the model, for example by requiring that users adhere to usage guidelines or restrictions to access the model or implementing safety filters.",
+    "confidence": 0.75
+  }
+]

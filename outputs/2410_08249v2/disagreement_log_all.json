@@ -1,0 +1,466 @@
+[
+  {
+    "gap_id": "G1",
+    "gap_type": "scalability",
+    "evidence_text": "However, many recent CDR models overlook crucial issues such as privacy as well as the risk of negative transfer (which negatively impact model performance), especially in multi-domain settings.",
+    "agent_a": {
+      "hypothesis_id": "H1",
+      "hypothesis": "[Generation failed] Investigate the gap: However, many recent CDR models overlook crucial issues such as privacy as well as the risk of negative transfer (which",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H2",
+      "hypothesis": "[Generation failed] Investigate the gap: However, many recent CDR models overlook crucial issues such as privacy as well as the risk of negative transfer (which",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true
+  },
+  {
+    "gap_id": "G2",
+    "gap_type": "scalability",
+    "evidence_text": "To address these challenges, we propose FedGCDR, a novel federated graph learning framework that securely and effectively leverages positive knowledge from multiple source domains.",
+    "agent_a": {
+      "hypothesis_id": "H3",
+      "hypothesis": "[Generation failed] Investigate the gap: To address these challenges, we propose FedGCDR, a novel federated graph learning framework that securely and effectivel",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H4",
+      "hypothesis": "[Generation failed] Investigate the gap: To address these challenges, we propose FedGCDR, a novel federated graph learning framework that securely and effectivel",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true
+  },
+  {
+    "gap_id": "G3",
+    "gap_type": "data_quality",
+    "evidence_text": "However, with the influence of lossy privacy-preserving techniques, the results of the transfer could be negative (e.g., the Music domain with low-quality data).",
+    "agent_a": {
+      "hypothesis_id": "H5",
+      "hypothesis": "[Generation failed] Investigate the gap: However, with the influence of lossy privacy-preserving techniques, the results of the transfer could be negative (e.g.,",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H6",
+      "hypothesis": "[Generation failed] Investigate the gap: However, with the influence of lossy privacy-preserving techniques, the results of the transfer could be negative (e.g.,",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true
+  },
+  {
+    "gap_id": "G4",
+    "gap_type": "scalability",
+    "evidence_text": "However, incorporating more domains while preserving privacy poses challenges to counteract negative transfer (NT), which is a phenomenon of transferring knowledge from a source domain that negatively impacts the recommender model performance in the target domain [12].",
+    "agent_a": {
+      "hypothesis_id": "H7",
+      "hypothesis": "[Generation failed] Investigate the gap: However, incorporating more domains while preserving privacy poses challenges to counteract negative transfer (NT), whic",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H8",
+      "hypothesis": "[Generation failed] Investigate the gap: However, incorporating more domains while preserving privacy poses challenges to counteract negative transfer (NT), whic",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true
+  },
+  {
+    "gap_id": "G5",
+    "gap_type": "scalability",
+    "evidence_text": "However, existing methods cannot be directly applied to BS-CDR due to two major challenges.",
+    "agent_a": {
+      "hypothesis_id": "H9",
+      "hypothesis": "[Generation failed] Investigate the gap: However, existing methods cannot be directly applied to BS-CDR due to two major challenges.",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H10",
+      "hypothesis": "[Generation failed] Investigate the gap: However, existing methods cannot be directly applied to BS-CDR due to two major challenges.",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true
+  },
+  {
+    "gap_id": "G6",
+    "gap_type": "scalability",
+    "evidence_text": "Adjusting attention-related hyper-parameters for a large number of source domains in BS-CDR scenarios is extremely difficult, as well as predefined or domain-shared features cannot accommodate complex domain diversities.",
+    "agent_a": {
+      "hypothesis_id": "H11",
+      "hypothesis": "[Generation failed] Investigate the gap: Adjusting attention-related hyper-parameters for a large number of source domains in BS-CDR scenarios is extremely diffi",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H12",
+      "hypothesis": "[Generation failed] Investigate the gap: Adjusting attention-related hyper-parameters for a large number of source domains in BS-CDR scenarios is extremely diffi",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true
+  },
+  {
+    "gap_id": "G7",
+    "gap_type": "scalability",
+    "evidence_text": "To address the challenges of privacy (CH1) and NT (CH2) in BS-CDR, we propose Federated Graph learning for Cross-Domain Recommendation (FedGCDR).",
+    "agent_a": {
+      "hypothesis_id": "H13",
+      "hypothesis": "[Generation failed] Investigate the gap: To address the challenges of privacy (CH1) and NT (CH2) in BS-CDR, we propose Federated Graph learning for Cross-Domain",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H14",
+      "hypothesis": "[Generation failed] Investigate the gap: To address the challenges of privacy (CH1) and NT (CH2) in BS-CDR, we propose Federated Graph learning for Cross-Domain",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true
+  },
+  {
+    "gap_id": "G8",
+    "gap_type": "scalability",
+    "evidence_text": "Cross-domain knowledge transfer does not require additional communication overhead.",
+    "agent_a": {
+      "hypothesis_id": "H15",
+      "hypothesis": "[Generation failed] Investigate the gap: Cross-domain knowledge transfer does not require additional communication overhead.",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H16",
+      "hypothesis": "[Generation failed] Investigate the gap: Cross-domain knowledge transfer does not require additional communication overhead.",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true
+  },
+  {
+    "gap_id": "G9",
+    "gap_type": "scalability",
+    "evidence_text": "However, this direct embeddings transfer does not meet the privacy and NT constrains in BS-CDR scenarios.",
+    "agent_a": {
+      "hypothesis_id": "H17",
+      "hypothesis": "[Generation failed] Investigate the gap: However, this direct embeddings transfer does not meet the privacy and NT constrains in BS-CDR scenarios.",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H18",
+      "hypothesis": "[Generation failed] Investigate the gap: However, this direct embeddings transfer does not meet the privacy and NT constrains in BS-CDR scenarios.",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true
+  },
+  {
+    "gap_id": "G10",
+    "gap_type": "scalability",
+    "evidence_text": "The discrepancy of domains leads to the heterogeneity of feature space between domains which means that source domain embeddings cannot be utilized directly by the target domain.",
+    "agent_a": {
+      "hypothesis_id": "H19",
+      "hypothesis": "[Generation failed] Investigate the gap: The discrepancy of domains leads to the heterogeneity of feature space between domains which means that source domain em",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H20",
+      "hypothesis": "[Generation failed] Investigate the gap: The discrepancy of domains leads to the heterogeneity of feature space between domains which means that source domain em",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true
+  },
+  {
+    "gap_id": "G11",
+    "gap_type": "scalability",
+    "evidence_text": "How to utilize the transferred knowledge remains a great challenge.",
+    "agent_a": {
+      "hypothesis_id": "H21",
+      "hypothesis": "[Generation failed] Investigate the gap: How to utilize the transferred knowledge remains a great challenge.",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H22",
+      "hypothesis": "[Generation failed] Investigate the gap: How to utilize the transferred knowledge remains a great challenge.",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true
+  },
+  {
+    "gap_id": "G12",
+    "gap_type": "scalability",
+    "evidence_text": "However, NT may still be unavoidable, potentially leading to the accumulation of negative knowledge in the target domain.",
+    "agent_a": {
+      "hypothesis_id": "H23",
+      "hypothesis": "[Generation failed] Investigate the gap: However, NT may still be unavoidable, potentially leading to the accumulation of negative knowledge in the target domain",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H24",
+      "hypothesis": "[Generation failed] Investigate the gap: However, NT may still be unavoidable, potentially leading to the accumulation of negative knowledge in the target domain",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true
+  },
+  {
+    "gap_id": "G13",
+    "gap_type": "scalability",
+    "evidence_text": "FedGCDR-DP is a complete implementation of our method while FedGCDR does not incorporate Gaussian noise.",
+    "agent_a": {
+      "hypothesis_id": "H25",
+      "hypothesis": "[Generation failed] Investigate the gap: FedGCDR-DP is a complete implementation of our method while FedGCDR does not incorporate Gaussian noise.",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H26",
+      "hypothesis": "[Generation failed] Investigate the gap: FedGCDR-DP is a complete implementation of our method while FedGCDR does not incorporate Gaussian noise.",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true
+  },
+  {
+    "gap_id": "G14",
+    "gap_type": "scalability",
+    "evidence_text": "5 Limitations Our experiments were conducted on 16 domains of the Amazon dataset.",
+    "agent_a": {
+      "hypothesis_id": "H27",
+      "hypothesis": "[Generation failed] Investigate the gap: 5 Limitations Our experiments were conducted on 16 domains of the Amazon dataset.",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H28",
+      "hypothesis": "[Generation failed] Investigate the gap: 5 Limitations Our experiments were conducted on 16 domains of the Amazon dataset.",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true
+  },
+  {
+    "gap_id": "G15",
+    "gap_type": "scalability",
+    "evidence_text": "Despite this limitation, we firmly believe that the significant improvements in privacy preservation and model performance demonstrated by FedGCDR underscore its superiority.",
+    "agent_a": {
+      "hypothesis_id": "H29",
+      "hypothesis": "[Generation failed] Investigate the gap: Despite this limitation, we firmly believe that the significant improvements in privacy preservation and model performan",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H30",
+      "hypothesis": "[Generation failed] Investigate the gap: Despite this limitation, we firmly believe that the significant improvements in privacy preservation and model performan",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true
+  },
+  {
+    "gap_id": "G16",
+    "gap_type": "scalability",
+    "evidence_text": "Guidelines: \u2022 The answer NA means that the paper does not include experiments.",
+    "agent_a": {
+      "hypothesis_id": "H31",
+      "hypothesis": "[Generation failed] Investigate the gap: Guidelines: \u2022 The answer NA means that the paper does not include experiments.",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "agent_b": {
+      "hypothesis_id": "H32",
+      "hypothesis": "[Generation failed] Investigate the gap: Guidelines: \u2022 The answer NA means that the paper does not include experiments.",
+      "scores": {
+        "clarity": 3,
+        "novelty": 3,
+        "feasibility": 3,
+        "total": 9
+      },
+      "decision": "REVISE"
+    },
+    "preferred_agent": "AgentA",
+    "agreement": true
+  }
+]

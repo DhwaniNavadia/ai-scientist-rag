@@ -1,0 +1,58 @@
+[
+  {
+    "hypothesis_id": "H1",
+    "decision": "KEEP",
+    "why": "Kept because it meets rubric thresholds with a strong total score.",
+    "weakest_dimensions": [
+      "feasibility"
+    ],
+    "weakest_score": 4,
+    "critic_reasons": [
+      "Meets minimum rubric thresholds."
+    ],
+    "improvement_plan": "Feasibility: start with 3\u20135 toy floor plans; compare PRM/RRT distance error vs Euclidean/Manhattan as a proxy.",
+    "trace": {
+      "gap_id": "G1",
+      "gap_type": "data_quality",
+      "evidence_text": "A key challenge in this domain is the Seating Allocation (SA) problem, which involves assigning teams to office space on a floor plan."
+    }
+  },
+  {
+    "hypothesis_id": "H2",
+    "decision": "KEEP",
+    "why": "Kept because it meets rubric thresholds with a strong total score.",
+    "weakest_dimensions": [
+      "clarity",
+      "novelty",
+      "feasibility"
+    ],
+    "weakest_score": 5,
+    "critic_reasons": [
+      "Meets minimum rubric thresholds."
+    ],
+    "improvement_plan": "Make it more testable: specify metric(s), baseline(s), and what counts as improvement.",
+    "trace": {
+      "gap_id": "G2",
+      "gap_type": "human_alignment",
+      "evidence_text": "The usefulness between HSA and SA is significant to large organizations as the humanevaluated solution quality to SA would be low due to failure to accommodate linked departments."
+    }
+  },
+  {
+    "hypothesis_id": "H3",
+    "decision": "KEEP",
+    "why": "Kept because it meets rubric thresholds with a strong total score.",
+    "weakest_dimensions": [
+      "feasibility"
+    ],
+    "weakest_score": 4,
+    "critic_reasons": [
+      "Meets minimum rubric thresholds."
+    ],
+    "improvement_plan": "Feasibility: test on synthetic instances varying |S| and |T|; report runtime + quality vs IPSA baseline under a fixed time budget.",
+    "trace": {
+      "gap_id": "G5",
+      "gap_type": "scalability",
+      "evidence_text": "A direct optimization approach could be employed to minimize the total seat distance between each seat, but this results in a mixed-integer quadratic problem (MIQP), which is not scalable for large instances due to the number of decision variables in the objective."
+    }
+  }
+]

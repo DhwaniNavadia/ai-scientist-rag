@@ -1,0 +1,294 @@
+{
+  "paper2": [
+    {
+      "text": "8) offers both improved ef\ufb01ciency (fewer parameters and operations, such as multiplication or addition) and better higher-order graph convolutional models using Chebyshev polynomials (Eq.",
+      "topic": "comparison",
+      "type": "result",
+      "quality": 6.0
+    },
+    {
+      "text": "In we demonstrate that our approach outperforms related methods by a signi\ufb01cant margin.",
+      "topic": "general",
+      "type": "result",
+      "quality": 4.65
+    },
+    {
+      "text": "We observe that for models deeper than 7 layers, training without the use of residual connections can become dif\ufb01cult, as the effective context size for each node increases by the size of itsKth-order neighbor- hood (for a model with K layers) with each additional layer.",
+      "topic": "architecture",
+      "type": "result",
+      "quality": 4.5
+    },
+    {
+      "text": "we stop training if the validation loss does not decrease for 10 consecutive epochs.",
+      "topic": "general",
+      "type": "result",
+      "quality": 2.9
+    },
+    {
+      "text": "We show that in this setting, a number of simpli\ufb01cations (see Section 2.2) improve scalability and classi\ufb01cation performance in large-scale networks.",
+      "topic": "performance",
+      "type": "general",
+      "quality": 2.75
+    },
+    {
+      "text": "In the following, we show that the form of this propagation rule can be motivated1 via a \ufb01rst-order approximation of localized spectral \ufb01lters on graphs (Hammond et al., 2011; Defferrard et al., 2016).",
+      "topic": "architecture",
+      "type": "general",
+      "quality": 2.75
+    },
+    {
+      "text": "Propagation of feature information from neighboring nodes in every layer improves classi\ufb01cation performance in comparison to methods like ICA (Lu & Getoor, 2003), where only label information is aggregated.",
+      "topic": "performance",
+      "type": "result",
+      "quality": 2.5
+    },
+    {
+      "text": "In this setting, our model outperforms several recently proposed methods by a signi\ufb01cant margin, while being computationally ef\ufb01cient.",
+      "topic": "architecture",
+      "type": "result",
+      "quality": 2.5
+    },
+    {
+      "text": "We extend the number of features in NELL by assigning a unique one-hot representation for every relation node, effectively resulting in a 61,278-dim sparse feature vector per node.",
+      "topic": "general",
+      "type": "general",
+      "quality": 2.0
+    },
+    {
+      "text": "8 C ONCLUSION We have introduced a novel approach for semi-supervised classi\ufb01cation on graph-structured data.",
+      "topic": "general",
+      "type": "general",
+      "quality": 2.0
+    },
+    {
+      "text": "node2vec: Scalable feature learning for networks.",
+      "topic": "scalability",
+      "type": "general",
+      "quality": 1.9
+    },
+    {
+      "text": "7.2 L IMITATIONS AND FUTURE WORK Here, we describe several limitations of our current model and outline how these might be overcome in future work.",
+      "topic": "architecture",
+      "type": "general",
+      "quality": 1.75
+    },
+    {
+      "text": "We intuitively expect that such a model can alleviate the problem of over\ufb01tting on local neighborhood structures for graphs with very wide node degree distributions, such as social networks, citation networks, knowledge graphs and many other real-world graph datasets.",
+      "topic": "architecture",
+      "type": "general",
+      "quality": 1.5
+    },
+    {
+      "text": "This problem can be framed as graph-based semi-supervised learning, where label information is smoothed over the graph via some form of explicit graph-based regularization (Zhu et al., 2003; Zhou et al., 2004; Belkin et al., 2006; Weston et al., 2012), e.g.",
+      "topic": "general",
+      "type": "general",
+      "quality": 1.5
+    },
+    {
+      "text": "Successive application of \ufb01lters of this form then effectively convolve thekth-order neighborhood of a node, wherek is the number of successive \ufb01ltering operations or convolutional layers in the neural network model.",
+      "topic": "architecture",
+      "type": "general",
+      "quality": 1.5
+    },
+    {
+      "text": "Firstly, we introduce a simple and well-behaved layer-wise prop- agation rule for neural network models which operate directly on graphs and show how it can be motivated from a \ufb01rst-order approximation of spectral graph convolutions (Hammond et al., 2011).",
+      "topic": "architecture",
+      "type": "general",
+      "quality": 1.25
+    },
+    {
+      "text": "Results on NELL however show that it is possible to handle both directed edges and edge features by representing the original directed graph as an undirected bipartite graph with additional nodes that represent edges in the original graph (see Section 5.1 for details).",
+      "topic": "general",
+      "type": "general",
+      "quality": 1.25
+    },
+    {
+      "text": "same as output layer), but observed that a dimensionality of 4 resulted in less frequent saturation of tanh(\u00b7) units and therefore visually more pleasing results.",
+      "topic": "architecture",
+      "type": "general",
+      "quality": 1.25
+    },
+    {
+      "text": "For the datasets considered here, best results are obtained with a 2- or 3-layer model.",
+      "topic": "architecture",
+      "type": "general",
+      "quality": 1.15
+    },
+    {
+      "text": "3 S EMI -S UPERVISED NODE CLASSIFICATION Having introduced a simple, yet \ufb02exible model f(X,A ) for ef\ufb01cient information propagation on troduction, we can relax certain assumptions typically made in graph-based semi-supervised learn- underlying graph structure.",
+      "topic": "architecture",
+      "type": "general",
+      "quality": 0.5
+    },
+    {
+      "text": "succeeds in linearly separating the communities based on minimal supervision and the graph struc- 6We originally experimented with a hidden layer dimensionality of2 (i.e.",
+      "topic": "scalability",
+      "type": "general",
+      "quality": 0.5
+    },
+    {
+      "text": "Right: t-SNE (Maaten & Hinton, 2008) visualization of hidden layer activations of a two-layer GCN trained on the Cora dataset (Sen et al., 2008) using 5% of labels.",
+      "topic": "architecture",
+      "type": "general",
+      "quality": 0.5
+    },
+    {
+      "text": "1We provide an alternative interpretation of this propagation rule based on the Weisfeiler-Lehman algorithm (Weisfeiler & Lehmann, 1968) in Appendix A.",
+      "topic": "architecture",
+      "type": "general",
+      "quality": 0.5
+    },
+    {
+      "text": "We construct a binary, symmetric adjacency matrix from this graph by setting entriesAij = 1, if one or more edges are present between nodesi andj.",
+      "topic": "general",
+      "type": "general",
+      "quality": 0.5
+    }
+  ],
+  "paper3": [
+    {
+      "text": "We validate the proposed approach on four challenging benchmarks: Cora, Citeseer and Pubmed citation networks as well as an inductive protein-protein interactiondataset, achieving or matching state-of-the-art re- sults that highlight the potential of attention-based models when dealing with arbitrarily structured graphs.",
+      "topic": "architecture",
+      "type": "result",
+      "quality": 7.0
+    },
+    {
+      "text": "Our models leveraging attention have successfully achieved or matched state-of-the-art performance across four well-established node classi\ufb01cation benchmarks, both transductive and inductive (especially, with completely unseen graphs used for testing).",
+      "topic": "performance",
+      "type": "result",
+      "quality": 5.5
+    },
+    {
+      "text": "Our GAT models have achieved or matched state-of-the- art results across four established transductive and inductive graph benchmarks: the Cora, Citeseer and Pubmed citation network datasets, as well as a protein- protein interaction dataset (wherein test graphs remain unseen during training).",
+      "topic": "architecture",
+      "type": "result",
+      "quality": 3.25
+    },
+    {
+      "text": "There are several potential improvements and extensions to graph attention networks that could be addressed as future work, such as overcoming the practical problems described in subsection 2.2 to be able to handle larger batch sizes.",
+      "topic": "architecture",
+      "type": "general",
+      "quality": 3.25
+    },
+    {
+      "text": "Moreover, this technique achieved some of its strongest results when an LSTM (Hochreiter & Schmidhuber, 1997)-based neighborhood aggregator is used.",
+      "topic": "general",
+      "type": "result",
+      "quality": 3.25
+    },
+    {
+      "text": "Speci\ufb01cally, for the Chebyshev \ufb01lter- based approach (Defferrard et al., 2016), we provide the maximum reported performance for \ufb01lters we further evaluate a GCN model that computes 64 hidden features, attempting both the ReLU and ELU activation, and reporting (as GCN-64\u2217) the better result after 100 runs (which was the ReLU in all three cases).",
+      "topic": "comparison",
+      "type": "result",
+      "quality": 3.0
+    },
+    {
+      "text": "To evaluate the bene\ufb01ts of aggregating across the entire neighborhood, we further provide (as GraphSAGE\u2217) the best result we were able to achieve with GraphSAGE by just modifying its architecture (this was with a three-layer GraphSAGE-LSTM with [512, 512, 726] features computed in each layer and 128 features used for aggregating neighborhoods).",
+      "topic": "comparison",
+      "type": "result",
+      "quality": 3.0
+    },
+    {
+      "text": "More seer, respectively, suggesting that assigning different weights to nodes of a same neighborhood may improves by 20.5% w.r.t.",
+      "topic": "general",
+      "type": "result",
+      "quality": 3.0
+    },
+    {
+      "text": "In this way, we address several key challenges of spectral-based graph neural net- works simultaneously, and make our model readily applicable to inductive as well as transductive problems.",
+      "topic": "architecture",
+      "type": "general",
+      "quality": 3.0
+    },
+    {
+      "text": "Furthermore, it improves by 3.9% w.r.t.",
+      "topic": "general",
+      "type": "result",
+      "quality": 2.9
+    },
+    {
+      "text": "(2017) showed that not only self-attention can improve a method based on RNNs or convolutions, but also that it is suf\ufb01cient for constructing a powerful model obtainingstate-of-the-art performance on the machine translation task.",
+      "topic": "performance",
+      "type": "result",
+      "quality": 2.5
+    },
+    {
+      "text": "Const-GAT (the identical architecture with constant attention mechanism), once again directly demonstrating the signi\ufb01cance of being able to assign different weights to different neighbors.",
+      "topic": "architecture",
+      "type": "result",
+      "quality": 2.5
+    },
+    {
+      "text": "8 The effectiveness of the learned feature representations may also be investigated qualitatively\u2014and for this purpose we provide a visualization of the t-SNE (Maaten & Hinton, 2008)-transformed feature representations extracted by the \ufb01rst layer of a GAT model pre-trained on the Cora dataset these clusters correspond to the seven labels of the dataset, verifying the model\u2019s discriminative power across the seven topic classes of Cora.",
+      "topic": "architecture",
+      "type": "general",
+      "quality": 2.0
+    },
+    {
+      "text": "4 C ONCLUSIONS We have presented graph attention networks (GATs), novel convolution-style neural networks that operate on graph-structured data, leveraging masked self-attentional layers.",
+      "topic": "architecture",
+      "type": "general",
+      "quality": 2.0
+    },
+    {
+      "text": "On one hand, spectral approaches work with a spectral representation of the graphs and have been cian, resulting in potentially intense computations and non-spatially localized \ufb01lters.",
+      "topic": "general",
+      "type": "general",
+      "quality": 1.5
+    },
+    {
+      "text": "comparing with a near GCN-equivalent model), we also provide the results when a constant attention mechanism, a(x,y ) = 1 , is used, with the same architecture\u2014this will assign the same weight to every neighbor.",
+      "topic": "architecture",
+      "type": "general",
+      "quality": 1.25
+    },
+    {
+      "text": "Inspired by this recent work, we introduce an attention-based architecture to perform node classi\ufb01ca- graph, by attending over its neighbors, following aself-attention strategy.",
+      "topic": "architecture",
+      "type": "general",
+      "quality": 1.25
+    },
+    {
+      "text": "Speci\ufb01cally,K inde- pendent attention mechanisms execute the transformation of Equation 4, and then their features are concatenated, resulting in the following output feature representation: \u20d7h\u2032 i = K \u2225 k=1 \u03c3 \uf8eb \uf8ed\u2211 j\u2208Ni \u03b1k ijWk\u20d7hj \uf8f6 \uf8f8 (5) where\u2225 represents concatenation, \u03b1k ij are normalized attention coef\ufb01cients computed by the k-th attention mechanism (ak), and Wk is the corresponding input linear transformation\u2019s weight matrix.",
+      "topic": "scalability",
+      "type": "general",
+      "quality": 0.5
+    },
+    {
+      "text": "However, the tensor manipulation framework we used only supports sparse matrix multiplication for rank-2 tensors, which limits the batching capabilities of the layer as it is currently implemented (especially for datasets with multiple graphs).",
+      "topic": "architecture",
+      "type": "general",
+      "quality": 0.5
+    },
+    {
+      "text": "The training sets for this task are suf\ufb01ciently large and we found no need to apply L2 regularization or dropout\u2014we have, however, successfully employed skip connections (He et al., 2016) across the intermediate attentional layer.",
+      "topic": "architecture",
+      "type": "general",
+      "quality": 0.5
+    },
+    {
+      "text": "Both models are initialized using Glorot initialization (Glorot & Bengio, 2010) and trained to mini- mize cross-entropy on the training nodes using the Adam SGD optimizer (Kingma & Ba, 2014) with an early stopping strategy on both the cross-entropy loss and accuracy (transductive) or micro-F 1 (inductive) score on the validation nodes, with a patience of 100 epochs1.",
+      "topic": "performance",
+      "type": "general",
+      "quality": 0.5
+    },
+    {
+      "text": "2.1 G RAPH ATTENTIONAL LAYER We will start by describing a single graph attentional layer , as the sole layer utilized throughout choice of attention mechanism.",
+      "topic": "architecture",
+      "type": "general",
+      "quality": 0.5
+    },
+    {
+      "text": "(2016), we found that Pubmed\u2019s training set size (60 examples) required one), and strengthened theL2 regularization to\u03bb = 0.001.",
+      "topic": "general",
+      "type": "general",
+      "quality": 0.5
+    },
+    {
+      "text": "7 GCN-64\u2217 corresponds to the best GCN result computing 64 hidden features (using ReLU or ELU).",
+      "topic": "general",
+      "type": "general",
+      "quality": 0.5
+    }
+  ]
+}

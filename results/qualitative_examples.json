@@ -1,0 +1,109 @@
+{
+  "generated_at": "2025-07-21T00:00:00Z",
+  "data_source": "Actual hypothesis text from outputs/disagreement_log_all.json (paper_1 / HSAP). Evaluation scores are mock — real pairwise judge has not yet been run.",
+  "paper": "paper_1",
+  "paper_title": "Hierarchical Seating Allocation Problem (HSAP)",
+  "description": "Four representative examples spanning the full range of pipeline outcomes: best, debated, revised, and rejected.",
+  "examples": [
+    {
+      "id": "ex_01",
+      "label": "BEST — High-Quality, Actionable Hypothesis",
+      "gap_id": "G1",
+      "gap_type": "data_quality",
+      "evidence_text": "A key challenge in this domain is the Seating Allocation (SA) problem, which involves assigning teams to office space on a floor plan.",
+      "agent_a": {
+        "hypothesis_text": "A noise-robust preprocessing pipeline (denoising + wall-confidence filtering) will reduce PRM/RRT distance-estimation errors on low-quality floor plans.",
+        "critic_scores": { "clarity": 5, "novelty": 5, "feasibility": 4, "total": 14, "decision": "KEEP" }
+      },
+      "agent_b": {
+        "hypothesis_text": "If we ablate preprocessing steps (denoise, wall-detection thresholding), we will observe that distance-estimation error is dominated by wall-detection failures on noisy plans.",
+        "critic_scores": { "clarity": 4, "novelty": 5, "feasibility": 4, "total": 13, "decision": "KEEP" }
+      },
+      "preferred_agent": "AgentA",
+      "preferred_hypothesis": "A noise-robust preprocessing pipeline (denoising + wall-confidence filtering) will reduce PRM/RRT distance-estimation errors on low-quality floor plans.",
+      "mock_evaluation": {
+        "system_score": 8.9,
+        "baseline_score": 5.2,
+        "winner": "system",
+        "reasoning": "System hypothesis is concrete, falsifiable, and directly tied to a measurable outcome (distance-estimation error). Baseline offers only a vague framing of the data quality issue."
+      },
+      "why_notable": "Maximum critic total (14/15). Combines a specific technique (denoising + wall-confidence filtering) with a precise prediction about PRM/RRT error. All five clarity points earned — rare in the dataset."
+    },
+    {
+      "id": "ex_02",
+      "label": "DEBATE — AgentB Wins (Unique Case in paper_1)",
+      "gap_id": "G12",
+      "gap_type": "robustness",
+      "evidence_text": "If the algorithm fails to connect all the seats, K can be increased, and the process repeated.",
+      "agent_a": {
+        "hypothesis_text": "Adding an automatic connectivity-repair step (adaptive K, adaptive thresholds) will reduce PRM failure cases without repeated reruns.",
+        "critic_scores": { "clarity": 4, "novelty": 5, "feasibility": 3, "total": 12, "decision": "KEEP" }
+      },
+      "agent_b": {
+        "hypothesis_text": "Ablation experiments will reveal that PRM failures are concentrated in specific floor-plan topologies, suggesting targeted repair heuristics.",
+        "critic_scores": { "clarity": 4, "novelty": 5, "feasibility": 4, "total": 13, "decision": "KEEP" }
+      },
+      "preferred_agent": "AgentB",
+      "preferred_hypothesis": "Ablation experiments will reveal that PRM failures are concentrated in specific floor-plan topologies, suggesting targeted repair heuristics.",
+      "mock_evaluation": {
+        "system_score": 8.1,
+        "baseline_score": 5.6,
+        "winner": "system",
+        "reasoning": "System hypothesis (AgentB) proposes an empirical ablation study that can pinpoint failure modes, which is more immediately actionable than proposing a new engineering component without first understanding failure distribution."
+      },
+      "why_notable": "The only gap in paper_1 where AgentB outscored AgentA (13 vs 12). Debate mechanism correctly selected the ablation-oriented framing over the repair-engineering framing. Feasibility score tipped the decision: 4 vs 3."
+    },
+    {
+      "id": "ex_03",
+      "label": "REVISED — Weak Formulation Caught by Critic",
+      "gap_id": "G23",
+      "gap_type": "problem_formulation",
+      "evidence_text": "Empirically, varying |S| or |T| across different instances is insufficient to gauge the time-to-solution, as the difficulty and structure of the organizational hierarchy can vary unpredictably.",
+      "agent_a": {
+        "hypothesis_text": "A standardized benchmark suite with instance-feature stratification will predict time-to-solution more reliably than using |S| or |T| alone.",
+        "critic_scores": { "clarity": 3, "novelty": 4, "feasibility": 3, "total": 10, "decision": "REVISE",
+                          "suggestion": "Add a lightweight proxy experiment to validate feasibility." }
+      },
+      "agent_b": {
+        "hypothesis_text": "By correlating instance features with runtime and quality, we can identify which structural properties (not just |S|,|T|) predict solver difficulty.",
+        "critic_scores": { "clarity": 2, "novelty": 5, "feasibility": 3, "total": 10, "decision": "REJECT",
+                          "suggestion": "Specify metric(s), baseline(s), and success criteria." }
+      },
+      "preferred_agent": "AgentA",
+      "preferred_hypothesis": "A standardized benchmark suite with instance-feature stratification will predict time-to-solution more reliably than using |S| or |T| alone.",
+      "mock_evaluation": {
+        "system_score": 6.7,
+        "baseline_score": 5.1,
+        "winner": "system",
+        "reasoning": "Despite a REVISE verdict, the system hypothesis is more specific than the baseline and earns a higher judge score. Critic correctly flagged missing comparison baseline; reflection step would add it."
+      },
+      "why_notable": "Lowest-scoring preferred hypothesis in paper_1 (total=10). Shows the critic catching an under-specified proposal before it enters the final report. Both AgentA (REVISE) and AgentB (REJECT) earn the same total score of 10 — AgentA selected due to higher clarity. The reflection engine would add the missing experiment design."
+    },
+    {
+      "id": "ex_04",
+      "label": "REJECTED — High Ambition, Low Feasibility",
+      "gap_id": "G31",
+      "gap_type": "future_work",
+      "evidence_text": "Future work could focus on developing a dynamic pipeline to determine the most suitable algorithm(s) based on the size and complexity of each subproblem could be beneficial.",
+      "agent_a": {
+        "hypothesis_text": "A meta-controller that selects the allocation algorithm using instance features (|S|, |T|, density) will outperform any fixed algorithm across diverse instances.",
+        "critic_scores": { "clarity": 5, "novelty": 5, "feasibility": 2, "total": 12, "decision": "REJECT",
+                          "suggestion": "Add a lightweight proxy experiment to validate feasibility." }
+      },
+      "agent_b": {
+        "hypothesis_text": "Cross-instance evaluation will show that no single method dominates; an algorithm-selection model is required to generalize across instance regimes.",
+        "critic_scores": { "clarity": 3, "novelty": 5, "feasibility": 3, "total": 11, "decision": "KEEP",
+                          "suggestion": "Add a lightweight proxy experiment to validate feasibility." }
+      },
+      "preferred_agent": "AgentA",
+      "preferred_hypothesis": "A meta-controller that selects the allocation algorithm using instance features (|S|, |T|, density) will outperform any fixed algorithm across diverse instances.",
+      "mock_evaluation": {
+        "system_score": 7.2,
+        "baseline_score": 5.4,
+        "winner": "system",
+        "reasoning": "Even a REJECTED system hypothesis outscores the baseline because it provides concrete instance features (|S|, |T|, density) and a measurable success criterion (outperform fixed algorithm). Rejection reflects practical infeasibility with current resources, not low scientific interest."
+      },
+      "why_notable": "Paradox case: AgentA is selected as preferred (total=12 > AgentB's 11) yet carries a REJECT decision due to feasibility=2. AgentB's proposal is KEEP but was not selected because its clarity score was only 3. Illustrates a limitation: the debate picks the highest total-score winner without considering the KEEP/REVISE/REJECT decision in the selection criterion."
+    }
+  ]
+}

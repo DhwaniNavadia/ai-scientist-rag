@@ -1,0 +1,36 @@
+{
+  "gap_id": "G1",
+  "gap_type": "data_quality",
+  "evidence_text": "A key challenge in this domain is the Seating Allocation (SA) problem, which involves assigning teams to office space on a floor plan.",
+  "agent_outputs": [
+    {
+      "agent": "AgentA",
+      "hypothesis_text": "A noise-robust preprocessing pipeline (denoising + wall-confidence filtering) will reduce PRM/RRT distance-estimation errors on low-quality floor plans.",
+      "critic": {
+        "clarity": 5,
+        "novelty": 5,
+        "feasibility": 4,
+        "total": 14,
+        "decision": "KEEP",
+        "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+      }
+    },
+    {
+      "agent": "AgentB",
+      "hypothesis_text": "If we ablate preprocessing steps (denoise, wall-detection thresholding), we will observe that distance-estimation error is dominated by wall-detection failures on noisy plans.",
+      "critic": {
+        "clarity": 4,
+        "novelty": 5,
+        "feasibility": 4,
+        "total": 13,
+        "decision": "KEEP",
+        "suggestion": "Add a lightweight proxy experiment to validate feasibility."
+      }
+    }
+  ],
+  "disagreement_summary": {
+    "preferred": "AgentA",
+    "reason": "Higher total critic score under the explicit rubric.",
+    "note": "This is an MVP disagreement mechanism; later we can add semantic similarity + structured debate."
+  }
+}

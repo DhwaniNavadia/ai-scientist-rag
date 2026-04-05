@@ -1,0 +1,82 @@
+[
+  {
+    "gap_id": "G1",
+    "section": "introduction",
+    "gap_text": "A key challenge in this domain is the Seating Allocation (SA) problem, which involves assigning teams to office space on a floor plan."
+  },
+  {
+    "gap_id": "G2",
+    "section": "introduction",
+    "gap_text": "The usefulness between HSA and SA is significant to large organizations as the humanevaluated solution quality to SA would be low due to failure to accommodate linked departments."
+  },
+  {
+    "gap_id": "G5",
+    "section": "introduction",
+    "gap_text": "A direct optimization approach could be employed to minimize the total seat distance between each seat, but this results in a mixed-integer quadratic problem (MIQP), which is not scalable for large instances due to the number of decision variables in the objective."
+  },
+  {
+    "gap_id": "G6",
+    "section": "introduction",
+    "gap_text": "Conversely, if the allocation framework in step 2 does not adequately model human preferences, the solution quality, as reviewed by a human, would similarly be poor."
+  },
+  {
+    "gap_id": "G8",
+    "section": "introduction",
+    "gap_text": "For high resolution floor plans when projected into x, y-plane, obtaining such efficient representations may require substantial manual editing."
+  },
+  {
+    "gap_id": "G9",
+    "section": "introduction",
+    "gap_text": "Similarly, finding an adequate representation is also made difficult if the quality of the provided floor plans is low."
+  },
+  {
+    "gap_id": "G10",
+    "section": "introduction",
+    "gap_text": "Moreover, for large organizations with extensive office footprints, manually adjusting each representation to compute optimal pairwise seat distances may be infeasible."
+  },
+  {
+    "gap_id": "G12",
+    "section": "introduction",
+    "gap_text": "If the algorithm fails to connect all the seats, K can be increased, and the process repeated."
+  },
+  {
+    "gap_id": "G13",
+    "section": "introduction",
+    "gap_text": "The IPSA approach is computational expensive in practice due to the rapidly increasing number of variables in xik (|S|2), which makes large-scale problems intractable."
+  },
+  {
+    "gap_id": "G14",
+    "section": "introduction",
+    "gap_text": "The hyper-parameters for \u03b4c and \u03b4s were manually tuned until the algorithm converged with a node limit of K = 2000."
+  },
+  {
+    "gap_id": "G16",
+    "section": "introduction",
+    "gap_text": "Solving the HSAP problem as a single monolithic instance is intractable for small, medium and large scale instances (i.e. over 50 seats)."
+  },
+  {
+    "gap_id": "G23",
+    "section": "evaluation",
+    "gap_text": "Empirically, varying |S| or |T| across different instances is insufficient to gauge the time-to-solution, as the difficulty and structure of the organizational hierarchy can vary unpredictably."
+  },
+  {
+    "gap_id": "G26",
+    "section": "evaluation",
+    "gap_text": "Although the optimization procedure was solved to optimality, a human decision-maker might choose to manually relocate the two teal seats in the top right quadrant to be adjacent, even if this adjustment slightly reduces the overall optimization objective."
+  },
+  {
+    "gap_id": "G27",
+    "section": "evaluation",
+    "gap_text": "The ball-shaped output from using PRM may not be ideal for open and densely packed office floor plans."
+  },
+  {
+    "gap_id": "G29",
+    "section": "evaluation",
+    "gap_text": "Future work should try to improve the disconnect between the constrained programming and human-evaluated solution quality by studying in which scenarios different solution methods and distance estimation techniques performs best."
+  },
+  {
+    "gap_id": "G31",
+    "section": "conclusion",
+    "gap_text": "Future work could focus on developing a dynamic pipeline to determine the most suitable algorithm(s) based on the size and complexity of each subproblem could be beneficial."
+  }
+]

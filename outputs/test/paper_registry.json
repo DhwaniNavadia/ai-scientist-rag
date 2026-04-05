@@ -1,0 +1,59 @@
+[
+  {
+    "paper_id": "2603.30045v1",
+    "title": "OmniRoam: World Wandering via Long-Horizon Panoramic Video Generation",
+    "pdf_path": "",
+    "arxiv_id": "2603.30045v1",
+    "categories": [
+      "cs.CV"
+    ],
+    "status": "indexed",
+    "output_dir": "D:\\AI SCIENTIST PROJECT\\autonomous-ai-scientist\\outputs\\2603.30045v1"
+  },
+  {
+    "paper_id": "2603.30043v1",
+    "title": "Video Models Reason Early: Exploiting Plan Commitment for Maze Solving",
+    "pdf_path": "",
+    "arxiv_id": "2603.30043v1",
+    "categories": [
+      "cs.CV"
+    ],
+    "status": "indexed",
+    "output_dir": "D:\\AI SCIENTIST PROJECT\\autonomous-ai-scientist\\outputs\\2603.30043v1"
+  },
+  {
+    "paper_id": "2603.30040v1",
+    "title": "Automatic Identification of Parallelizable Loops Using Transformer-Based Source Code Representations",
+    "pdf_path": "",
+    "arxiv_id": "2603.30040v1",
+    "categories": [
+      "cs.SE",
+      "cs.AI"
+    ],
+    "status": "indexed",
+    "output_dir": "D:\\AI SCIENTIST PROJECT\\autonomous-ai-scientist\\outputs\\2603.30040v1"
+  },
+  {
+    "paper_id": "2603.30038v1",
+    "title": "Benchmarking PhD-Level Coding in 3D Geometric Computer Vision",
+    "pdf_path": "",
+    "arxiv_id": "2603.30038v1",
+    "categories": [
+      "cs.CV"
+    ],
+    "status": "indexed",
+    "output_dir": "D:\\AI SCIENTIST PROJECT\\autonomous-ai-scientist\\outputs\\2603.30038v1"
+  },
+  {
+    "paper_id": "2603.30036v1",
+    "title": "Aligned, Orthogonal or In-conflict: When can we safely optimize Chain-of-Thought?",
+    "pdf_path": "",
+    "arxiv_id": "2603.30036v1",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "status": "indexed",
+    "output_dir": "D:\\AI SCIENTIST PROJECT\\autonomous-ai-scientist\\outputs\\2603.30036v1"
+  }
+]

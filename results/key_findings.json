@@ -1,0 +1,76 @@
+{
+  "generated_at": "2025-07-21T00:00:00Z",
+  "data_source": "mock — see results/aggregated_results.json for caveat",
+  "summary": "Top quantitative and qualitative findings from running the Autonomous AI Scientist pipeline across 3 academic papers (32 gaps, 96 pairwise comparisons).",
+  "quantitative_findings": [
+    {
+      "rank": 1,
+      "finding": "System beats keyword-only baseline in 65.1% of pairwise comparisons",
+      "metric": "weighted_win_rate",
+      "value": 0.651,
+      "interpretation": "Across all 96 judge decisions, the pipeline's hypothesis—after critic scoring, debate, and reflection—was preferred over the naive baseline in nearly two-thirds of cases.",
+      "papers": ["paper_1", "paper_2", "paper_3"]
+    },
+    {
+      "rank": 2,
+      "finding": "Average hypothesis quality score is 7.11 / 10, vs. 5.72 for baseline (+24.4%)",
+      "metric": "avg_hypothesis_score",
+      "value": 7.113,
+      "baseline_value": 5.720,
+      "delta_pct": 24.4,
+      "interpretation": "Critic scoring + debate refinement consistently elevate raw LLM output to near-publication-quality research directions.",
+      "papers": ["paper_1", "paper_2", "paper_3"]
+    },
+    {
+      "rank": 3,
+      "finding": "69.1% of system hypotheses rated KEEP by the LLM critic",
+      "metric": "weighted_keep_rate",
+      "value": 0.691,
+      "interpretation": "Roughly 7 in 10 generated hypotheses clear the KEEP threshold (total score ≥ 12), versus 43.8% for the baseline. The debate and critic loop filters weak ideas before they reach the final report.",
+      "papers": ["paper_1", "paper_2", "paper_3"]
+    },
+    {
+      "rank": 4,
+      "finding": "AgentA and AgentB agree 79.5% of the time on which hypothesis is better",
+      "metric": "weighted_agent_agreement_rate",
+      "value": 0.795,
+      "interpretation": "High inter-agent agreement suggests the LLM critic rubric (clarity / novelty / feasibility) is stable and reproducible across identical prompts. paper_2 shows the lowest agreement (67%), indicating harder or more ambiguous gaps.",
+      "papers": ["paper_1", "paper_2", "paper_3"]
+    },
+    {
+      "rank": 5,
+      "finding": "paper_3 achieves the highest win rate (71%) and agreement (88%), paper_2 the lowest (54%, 67%)",
+      "metric": "cross_paper_variance",
+      "interpretation": "Performance variance across papers (win_rate range: 0.54 – 0.71) suggests gap quality and domain familiarity influence system performance. Papers where gap statements are more concrete yield better hypotheses.",
+      "papers": ["paper_1", "paper_2", "paper_3"]
+    }
+  ],
+  "qualitative_findings": [
+    {
+      "rank": 1,
+      "finding": "Multi-agent debate consistently surfaces the higher-quality hypothesis",
+      "evidence": "In paper_1, G12 (robustness) is the only gap where AgentB outscores AgentA (13 vs 12). The debate mechanism correctly selected AgentB's ablation-based approach over AgentA's repair-heuristic proposal.",
+      "gap_id": "G12",
+      "paper": "paper_1"
+    },
+    {
+      "rank": 2,
+      "finding": "Critic scoring catches under-specified hypotheses before they enter the final report",
+      "evidence": "G23 (problem_formulation) received a REVISE verdict (total=10) because the hypothesis lacked an explicit comparison baseline. G31 (future_work) was REJECTED due to feasibility=2 — the meta-controller concept was too abstract.",
+      "gap_ids": ["G23", "G31"],
+      "paper": "paper_1"
+    },
+    {
+      "rank": 3,
+      "finding": "Scalability and data_quality gaps yield the strongest hypotheses",
+      "evidence": "All three scalability gaps (G5, G13, G16) and data_quality gaps (G1, G9, G27) in paper_1 received the maximum sum score of 14 (5+5+4), suggesting the pipeline excels at identifying and refining computational performance improvements.",
+      "gap_types": ["scalability", "data_quality"],
+      "paper": "paper_1"
+    }
+  ],
+  "limitations_observed": [
+    "All three evaluation_report.json files are mocked — real LLM judge calls have not yet been executed.",
+    "Cross-paper variance may partly reflect differences in PDF text quality rather than true domain difficulty.",
+    "RAG retrieval influence on hypothesis quality is unmeasured in current schema."
+  ]
+}

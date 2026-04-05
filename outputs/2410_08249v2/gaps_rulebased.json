@@ -1,0 +1,162 @@
+[
+  {
+    "source_section": "abstract",
+    "gap_text": "However, many recent CDR models overlook crucial issues such as privacy as well as the risk of negative transfer (which negatively impact model performance), especially in multi-domain settings.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "abstract",
+    "gap_text": "To address these challenges, we propose FedGCDR, a novel federated graph learning framework that securely and effectively leverages positive knowledge from multiple source domains.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "introduction",
+    "gap_text": "However, with the influence of lossy privacy-preserving techniques, the results of the transfer could be negative (e.g., the Music domain with low-quality data).",
+    "gap_type": "data_quality"
+  },
+  {
+    "source_section": "introduction",
+    "gap_text": "However, incorporating more domains while preserving privacy poses challenges to counteract negative transfer (NT), which is a phenomenon of transferring knowledge from a source domain that negatively impacts the recommender model performance in the target domain [12].",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "introduction",
+    "gap_text": "However, existing methods cannot be directly applied to BS-CDR due to two major challenges.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "introduction",
+    "gap_text": "Adjusting attention-related hyper-parameters for a large number of source domains in BS-CDR scenarios is extremely difficult, as well as predefined or domain-shared features cannot accommodate complex domain diversities.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "introduction",
+    "gap_text": "To address the challenges of privacy (CH1) and NT (CH2) in BS-CDR, we propose Federated Graph learning for Cross-Domain Recommendation (FedGCDR).",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "introduction",
+    "gap_text": "Cross-domain knowledge transfer does not require additional communication overhead.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "introduction",
+    "gap_text": "However, this direct embeddings transfer does not meet the privacy and NT constrains in BS-CDR scenarios.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "introduction",
+    "gap_text": "The discrepancy of domains leads to the heterogeneity of feature space between domains which means that source domain embeddings cannot be utilized directly by the target domain.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "introduction",
+    "gap_text": "How to utilize the transferred knowledge remains a great challenge.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "introduction",
+    "gap_text": "However, NT may still be unavoidable, potentially leading to the accumulation of negative knowledge in the target domain.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "FedGCDR-DP is a complete implementation of our method while FedGCDR does not incorporate Gaussian noise.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "5 Limitations Our experiments were conducted on 16 domains of the Amazon dataset.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "Despite this limitation, we firmly believe that the significant improvements in privacy preservation and model performance demonstrated by FedGCDR underscore its superiority.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "Guidelines: \u2022 The answer NA means that the paper does not include experiments.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "\u2022 While NeurIPS does not require releasing code, the conference does require all submissions to provide some reasonable avenue for reproducibility, which may depend on the nature of the contribution.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "Guidelines: \u2022 The answer NA means that paper does not include experiments requiring code.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "Papers cannot be rejected simply for not including code, unless this is central to the contribution (e.g., for a new open-source benchmark).",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "Guidelines: \u2022 The answer NA means that the paper does not include experiments.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "Guidelines: \u2022 The answer NA means that the paper does not include experiments.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "Guidelines: \u2022 The answer NA means that the paper does not include experiments.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "\u2022 If the authors answer NA or No, they should explain why their work has no societal impact or why the paper does not address societal impact.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "However, if there is a direct path to any negative applications, the authors should point it out.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "Guidelines: \u2022 The answer NA means that the paper does not use existing assets.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "Guidelines: \u2022 The answer NA means that the paper does not release new assets.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "This includes details about training, license, limitations, etc.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "Answer: [NA] Justification: Our paper does not involve crowdsourcing nor research with human subjects.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "Guidelines: \u2022 The answer NA means that the paper does not involve crowdsourcing nor research with human subjects.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "Answer: [NA] Justification: Our paper does not involve crowdsourcing nor research with human subjects.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "evaluation",
+    "gap_text": "Guidelines: \u2022 The answer NA means that the paper does not involve crowdsourcing nor research with human subjects.",
+    "gap_type": "scalability"
+  },
+  {
+    "source_section": "conclusion",
+    "gap_text": "FedGCDR addresses the critical challenge of privacy preservation and negative transfer by employing a positive knowledge transfer module and a positive knowledge activation module.",
+    "gap_type": "scalability"
+  }
+]

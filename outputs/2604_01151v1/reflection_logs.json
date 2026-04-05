@@ -1,0 +1,322 @@
+[
+  {
+    "hypothesis_id": "H1",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, these have been shown to fail against steganographic signals designed to be indistinguishable fro",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, these have been shown to fail against steganographic signals designed to be indistinguishable fro",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H2",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, these have been shown to fail against steganographic signals designed to be indistinguishable fro",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, these have been shown to fail against steganographic signals designed to be indistinguishable fro",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H3",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, little prior work has applied activation-based detection to multi-agent settings.\nActionable dire",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, little prior work has applied activation-based detection to multi-agent settings.\nActionable dire",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H4",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, little prior work has applied activation-based detection to multi-agent settings.\nActionable dire",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, little prior work has applied activation-based detection to multi-agent settings.\nActionable dire",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H5",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: The deception probe trained on the deception scenarios transfers to detect collusion in both the cross-str",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: The deception probe trained on the deception scenarios transfers to detect collusion in both the cross-str",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H6",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: The deception probe trained on the deception scenarios transfers to detect collusion in both the cross-str",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: The deception probe trained on the deception scenarios transfers to detect collusion in both the cross-str",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H7",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Mitigating prompt confounds.A known challenge for activation-based deception detection is that probes may ",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Mitigating prompt confounds.A known challenge for activation-based deception detection is that probes may ",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H8",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Mitigating prompt confounds.A known challenge for activation-based deception detection is that probes may ",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Mitigating prompt confounds.A known challenge for activation-based deception detection is that probes may ",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H9",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: As a direct test, a proportion of honest agents in COREare given aggressive or opinionated personas, ensur",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: As a direct test, a proportion of honest agents in COREare given aggressive or opinionated personas, ensur",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H10",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: As a direct test, a proportion of honest agents in COREare given aggressive or opinionated personas, ensur",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: As a direct test, a proportion of honest agents in COREare given aggressive or opinionated personas, ensur",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H11",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: We cannot fully rule out that residual prompt differences contribute to the signal.\nActionable direction: ",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: We cannot fully rule out that residual prompt differences contribute to the signal.\nActionable direction: ",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H12",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: We cannot fully rule out that residual prompt differences contribute to the signal.\nActionable direction: ",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: We cannot fully rule out that residual prompt differences contribute to the signal.\nActionable direction: ",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H13",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, the out-of-distribution transfer results (Section 4) provide evidence that the probe captures som",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, the out-of-distribution transfer results (Section 4) provide evidence that the probe captures som",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H14",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, the out-of-distribution transfer results (Section 4) provide evidence that the probe captures som",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, the out-of-distribution transfer results (Section 4) provide evidence that the probe captures som",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H15",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Activation Alignment (correlation-based detection).This is the only method that does not use the deception",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Activation Alignment (correlation-based detection).This is the only method that does not use the deception",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H16",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Activation Alignment (correlation-based detection).This is the only method that does not use the deception",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Activation Alignment (correlation-based detection).This is the only method that does not use the deception",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H17",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, no single method dominates, and the distributed detection taxonomy explains why: different collus",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, no single method dominates, and the distributed detection taxonomy explains why: different collus",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H18",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, no single method dominates, and the distributed detection taxonomy explains why: different collus",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, no single method dominates, and the distributed detection taxonomy explains why: different collus",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H19",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, it is the weakest method on TRANSFER(0.54 AUROC): for structural collusion the direction of the e",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, it is the weakest method on TRANSFER(0.54 AUROC): for structural collusion the direction of the e",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H20",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, it is the weakest method on TRANSFER(0.54 AUROC): for structural collusion the direction of the e",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: However, it is the weakest method on TRANSFER(0.54 AUROC): for structural collusion the direction of the e",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H21",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Steganographic collusion disrupts activation geometry (Activation Alignment: 1.00), while structural collu",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Steganographic collusion disrupts activation geometry (Activation Alignment: 1.00), while structural collu",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H22",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Steganographic collusion disrupts activation geometry (Activation Alignment: 1.00), while structural collu",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Steganographic collusion disrupts activation geometry (Activation Alignment: 1.00), while structural collu",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H23",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Transfer is hard but possible.The deception direction trained on committee deliberations transfers meaning",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Transfer is hard but possible.The deception direction trained on committee deliberations transfers meaning",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H24",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Transfer is hard but possible.The deception direction trained on committee deliberations transfers meaning",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Transfer is hard but possible.The deception direction trained on committee deliberations transfers meaning",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H25",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: The steganographic signals are designed to be indistinguishable from normal conversation, and the judge ca",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: The steganographic signals are designed to be indistinguishable from normal conversation, and the judge ca",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H26",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: The steganographic signals are designed to be indistinguishable from normal conversation, and the judge ca",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: The steganographic signals are designed to be indistinguishable from normal conversation, and the judge ca",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H27",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: 4.4 Limitations Single model.Our results are based on a single model (Qwen3-32B) with 4-bit quantisation.\n",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: 4.4 Limitations Single model.Our results are based on a single model (Qwen3-32B) with 4-bit quantisation.\n",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H28",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: 4.4 Limitations Single model.Our results are based on a single model (Qwen3-32B) with 4-bit quantisation.\n",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: 4.4 Limitations Single model.Our results are based on a single model (Qwen3-32B) with 4-bit quantisation.\n",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H29",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: We mitigate prompt confounds through scenario diversification and identical evaluation-time prompts, but c",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: We mitigate prompt confounds through scenario diversification and identical evaluation-time prompts, but c",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H30",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: We mitigate prompt confounds through scenario diversification and identical evaluation-time prompts, but c",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: We mitigate prompt confounds through scenario diversification and identical evaluation-time prompts, but c",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H31",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Future work could explore whether improved training sets, non-linear probes, or different score aggregatio",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Future work could explore whether improved training sets, non-linear probes, or different score aggregatio",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  },
+  {
+    "hypothesis_id": "H32",
+    "original_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Future work could explore whether improved training sets, non-linear probes, or different score aggregatio",
+    "decision": "REVISE",
+    "reflection": "",
+    "improvement_plan": "",
+    "revised_hypothesis": "Hypothesis pending LLM availability. Gap: Research gap: Future work could explore whether improved training sets, non-linear probes, or different score aggregatio",
+    "evidence_assessment": "",
+    "confidence_delta": 0.0
+  }
+]

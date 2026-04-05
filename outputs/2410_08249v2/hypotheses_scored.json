@@ -1,0 +1,546 @@
+[
+  {
+    "hypothesis_id": "H1",
+    "gap_id": "G1",
+    "gap_type": "scalability",
+    "gap_text": "However, many recent CDR models overlook crucial issues such as privacy as well as the risk of negative transfer (which negatively impact model performance), especially in multi-domain settings.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: However, many recent CDR models overlook crucial issues such as privacy as well as the risk of negative transfer (which",
+    "source": "AgentA",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H2",
+    "gap_id": "G1",
+    "gap_type": "scalability",
+    "gap_text": "However, many recent CDR models overlook crucial issues such as privacy as well as the risk of negative transfer (which negatively impact model performance), especially in multi-domain settings.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: However, many recent CDR models overlook crucial issues such as privacy as well as the risk of negative transfer (which",
+    "source": "AgentB",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H3",
+    "gap_id": "G2",
+    "gap_type": "scalability",
+    "gap_text": "To address these challenges, we propose FedGCDR, a novel federated graph learning framework that securely and effectively leverages positive knowledge from multiple source domains.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: To address these challenges, we propose FedGCDR, a novel federated graph learning framework that securely and effectivel",
+    "source": "AgentA",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H4",
+    "gap_id": "G2",
+    "gap_type": "scalability",
+    "gap_text": "To address these challenges, we propose FedGCDR, a novel federated graph learning framework that securely and effectively leverages positive knowledge from multiple source domains.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: To address these challenges, we propose FedGCDR, a novel federated graph learning framework that securely and effectivel",
+    "source": "AgentB",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H5",
+    "gap_id": "G3",
+    "gap_type": "data_quality",
+    "gap_text": "However, with the influence of lossy privacy-preserving techniques, the results of the transfer could be negative (e.g., the Music domain with low-quality data).",
+    "actionable_direction": "Improve robustness to variations in input data quality",
+    "hypothesis_text": "[Generation failed] Investigate the gap: However, with the influence of lossy privacy-preserving techniques, the results of the transfer could be negative (e.g.,",
+    "source": "AgentA",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H6",
+    "gap_id": "G3",
+    "gap_type": "data_quality",
+    "gap_text": "However, with the influence of lossy privacy-preserving techniques, the results of the transfer could be negative (e.g., the Music domain with low-quality data).",
+    "actionable_direction": "Improve robustness to variations in input data quality",
+    "hypothesis_text": "[Generation failed] Investigate the gap: However, with the influence of lossy privacy-preserving techniques, the results of the transfer could be negative (e.g.,",
+    "source": "AgentB",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H7",
+    "gap_id": "G4",
+    "gap_type": "scalability",
+    "gap_text": "However, incorporating more domains while preserving privacy poses challenges to counteract negative transfer (NT), which is a phenomenon of transferring knowledge from a source domain that negatively impacts the recommender model performance in the target domain [12].",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: However, incorporating more domains while preserving privacy poses challenges to counteract negative transfer (NT), whic",
+    "source": "AgentA",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H8",
+    "gap_id": "G4",
+    "gap_type": "scalability",
+    "gap_text": "However, incorporating more domains while preserving privacy poses challenges to counteract negative transfer (NT), which is a phenomenon of transferring knowledge from a source domain that negatively impacts the recommender model performance in the target domain [12].",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: However, incorporating more domains while preserving privacy poses challenges to counteract negative transfer (NT), whic",
+    "source": "AgentB",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H9",
+    "gap_id": "G5",
+    "gap_type": "scalability",
+    "gap_text": "However, existing methods cannot be directly applied to BS-CDR due to two major challenges.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: However, existing methods cannot be directly applied to BS-CDR due to two major challenges.",
+    "source": "AgentA",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H10",
+    "gap_id": "G5",
+    "gap_type": "scalability",
+    "gap_text": "However, existing methods cannot be directly applied to BS-CDR due to two major challenges.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: However, existing methods cannot be directly applied to BS-CDR due to two major challenges.",
+    "source": "AgentB",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H11",
+    "gap_id": "G6",
+    "gap_type": "scalability",
+    "gap_text": "Adjusting attention-related hyper-parameters for a large number of source domains in BS-CDR scenarios is extremely difficult, as well as predefined or domain-shared features cannot accommodate complex domain diversities.",
+    "actionable_direction": "Extend the approach to handle large-scale instances efficiently",
+    "hypothesis_text": "[Generation failed] Investigate the gap: Adjusting attention-related hyper-parameters for a large number of source domains in BS-CDR scenarios is extremely diffi",
+    "source": "AgentA",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H12",
+    "gap_id": "G6",
+    "gap_type": "scalability",
+    "gap_text": "Adjusting attention-related hyper-parameters for a large number of source domains in BS-CDR scenarios is extremely difficult, as well as predefined or domain-shared features cannot accommodate complex domain diversities.",
+    "actionable_direction": "Extend the approach to handle large-scale instances efficiently",
+    "hypothesis_text": "[Generation failed] Investigate the gap: Adjusting attention-related hyper-parameters for a large number of source domains in BS-CDR scenarios is extremely diffi",
+    "source": "AgentB",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H13",
+    "gap_id": "G7",
+    "gap_type": "scalability",
+    "gap_text": "To address the challenges of privacy (CH1) and NT (CH2) in BS-CDR, we propose Federated Graph learning for Cross-Domain Recommendation (FedGCDR).",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: To address the challenges of privacy (CH1) and NT (CH2) in BS-CDR, we propose Federated Graph learning for Cross-Domain",
+    "source": "AgentA",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H14",
+    "gap_id": "G7",
+    "gap_type": "scalability",
+    "gap_text": "To address the challenges of privacy (CH1) and NT (CH2) in BS-CDR, we propose Federated Graph learning for Cross-Domain Recommendation (FedGCDR).",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: To address the challenges of privacy (CH1) and NT (CH2) in BS-CDR, we propose Federated Graph learning for Cross-Domain",
+    "source": "AgentB",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H15",
+    "gap_id": "G8",
+    "gap_type": "scalability",
+    "gap_text": "Cross-domain knowledge transfer does not require additional communication overhead.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: Cross-domain knowledge transfer does not require additional communication overhead.",
+    "source": "AgentA",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H16",
+    "gap_id": "G8",
+    "gap_type": "scalability",
+    "gap_text": "Cross-domain knowledge transfer does not require additional communication overhead.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: Cross-domain knowledge transfer does not require additional communication overhead.",
+    "source": "AgentB",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H17",
+    "gap_id": "G9",
+    "gap_type": "scalability",
+    "gap_text": "However, this direct embeddings transfer does not meet the privacy and NT constrains in BS-CDR scenarios.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: However, this direct embeddings transfer does not meet the privacy and NT constrains in BS-CDR scenarios.",
+    "source": "AgentA",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H18",
+    "gap_id": "G9",
+    "gap_type": "scalability",
+    "gap_text": "However, this direct embeddings transfer does not meet the privacy and NT constrains in BS-CDR scenarios.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: However, this direct embeddings transfer does not meet the privacy and NT constrains in BS-CDR scenarios.",
+    "source": "AgentB",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H19",
+    "gap_id": "G10",
+    "gap_type": "scalability",
+    "gap_text": "The discrepancy of domains leads to the heterogeneity of feature space between domains which means that source domain embeddings cannot be utilized directly by the target domain.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: The discrepancy of domains leads to the heterogeneity of feature space between domains which means that source domain em",
+    "source": "AgentA",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H20",
+    "gap_id": "G10",
+    "gap_type": "scalability",
+    "gap_text": "The discrepancy of domains leads to the heterogeneity of feature space between domains which means that source domain embeddings cannot be utilized directly by the target domain.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: The discrepancy of domains leads to the heterogeneity of feature space between domains which means that source domain em",
+    "source": "AgentB",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H21",
+    "gap_id": "G11",
+    "gap_type": "scalability",
+    "gap_text": "How to utilize the transferred knowledge remains a great challenge.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: How to utilize the transferred knowledge remains a great challenge.",
+    "source": "AgentA",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H22",
+    "gap_id": "G11",
+    "gap_type": "scalability",
+    "gap_text": "How to utilize the transferred knowledge remains a great challenge.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: How to utilize the transferred knowledge remains a great challenge.",
+    "source": "AgentB",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H23",
+    "gap_id": "G12",
+    "gap_type": "scalability",
+    "gap_text": "However, NT may still be unavoidable, potentially leading to the accumulation of negative knowledge in the target domain.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: However, NT may still be unavoidable, potentially leading to the accumulation of negative knowledge in the target domain",
+    "source": "AgentA",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H24",
+    "gap_id": "G12",
+    "gap_type": "scalability",
+    "gap_text": "However, NT may still be unavoidable, potentially leading to the accumulation of negative knowledge in the target domain.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: However, NT may still be unavoidable, potentially leading to the accumulation of negative knowledge in the target domain",
+    "source": "AgentB",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H25",
+    "gap_id": "G13",
+    "gap_type": "scalability",
+    "gap_text": "FedGCDR-DP is a complete implementation of our method while FedGCDR does not incorporate Gaussian noise.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: FedGCDR-DP is a complete implementation of our method while FedGCDR does not incorporate Gaussian noise.",
+    "source": "AgentA",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H26",
+    "gap_id": "G13",
+    "gap_type": "scalability",
+    "gap_text": "FedGCDR-DP is a complete implementation of our method while FedGCDR does not incorporate Gaussian noise.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: FedGCDR-DP is a complete implementation of our method while FedGCDR does not incorporate Gaussian noise.",
+    "source": "AgentB",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H27",
+    "gap_id": "G14",
+    "gap_type": "scalability",
+    "gap_text": "5 Limitations Our experiments were conducted on 16 domains of the Amazon dataset.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: 5 Limitations Our experiments were conducted on 16 domains of the Amazon dataset.",
+    "source": "AgentA",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H28",
+    "gap_id": "G14",
+    "gap_type": "scalability",
+    "gap_text": "5 Limitations Our experiments were conducted on 16 domains of the Amazon dataset.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: 5 Limitations Our experiments were conducted on 16 domains of the Amazon dataset.",
+    "source": "AgentB",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H29",
+    "gap_id": "G15",
+    "gap_type": "scalability",
+    "gap_text": "Despite this limitation, we firmly believe that the significant improvements in privacy preservation and model performance demonstrated by FedGCDR underscore its superiority.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: Despite this limitation, we firmly believe that the significant improvements in privacy preservation and model performan",
+    "source": "AgentA",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H30",
+    "gap_id": "G15",
+    "gap_type": "scalability",
+    "gap_text": "Despite this limitation, we firmly believe that the significant improvements in privacy preservation and model performance demonstrated by FedGCDR underscore its superiority.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: Despite this limitation, we firmly believe that the significant improvements in privacy preservation and model performan",
+    "source": "AgentB",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H31",
+    "gap_id": "G16",
+    "gap_type": "scalability",
+    "gap_text": "Guidelines: \u2022 The answer NA means that the paper does not include experiments.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: Guidelines: \u2022 The answer NA means that the paper does not include experiments.",
+    "source": "AgentA",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  },
+  {
+    "hypothesis_id": "H32",
+    "gap_id": "G16",
+    "gap_type": "scalability",
+    "gap_text": "Guidelines: \u2022 The answer NA means that the paper does not include experiments.",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances",
+    "hypothesis_text": "[Generation failed] Investigate the gap: Guidelines: \u2022 The answer NA means that the paper does not include experiments.",
+    "source": "AgentB",
+    "scores": {
+      "clarity": 3,
+      "novelty": 3,
+      "feasibility": 3,
+      "total": 9
+    },
+    "decision": "REVISE",
+    "rationale": "Default scores assigned due to parse failure."
+  }
+]

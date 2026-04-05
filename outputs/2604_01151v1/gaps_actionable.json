@@ -1,0 +1,114 @@
+[
+  {
+    "gap_id": "G1",
+    "gap_type": "scalability",
+    "gap_text": "However, these have been shown to fail against steganographic signals designed to be indistinguishable from natural language [Motwani et al., 2024, Mathew et al., 2025].",
+    "source_section": "introduction",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G2",
+    "gap_type": "scalability",
+    "gap_text": "However, little prior work has applied activation-based detection to multi-agent settings.",
+    "source_section": "introduction",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G3",
+    "gap_type": "scalability",
+    "gap_text": "The deception probe trained on the deception scenarios transfers to detect collusion in both the cross-structure scenarios and the blackjack task, despite these settings having entirely different interaction structures and collusion mechanisms.",
+    "source_section": "introduction",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G4",
+    "gap_type": "scalability",
+    "gap_text": "Mitigating prompt confounds.A known challenge for activation-based deception detection is that probes may classify based on prompt surface features rather than internal representations of deceptive intent [Goldowsky-Dill et al., 2025, Levinstein and Herrmann, 2024].",
+    "source_section": "introduction",
+    "actionable_direction": "Develop automated representation learning to replace manual feature engineering"
+  },
+  {
+    "gap_id": "G5",
+    "gap_type": "scalability",
+    "gap_text": "As a direct test, a proportion of honest agents in COREare given aggressive or opinionated personas, ensuring the probe cannot simply learn that forceful or persuasive language indicates collusion.",
+    "source_section": "introduction",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G6",
+    "gap_type": "scalability",
+    "gap_text": "We cannot fully rule out that residual prompt differences contribute to the signal.",
+    "source_section": "introduction",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G7",
+    "gap_type": "scalability",
+    "gap_text": "However, the out-of-distribution transfer results (Section 4) provide evidence that the probe captures something beyond prompt artefacts: the probing techniques generalise to NARCBENCH-TRANSFER and NARCBENCH-STEGO, where prompts are structurally different from CORE.",
+    "source_section": "introduction",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G8",
+    "gap_type": "human_alignment",
+    "gap_text": "Activation Alignment (correlation-based detection).This is the only method that does not use the deception direction, operating instead on the raw activation vectors directly.",
+    "source_section": "introduction",
+    "actionable_direction": "Incorporate human preference learning into the objective function"
+  },
+  {
+    "gap_id": "G9",
+    "gap_type": "scalability",
+    "gap_text": "However, no single method dominates, and the distributed detection taxonomy explains why: different collusion types produce different anomaly signatures.",
+    "source_section": "evaluation",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G10",
+    "gap_type": "scalability",
+    "gap_text": "However, it is the weakest method on TRANSFER(0.54 AUROC): for structural collusion the direction of the effect is inconsistent across tasks, with colluders sometimes becoming more aligned and sometimes less aligned.",
+    "source_section": "evaluation",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G11",
+    "gap_type": "human_alignment",
+    "gap_text": "Steganographic collusion disrupts activation geometry (Activation Alignment: 1.00), while structural collusion is subtler and does not shift pairwise similarity in a consistent direction.",
+    "source_section": "evaluation",
+    "actionable_direction": "Incorporate human preference learning into the objective function"
+  },
+  {
+    "gap_id": "G12",
+    "gap_type": "scalability",
+    "gap_text": "Transfer is hard but possible.The deception direction trained on committee deliberations transfers meaningfully to structurally different tasks (0.80\u20130.84 AUROC), despite never seeing code reviews, stock analyses, or RAG pipelines during training.",
+    "source_section": "evaluation",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G13",
+    "gap_type": "scalability",
+    "gap_text": "The steganographic signals are designed to be indistinguishable from normal conversation, and the judge cannot tell the difference.",
+    "source_section": "evaluation",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G14",
+    "gap_type": "scalability",
+    "gap_text": "4.4 Limitations Single model.Our results are based on a single model (Qwen3-32B) with 4-bit quantisation.",
+    "source_section": "evaluation",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G15",
+    "gap_type": "scalability",
+    "gap_text": "We mitigate prompt confounds through scenario diversification and identical evaluation-time prompts, but cannot fully rule out that residual prompt differences contribute to the signal.",
+    "source_section": "evaluation",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  },
+  {
+    "gap_id": "G16",
+    "gap_type": "scalability",
+    "gap_text": "Future work could explore whether improved training sets, non-linear probes, or different score aggregation strategies yield more robust directions.",
+    "source_section": "evaluation",
+    "actionable_direction": "Investigate decomposition, approximation, or distributed methods to scale to larger instances"
+  }
+]
